@@ -50,7 +50,7 @@
 ### Онлайн (без установки)
 
 Просто перейдите по ссылке:  
-👉 **[https://yobatek.github.io/MangaMaster/](https://yobatek.github.io/MangaMaster/)**
+👉 **[https://yobatek.github.io/mangamaster/](https://yobatek.github.io/mangamaster/)**
 
 Всё работает прямо в браузере. Никаких регистраций и серверов.
 
