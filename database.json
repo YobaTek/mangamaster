@@ -12532,5 +12532,159 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/tJwQq78V/005.jpg",
     "oneshot": false
+  },
+  {
+    "id": "1780407579136",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 1,
+    "p": 180,
+    "y": "2018",
+    "isbn": "9785907014121",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/nhk2qrGg/001.jpg",
+    "oneshot": false
+  },
+  {
+    "id": "1780407643459",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 2,
+    "p": 178,
+    "y": "2018",
+    "isbn": "9785907014138",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/43x5PG8K/002.jpg",
+    "oneshot": false
+  },
+  {
+    "id": "1780407709412",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 3,
+    "p": 178,
+    "y": "2019",
+    "isbn": "9785907014602",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/QdXkNsZY/003.jpg",
+    "oneshot": false
+  },
+  {
+    "id": "1780408066710",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 4,
+    "p": 194,
+    "y": "2019",
+    "isbn": "9785907014619",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/7Lh37V63/004.jpg",
+    "oneshot": false
+  },
+  {
+    "id": "1780408200485",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 5,
+    "p": 194,
+    "y": "2023",
+    "isbn": "9785907539303",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/t4CWQ5FB/005.jpg",
+    "oneshot": false
+  },
+  {
+    "id": "1780408282657",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 6,
+    "p": 162,
+    "y": "2023",
+    "isbn": "9785907539310",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/mg2Cfw76/006.jpg",
+    "oneshot": false
+  },
+  {
+    "id": "1780408332400",
+    "t": "Sword Art Online: Progressive",
+    "series": "Sword Art Online: Progressive",
+    "a": [
+      "Рэки Кавахара",
+      "Кисэки Химура",
+      "abec"
+    ],
+    "g": [
+      "Экшен",
+      "Фэнтези",
+      "Романтика"
+    ],
+    "v": 7,
+    "p": 162,
+    "y": "2023",
+    "isbn": "9785907539327",
+    "pub": "Истари Комикс",
+    "c": "https://i.postimg.cc/wB1N3jfC/007.jpg",
+    "oneshot": false
   }
 ]
