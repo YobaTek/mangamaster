@@ -2,8 +2,8 @@
 
 <p align="center">
   <strong>Ваш личный каталог и база данных манги, выпущенной в России</strong><br>
-  <a href="https://yobatek.github.io/MangaMaster/">Открыть веб-приложение</a> | 
-  <a href="https://github.com/yobatek/MangaMaster">Репозиторий на GitHub</a>
+  <a href="https://yobatek.github.io/mangamaster/">Открыть веб-приложение</a> | 
+  <a href="https://github.com/yobatek/mangamaster">Репозиторий на GitHub</a>
 </p>
 
 <p align="center">
@@ -63,7 +63,7 @@
 
 Проект открыт для улучшений! Вы можете:
 
-- сообщать об ошибках через [Issues](https://github.com/yobatek/MangaMaster/issues);
+- сообщать об ошибках через [Issues](https://github.com/yobatek/mangamaster/issues);
 - предлагать новые функции;
 - предлагать дополнять базу данных манги (если какого-то издания не хватает).
 
