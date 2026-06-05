@@ -3148,7 +3148,7 @@
     "y": "2017",
     "isbn": "9785389137240",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/xCtYCM4Y/001.webp",
+    "c": "https://i.postimg.cc/FH7Qw3f5/001.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -3169,7 +3169,7 @@
     "y": "2017",
     "isbn": "9785389137189",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/Px2hxYRT/002.webp",
+    "c": "https://i.postimg.cc/dVLKgrhb/002.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -3190,7 +3190,7 @@
     "y": "2018",
     "isbn": "9785389141544",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/sXwyX7Nj/003.webp",
+    "c": "https://i.postimg.cc/NjSwtFXn/003.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -3211,7 +3211,7 @@
     "y": "2018",
     "isbn": "9785389141551",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/d14v1rxt/004.webp",
+    "c": "https://i.postimg.cc/JzGWSZyw/004.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -3232,7 +3232,7 @@
     "y": "2018",
     "isbn": "9785389141568",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/k4f94KpK/005.webp",
+    "c": "https://i.postimg.cc/g2QPpjhQ/005.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -3253,7 +3253,7 @@
     "y": "2018",
     "isbn": "9785389150041",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/SsDqsCv6/006.webp",
+    "c": "https://i.postimg.cc/BnkG3bDs/006.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -14146,7 +14146,7 @@
   {
     "id": "1780579168733",
     "t": "Идзакая \"Сибата\"",
-    "series": "Идзакая \"Сибата\"",
+    "series": "",
     "a": [
       "Каро"
     ],
