@@ -2521,7 +2521,7 @@
     "y": "2020",
     "isbn": "9785604344309",
     "pub": "Истари Комикс",
-    "c": "https://github.com/YobaTek/mangamaster/blob/main/images/atele-koldovskih-kolpakov/001.jpg?raw=trues/atele-koldovskih-kolpakov/001.jpg",
+    "c": "https://raw.githack.com/YobaTek/mangamaster/blob/main/images/atele-koldovskih-kolpakov/001.jpg?raw=trues/atele-koldovskih-kolpakov/001.jpg",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -11714,7 +11714,7 @@
     "y": "2025",
     "isbn": "9785389283862",
     "pub": "Азбука",
-    "c": "https://raw.githubusercontent.com/YobaTek/mangamaster/main/images/arhimag-biblioteki/001.webp",
+    "c": "https://i.ibb.co/R4Jt70vj/001.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -11733,7 +11733,7 @@
     "y": "2025",
     "isbn": "9785389291799",
     "pub": "Азбука",
-    "c": "https://raw.githubusercontent.com/YobaTek/mangamaster/main/images/arhimag-biblioteki/002.webp",
+    "c": "https://i.ibb.co/YFmgnLV4/002.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -11752,7 +11752,7 @@
     "y": "2025",
     "isbn": "9785389303881",
     "pub": "Азбука",
-    "c": "https://raw.githubusercontent.com/YobaTek/mangamaster/main/images/arhimag-biblioteki/003.webp",
+    "c": "https://i.ibb.co/tPmnmLsc/003.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -11771,7 +11771,7 @@
     "y": "2026",
     "isbn": "9785389313330",
     "pub": "Азбука",
-    "c": "https://raw.githubusercontent.com/YobaTek/mangamaster/main/images/arhimag-biblioteki/004.webp",
+    "c": "https://i.ibb.co/cc7p7CTV/004.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
