@@ -1132,7 +1132,7 @@
   {
     "id": "1777402257167",
     "t": "Признание",
-    "series": "",
+    "series": "Признание",
     "a": [
       "Нобуюки Фукумото"
     ],
@@ -1145,14 +1145,14 @@
     "y": "2025",
     "isbn": "9785042187544",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/xdhWz13Z/00002.webp",
+    "c": "https://i.postimg.cc/dt1QFgfr/priznanie.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1777406480910",
     "t": "Преследовательница",
-    "series": "",
+    "series": "Преследовательница",
     "a": [
       "Минэтаро Мотидзуки"
     ],
@@ -1165,7 +1165,7 @@
     "y": "2025",
     "isbn": "9785042130755",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/yNtwZ8y0/00001.webp",
+    "c": "https://i.postimg.cc/Gh23R6fy/presledovatelnica.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -1840,7 +1840,7 @@
   {
     "id": "1778531638879",
     "t": "За чашечкой кофе",
-    "series": "",
+    "series": "За чашечкой кофе",
     "a": [
       "Тэцуя Тоёда"
     ],
@@ -1853,7 +1853,7 @@
     "y": "2025",
     "isbn": "9785042272172",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/N0SWHjkk/00004.webp",
+    "c": "https://i.postimg.cc/PrRX52sh/za-chashechkoj-kofe.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -2069,7 +2069,7 @@
   {
     "id": "1778532091951",
     "t": "Глупости про удаленку",
-    "series": "",
+    "series": "Глупости про удаленку",
     "a": [
       "Кинтецу Ямада"
     ],
@@ -2081,7 +2081,7 @@
     "y": "2026",
     "isbn": "9785042382048",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/ZRNXFzfz/00005.webp",
+    "c": "https://i.postimg.cc/tJrXPzsq/gluposti-pro-udalenku-lyubov-na-samoizolyacii.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -3113,7 +3113,7 @@
   {
     "id": "1778082091546",
     "t": "Death Note. Истории",
-    "series": "",
+    "series": "Death Note. Истории",
     "a": [
       "Цугуми Ооба",
       "Такэси Обата"
@@ -3127,7 +3127,7 @@
     "y": "2022",
     "isbn": "9785389201040",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/d0pzyVjW/00003.webp",
+    "c": "https://i.postimg.cc/fyWzJPRh/death-note-istorii.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -3304,7 +3304,7 @@
   {
     "id": "1778666881842",
     "t": "Оглянись",
-    "series": "",
+    "series": "Оглянись",
     "a": [
       "Тацуки Фудзимото"
     ],
@@ -3316,14 +3316,14 @@
     "y": "2024",
     "isbn": "9785389264762",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/vBnCLwPy/00007.webp",
+    "c": "https://i.postimg.cc/T2Q2ZTt1/oglyanis.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1778666979037",
     "t": "Прощай, Эри",
-    "series": "",
+    "series": "Прощай, Эри",
     "a": [
       "Тацуки Фудзимото"
     ],
@@ -3335,7 +3335,7 @@
     "y": "2025",
     "isbn": "9785389250192",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/4dcjbRW0/00006.webp",
+    "c": "https://i.postimg.cc/L6X4SGWz/proshchaj-eri.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -5408,7 +5408,7 @@
   {
     "id": "1778967142714",
     "t": "Повозка Бладхарли",
-    "series": "",
+    "series": "Повозка Бладхарли",
     "a": [
       "Хироаки Самура"
     ],
@@ -5420,14 +5420,14 @@
     "y": "2016",
     "isbn": "9785905295324",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/NMXZ7vNy/00008.webp",
+    "c": "https://i.postimg.cc/5N09JDrF/povozka-bladharli.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1778967259494",
     "t": "Дан приказ умереть!",
-    "series": "",
+    "series": "Дан приказ умереть!",
     "a": [
       "Сигэру Мидзуки"
     ],
@@ -5439,14 +5439,14 @@
     "y": "2018",
     "isbn": "9785905295454",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/qqdS1DYJ/00009.webp",
+    "c": "https://i.postimg.cc/hv4DfYPN/dan-prikaz-umeret.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1778967512818",
     "t": "Жертвы чёрного дождя",
-    "series": "",
+    "series": "Жертвы чёрного дождя",
     "a": [
       "Кэйдзи Накадзава"
     ],
@@ -5458,14 +5458,14 @@
     "y": "2017",
     "isbn": "9785905295393",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/SRp3g15j/00010.webp",
+    "c": "https://i.postimg.cc/TY4d3CMf/zhertvy-chyornogo-dozhdya.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1778967815361",
     "t": "Бабушка Ноннон",
-    "series": "",
+    "series": "Бабушка Ноннон",
     "a": [
       "Сигэру Мидзуки"
     ],
@@ -5478,7 +5478,7 @@
     "y": "2017",
     "isbn": "9785905295416",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/zv16x2Mj/00011.webp",
+    "c": "https://i.postimg.cc/ZnYbCQKQ/babushka-nonnon.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -5732,7 +5732,7 @@
   {
     "id": "1779031370868",
     "t": "Воспоминания Эманон",
-    "series": "",
+    "series": "Воспоминания Эманон",
     "a": [
       "Синдзи Кадзио",
       "Кэндзи Цурута"
@@ -5745,7 +5745,7 @@
     "y": "2020",
     "isbn": "9785905295720",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/TYfBmSn6/00025.webp",
+    "c": "https://i.postimg.cc/7YWHZm8r/vospominanija-jemanon.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -5836,7 +5836,7 @@
   {
     "id": "1779032601532",
     "t": "Дикая Планета",
-    "series": "",
+    "series": "Дикая Планета",
     "a": [
       "Дзиро Мацумото"
     ],
@@ -5849,14 +5849,14 @@
     "y": "2015",
     "isbn": "9785905295263",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/D0KHxpD1/00012.webp",
+    "c": "https://i.postimg.cc/WzpNhy11/dikaya-planeta.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779032773864",
     "t": "Ристоранте Парадизо",
-    "series": "",
+    "series": "Ристоранте Парадизо",
     "a": [
       "Нацумэ Оно"
     ],
@@ -5869,14 +5869,14 @@
     "y": "2014",
     "isbn": "9785905295140",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/qqdS1DY1/00013.webp",
+    "c": "https://i.postimg.cc/qMRBrWFQ/ristorante-paradizo.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779032891696",
     "t": "Снегурочка на весеннем ветру",
-    "series": "",
+    "series": "Снегурочка на весеннем ветру",
     "a": [
       "Хироаки Самура"
     ],
@@ -5888,14 +5888,14 @@
     "y": "2017",
     "isbn": "9785905295362",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/GtJNVJwJ/00014.webp",
+    "c": "https://i.postimg.cc/RVFCm2Yy/snegurochka-na-vesennem-vetru.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779033116764",
     "t": "Дневник моих исчезновений",
-    "series": "",
+    "series": "Дневник моих исчезновений",
     "a": [
       "Хидэо Адзума"
     ],
@@ -5909,14 +5909,14 @@
     "y": "2018",
     "isbn": "9785905295508",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/2yFJMFRx/00015.webp",
+    "c": "https://i.postimg.cc/j2qxL1Sj/dnevnik-moih-ischeznovenij.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779033249431",
     "t": "Город, где вечером стихает ветер. Страна, где расцветает сакура",
-    "series": "",
+    "series": "Город, где вечером стихает ветер. Страна, где расцветает сакура",
     "a": [
       "Фумиё Коно"
     ],
@@ -5928,14 +5928,14 @@
     "y": "2019",
     "isbn": "9785905295614",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/8khq7DJ7/00016.webp",
+    "c": "https://i.postimg.cc/cCDsYcvC/gorod-gde-vecherom-stihaet-veter-strana-gde-rascvetaet-sakura.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779048723705",
     "t": "Опус",
-    "series": "",
+    "series": "Опус",
     "a": [
       "Сатоси Кон"
     ],
@@ -5948,14 +5948,14 @@
     "y": "2017",
     "isbn": "9785905295409",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/NG1WKY9H/00017.webp",
+    "c": "https://i.postimg.cc/pVkVgPs8/opus.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779048932362",
     "t": "Серафим: 266613336 крыльев",
-    "series": "",
+    "series": "Серафим: 266613336 крыльев",
     "a": [
       "Мамору Осии",
       "Сатоси Кон"
@@ -5969,14 +5969,14 @@
     "y": "2019",
     "isbn": "9785905295607",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/DfqtSFJr/00018.webp",
+    "c": "https://i.postimg.cc/Wb3pVxyH/serafim-266613336-krylev.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779049041751",
     "t": "Соланин",
-    "series": "",
+    "series": "Соланин",
     "a": [
       "Инио Асано"
     ],
@@ -5989,7 +5989,7 @@
     "y": "2019",
     "isbn": "9785905295546",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/7Pgp5DGM/00019.webp",
+    "c": "https://i.postimg.cc/tCMq420z/solanin.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -6871,7 +6871,7 @@
   {
     "id": "1779223297412",
     "t": "Окаменелые грёзы",
-    "series": "",
+    "series": "Окаменелые грёзы",
     "a": [
       "Сатоси Кон"
     ],
@@ -6884,14 +6884,14 @@
     "y": "2021",
     "isbn": "9785905295836",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/h49HXgz0/00020.webp",
+    "c": "https://i.postimg.cc/v8X8pG04/okamenelye-gryozy.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779223417330",
     "t": "Незабудка",
-    "series": "",
+    "series": "Незабудка",
     "a": [
       "Кэндзи Цурута"
     ],
@@ -6904,14 +6904,14 @@
     "y": "2021",
     "isbn": "9785905295829",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/Kcnd1Fkf/00021.webp",
+    "c": "https://i.postimg.cc/WpSpQs54/nezabudka.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779223564058",
     "t": "Кошачий дневник",
-    "series": "",
+    "series": "Кошачий дневник",
     "a": [
       "Дзюндзи Ито"
     ],
@@ -6923,7 +6923,7 @@
     "y": "2021",
     "isbn": "9785905295782",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/SQWwnq2H/00022.webp",
+    "c": "https://i.postimg.cc/5yPxvmXv/koshachij-dnevnik.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -6950,7 +6950,7 @@
   {
     "id": "1779285967453",
     "t": "Ночь на Галактической железной дороге",
-    "series": "",
+    "series": "Ночь на Галактической железной дороге",
     "a": [
       "Кэндзи Миядзава",
       "Хироси Масумура"
@@ -6963,7 +6963,7 @@
     "y": "2020",
     "isbn": "9785905295683",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/CLS9Dtkm/00023.webp",
+    "c": "https://i.postimg.cc/FFGF2hTR/noch-na-galakticheskoj-zheleznoj-doroge.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -7442,7 +7442,7 @@
   {
     "id": "1779300620853",
     "t": "Гроссбух Китаро",
-    "series": "",
+    "series": "Гроссбух Китаро",
     "a": [
       "Сигэру Мидзуки"
     ],
@@ -7454,14 +7454,14 @@
     "y": "2020",
     "isbn": "9785905295690",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/jdtBN9P9/00024.webp",
+    "c": "https://i.postimg.cc/FzP9cxYY/grossbuh-kitaro.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779300800516",
     "t": "Бригадир Кайро",
-    "series": "",
+    "series": "Бригадир Кайро",
     "a": [
       "Кэндзи Миядзава",
       "Хироси Масумура"
@@ -7474,14 +7474,14 @@
     "y": "2021",
     "isbn": "9785905295843",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/zX84WMTN/00026.webp",
+    "c": "https://i.postimg.cc/NFGs5nfS/brigadir-kajro.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779301033067",
     "t": "Перелесок",
-    "series": "",
+    "series": "Перелесок",
     "a": [
       "Дайскэ Игараси"
     ],
@@ -7495,14 +7495,14 @@
     "y": "2021",
     "isbn": "9785905295904",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/SNd3GrGp/00027.webp",
+    "c": "https://i.postimg.cc/9FMX2skr/perelesok.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779353132576",
     "t": "Неопаразит f",
-    "series": "",
+    "series": "Неопаразит f",
     "a": [
       "Хитоси Ивааки"
     ],
@@ -7516,14 +7516,14 @@
     "y": "2021",
     "isbn": "9785905295874",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/4NsjtMpN/00028.webp",
+    "c": "https://i.postimg.cc/L4v4rmx6/neoparazit-f.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779353299394",
     "t": "Неопаразит m",
-    "series": "",
+    "series": "Неопаразит m",
     "a": [
       "Хитоси Ивааки"
     ],
@@ -7537,7 +7537,7 @@
     "y": "2021",
     "isbn": "9785905295881",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/ZKH2LcLn/00029.webp",
+    "c": "https://i.postimg.cc/rygyvqfw/neoparazit-m.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -8286,7 +8286,7 @@
   {
     "id": "1779555851017",
     "t": "Дух чудес",
-    "series": "",
+    "series": "Дух чудес",
     "a": [
       "Кэндзи Цурута"
     ],
@@ -8299,14 +8299,14 @@
     "y": "2021",
     "isbn": "9785905295911",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/dV0XNyWn/00030.webp",
+    "c": "https://i.postimg.cc/hv4DfYtf/duh-chudes.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779556125912",
     "t": "Прогулки",
-    "series": "",
+    "series": "Прогулки",
     "a": [
       "Дзиро Танигути"
     ],
@@ -8318,14 +8318,14 @@
     "y": "2022",
     "isbn": "9785905295942",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/sg28Hhnt/00031.webp",
+    "c": "https://i.postimg.cc/VL6sw2hX/progulki.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779556303475",
     "t": "В этом уголке мира",
-    "series": "",
+    "series": "В этом уголке мира",
     "a": [
       "Фумиё Коно"
     ],
@@ -8337,7 +8337,7 @@
     "y": "2020",
     "isbn": "9785905295676",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/4370sTRH/00032.webp",
+    "c": "https://i.postimg.cc/KvHG8JXq/v-etom-ugolke-mira.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -8825,7 +8825,7 @@
   {
     "id": "1779703455845",
     "t": "Атака на титанов. Выбор без сожалений",
-    "series": "",
+    "series": "Атака на титанов. Выбор без сожалений",
     "a": [
       "Хадзимэ Исаяма",
       "Ган Снарк",
@@ -8839,14 +8839,14 @@
     "y": "2017",
     "isbn": "9785389120792",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/m2mp9rbk/00050.webp",
+    "c": "https://i.postimg.cc/RhCSNYVp/ataka-na-titanov-vybor-bez-sozhalenij.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779703651417",
     "t": "Атака на титанов. Потерянные девочки",
-    "series": "",
+    "series": "Атака на титанов. Потерянные девочки",
     "a": [
       "Хадзимэ Исаяма",
       "Хироси Сэко",
@@ -8864,14 +8864,14 @@
     "y": "2018",
     "isbn": "9785389144446",
     "pub": "Азбука",
-    "c": "https://i.postimg.cc/yYLpRNVg/00051.webp",
+    "c": "https://i.postimg.cc/SRQSJPNT/ataka-na-titanov-poteryannye-devochki.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779710925261",
     "t": "Пёс, смотрящий на звёзды",
-    "series": "",
+    "series": "Пёс, смотрящий на звёзды",
     "a": [
       "Такаси Мураками"
     ],
@@ -8883,14 +8883,14 @@
     "y": "2022",
     "isbn": "9785905295997",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/YS5sSyt6/00033.webp",
+    "c": "https://i.postimg.cc/vHB8yCKh/pyos-smotryashchij-na-zvyozdy.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779711136627",
     "t": "Кап-кап",
-    "series": "",
+    "series": "Кап-кап",
     "a": [
       "Пару Итагаки"
     ],
@@ -8903,14 +8903,14 @@
     "y": "2024",
     "isbn": "9785907576483",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/HLcNdC1W/00034.webp",
+    "c": "https://i.postimg.cc/Wz92r7dJ/kap-kap.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779711376644",
     "t": "Вельветин и Мандала",
-    "series": "",
+    "series": "Вельветин и Мандала",
     "a": [
       "Дзиро Мацумото"
     ],
@@ -8924,14 +8924,14 @@
     "y": "2023",
     "isbn": "9785907576087",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/tgZcpHGF/00035.webp",
+    "c": "https://i.postimg.cc/4NSfxBCW/velvetin-i-mandala.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779711592317",
     "t": "День революционера",
-    "series": "",
+    "series": "День революционера",
     "a": [
       "Дзиро Мацумото"
     ],
@@ -8944,14 +8944,14 @@
     "y": "2017",
     "isbn": "9785905295379",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/43DS3FXB/00036.webp",
+    "c": "https://i.postimg.cc/wMxq7rjp/den-revolyucionera.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779711803597",
     "t": "Нашествие монгольской сверхэнергии",
-    "series": "",
+    "series": "Нашествие монгольской сверхэнергии",
     "a": [
       "Синтаро Каго"
     ],
@@ -8963,14 +8963,14 @@
     "y": "2023",
     "isbn": "9785907576100",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/Px1FvzxH/00037.webp",
+    "c": "https://i.postimg.cc/kMwMk7Tm/nashestvie-mongolskoj-sverhenergii.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779712034552",
     "t": "Пино",
-    "series": "",
+    "series": "Пино",
     "a": [
       "Такаси Мураками"
     ],
@@ -8982,14 +8982,14 @@
     "y": "2023",
     "isbn": "9785907576254",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/Xq8HQjdQ/00038.webp",
+    "c": "https://i.postimg.cc/J4n78SFy/pino.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779712181847",
     "t": "Научно-фантастическое ассорти",
-    "series": "",
+    "series": "Научно-фантастическое ассорти",
     "a": [
       "Кэндзи Цурута"
     ],
@@ -9003,14 +9003,14 @@
     "y": "2022",
     "isbn": "9785907576056",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/WzjYGFFJ/00039.webp",
+    "c": "https://i.postimg.cc/gc4cfGgz/nauchno-fantasticheskoe-assorti.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779712337875",
     "t": "Летящая душа",
-    "series": "",
+    "series": "Летящая душа",
     "a": [
       "Дайскэ Игараси"
     ],
@@ -9024,14 +9024,14 @@
     "y": "2023",
     "isbn": "9785907576247",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/L4BbHTwv/00040.webp",
+    "c": "https://i.postimg.cc/QC6X5qFb/letyashchaya-dusha.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779712461779",
     "t": "Зимний зоопарк",
-    "series": "",
+    "series": "Зимний зоопарк",
     "a": [
       "Дзиро Танигути"
     ],
@@ -9044,14 +9044,14 @@
     "y": "2024",
     "isbn": "9785907576308",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/D0gjBv1v/00041.webp",
+    "c": "https://i.postimg.cc/Qxy8d0G8/zimnij-zoopark.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779712866629",
     "t": "В двадцать пятом часу отпуска",
-    "series": "",
+    "series": "В двадцать пятом часу отпуска",
     "a": [
       "Харуко Итикава"
     ],
@@ -9065,14 +9065,14 @@
     "y": "2024",
     "isbn": "9785907576315",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/prZGqWK2/00042.webp",
+    "c": "https://i.postimg.cc/Nfzsjphb/v-dvadcat-pyatom-chasu-otpuska.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779713351621",
     "t": "Остановка воспоминаний",
-    "series": "",
+    "series": "Остановка воспоминаний",
     "a": [
       "Икэда Кунихико"
     ],
@@ -9084,14 +9084,14 @@
     "y": "2025",
     "isbn": "9785907576551",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/05dB8fhs/00043.webp",
+    "c": "https://i.postimg.cc/J4n78SFt/ostanovka-vospominanij.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779713505209",
     "t": "Вороны, девочка и якудза",
-    "series": "",
+    "series": "Вороны, девочка и якудза",
     "a": [
       "Хироки Эндо"
     ],
@@ -9105,14 +9105,14 @@
     "y": "2025",
     "isbn": "9785907576544",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/TYdHhbXP/00044.webp",
+    "c": "https://i.postimg.cc/RVDSZXr2/vorony-devochka-i-yakudza.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779713681037",
     "t": "Летающий кит",
-    "series": "",
+    "series": "Летающий кит",
     "a": [
       "Судзухиро Судзуки"
     ],
@@ -9124,14 +9124,14 @@
     "y": "2025",
     "isbn": "9785907576353",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/J4rdtXW8/00045.webp",
+    "c": "https://i.postimg.cc/J0T1JQsj/letayushchij-kit.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779713828139",
     "t": "Клуб самоубийц",
-    "series": "",
+    "series": "Клуб самоубийц",
     "a": [
       "Усамару Фуруя"
     ],
@@ -9143,14 +9143,14 @@
     "y": "2023",
     "isbn": "9785907576094",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/9FmNz9jz/00046.webp",
+    "c": "https://i.postimg.cc/MHsWRYnB/klub-samoubijc.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779713983066",
     "t": "Судёнышко с канарейками",
-    "series": "",
+    "series": "Судёнышко с канарейками",
     "a": [
       "Мисаки Такамацу"
     ],
@@ -9163,14 +9163,14 @@
     "y": "2025",
     "isbn": "9785907576346",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/zXx2hfJX/00047.webp",
+    "c": "https://i.postimg.cc/PrRX52Gy/sudyonyshko-s-kanarejkami.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779714299592",
     "t": "Душевнобольной папа, богобоязненная мама",
-    "series": "",
+    "series": "Душевнобольной папа, богобоязненная мама",
     "a": [
       "Юмэно"
     ],
@@ -9184,14 +9184,14 @@
     "y": "2024",
     "isbn": "9785907576384",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/Fsrn1SQY/00048.webp",
+    "c": "https://i.postimg.cc/cC1xrzLC/dushevnobolnoj-papa-bogoboyaznennaya-mama.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779714393588",
     "t": "А потом над морем прояснилось",
-    "series": "",
+    "series": "А потом над морем прояснилось",
     "a": [
       "Нао Таками"
     ],
@@ -9203,14 +9203,14 @@
     "y": "2024",
     "isbn": "9785907576391",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/02VXSN8K/00049.webp",
+    "c": "https://i.postimg.cc/Gt3LHfhM/a-potom-nad-morem-proyasnilos.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779714963723",
     "t": "Я и маленький монстрик",
-    "series": "",
+    "series": "Я и маленький монстрик",
     "a": [
       "Хадзимэ Ито"
     ],
@@ -9222,14 +9222,14 @@
     "y": "2024",
     "isbn": "9785907576360",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/bNmVnvzQ/00052.webp",
+    "c": "https://i.postimg.cc/PrRX52sk/ya-i-malenkij-monstrik.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1779715023558",
     "t": "Я и недовольный монстрик",
-    "series": "",
+    "series": "Я и недовольный монстрик",
     "a": [
       "Хадзимэ Ито"
     ],
@@ -9241,7 +9241,7 @@
     "y": "2024",
     "isbn": "9785907576377",
     "pub": "Alt Graph",
-    "c": "https://i.postimg.cc/X7s15vV9/00053.webp",
+    "c": "https://i.postimg.cc/Gh5LmqwR/ya-i-nedovolnyj-monstrik.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -12061,7 +12061,7 @@
   {
     "id": "1780055945989",
     "t": "Сад изящных слов",
-    "series": "",
+    "series": "Сад изящных слов",
     "a": [
       "Макото Синкай",
       "Мидори Мотохаси"
@@ -12076,14 +12076,14 @@
     "y": "2016",
     "isbn": "9785904676551",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/sg164RXn/00059.webp",
+    "c": "https://i.postimg.cc/CL1M092c/sad-izyashchnyh-slov.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780056093157",
     "t": "Она и её кот",
-    "series": "",
+    "series": "Она и её кот",
     "a": [
       "Макото Синкай",
       "Цубаса Ямагути"
@@ -12096,14 +12096,14 @@
     "y": "2018",
     "isbn": "9785907014268",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/Vk5GWc6j/00057.webp",
+    "c": "https://i.postimg.cc/9X1XvcLR/ona-i-eyo-kot.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780056349096",
     "t": "Причуды любви. Сборник коротких рассказов",
-    "series": "",
+    "series": "Причуды любви. Сборник коротких рассказов",
     "a": [
       "Нагабэ"
     ],
@@ -12116,14 +12116,14 @@
     "y": "2025",
     "isbn": "9785907841659",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/nc3SmLH2/00054.webp",
+    "c": "https://i.postimg.cc/QxtNDvz7/prichudy-lyubvi-sbornik-korotkih-rasskazov.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780056575895",
     "t": "Знак Ватцеля",
-    "series": "",
+    "series": "Знак Ватцеля",
     "a": [
       "Томо Такэтоми"
     ],
@@ -12135,14 +12135,14 @@
     "y": "2019",
     "isbn": "9785907014480",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/5NsKztxK/00056.webp",
+    "c": "https://i.postimg.cc/vHNYZ3F8/znak-vatcelya.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780056694931",
     "t": "Двойняшки Фуро",
-    "series": "",
+    "series": "Двойняшки Фуро",
     "a": [
       "Юки Сивасу"
     ],
@@ -12156,14 +12156,14 @@
     "y": "2017",
     "isbn": "9785904676599",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/Jzt65WnP/00058.webp",
+    "c": "https://i.postimg.cc/2yjkVtSq/dvojnyashki-furo.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780056837885",
     "t": "Даже боги лгут",
-    "series": "",
+    "series": "Даже боги лгут",
     "a": [
       "Каори Одзаки"
     ],
@@ -12176,14 +12176,14 @@
     "y": "2016",
     "isbn": "9785904676742",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/9FLg9fWY/00055.webp",
+    "c": "https://i.postimg.cc/vT8YcKHp/dazhe-bogi-lgut.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780130206241",
     "t": "Волколуние",
-    "series": "",
+    "series": "Волколуние",
     "a": [
       "Ю Томофудзи"
     ],
@@ -12195,14 +12195,14 @@
     "y": "2017",
     "isbn": "9785904676520",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/L87yy0gp/00062.webp",
+    "c": "https://i.postimg.cc/wTGqj0KP/volkolunie.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780130325792",
     "t": "Гигантомахия",
-    "series": "",
+    "series": "Гигантомахия",
     "a": [
       "Кэнтаро Миура"
     ],
@@ -12214,14 +12214,14 @@
     "y": "2017",
     "isbn": "9785904676674",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/PqwS0z1W/00064.webp",
+    "c": "https://i.postimg.cc/qqmknGNp/gigantomahiya.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780130462743",
     "t": "Голос далёкой звезды",
-    "series": "",
+    "series": "Голос далёкой звезды",
     "a": [
       "Макото Синкай",
       "Мидзу Сахара"
@@ -12236,14 +12236,14 @@
     "y": "2012",
     "isbn": "9785904676094",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/L87yy0gh/00065.webp",
+    "c": "https://i.postimg.cc/kGjn8y2X/golos-dalyokoj-zvezdy.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780130610043",
     "t": "Бладхаунд: Гостевой клуб полуночных любовников",
-    "series": "",
+    "series": "Бладхаунд: Гостевой клуб полуночных любовников",
     "a": [
       "Каори Юки"
     ],
@@ -12258,14 +12258,14 @@
     "y": "2016",
     "isbn": "9785904676735",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/Z507xhR2/00060.webp",
+    "c": "https://i.postimg.cc/XqNjpP7h/bladhaund-gostevoj-klub-polunochnyh-lyubovnikov.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780130860364",
     "t": "Девочка, покорившая время. Tokikake",
-    "series": "",
+    "series": "Девочка, покорившая время. Tokikake",
     "a": [
       "Ясутака Цуцуи",
       "Раммару Котонэ",
@@ -12281,14 +12281,14 @@
     "y": "2011",
     "isbn": "9785904676100",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/q731WX2h/00066.webp",
+    "c": "https://i.postimg.cc/HnWYVNkW/devochka-pokorivshaya-vremya-tokikake.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780130978076",
     "t": "Возвращение в море",
-    "series": "",
+    "series": "Возвращение в море",
     "a": [
       "Сатоси Кон"
     ],
@@ -12301,14 +12301,14 @@
     "y": "2015",
     "isbn": "9785904676544",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/BntYBG6z/00061.webp",
+    "c": "https://i.postimg.cc/3Jc8xnMP/vozvrashchenie-v-more.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780131417359",
     "t": "5 сантиметров в секунду",
-    "series": "",
+    "series": "5 сантиметров в секунду",
     "a": [
       "Макото Синкай"
     ],
@@ -12321,7 +12321,7 @@
     "y": "2024",
     "isbn": "9785907539891",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/fRFHHgt1/00063.webp",
+    "c": "https://i.postimg.cc/V6WsswmQ/5-santimetrov-v-sekundu.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -12432,7 +12432,7 @@
   {
     "id": "1780303301858",
     "t": "В лес, где мерцают светлячки",
-    "series": "",
+    "series": "В лес, где мерцают светлячки",
     "a": [
       "Юки Мидорикава"
     ],
@@ -12445,14 +12445,14 @@
     "y": "2014",
     "isbn": "9785904676353",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/zfgx4STh/00067.webp",
+    "c": "https://i.postimg.cc/tCMq420M/v-les-gde-mercayut-svetlyachki.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780303647098",
     "t": "Горние звуки",
-    "series": "",
+    "series": "Горние звуки",
     "a": [
       "Аска Исии"
     ],
@@ -12464,14 +12464,14 @@
     "y": "2024",
     "isbn": "9785907539914",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/xCGt1fxN/00068.webp",
+    "c": "https://i.postimg.cc/yxfV9TDN/gornie-zvuki.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780318719375",
     "t": "Мой друг - Козерог",
-    "series": "",
+    "series": "Мой друг - Козерог",
     "a": [
       "Оцуити",
       "Масару Миёкава"
@@ -12484,14 +12484,14 @@
     "y": "2021",
     "isbn": "9785907340114",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/tJXD1K8Q/00069.webp",
+    "c": "https://i.postimg.cc/c1T1VdX2/moj-drug-kozerog.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780318892026",
     "t": "Пылающий первый поцелуй",
-    "series": "",
+    "series": "Пылающий первый поцелуй",
     "a": [
       "Коко Удзуки"
     ],
@@ -12503,7 +12503,7 @@
     "y": "2025",
     "isbn": "9785907922464",
     "pub": "Истари Комикс",
-    "c": "https://i.postimg.cc/V69DkfGq/00070.webp",
+    "c": "https://i.postimg.cc/tCTRb8ct/pylayushchij-pervyj-poceluj.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -13339,7 +13339,7 @@
   {
     "id": "1780423910017",
     "t": "Кот-призрак Андзу",
-    "series": "",
+    "series": "Кот-призрак Андзу",
     "a": [
       "Такаси Имасиро"
     ],
@@ -13352,14 +13352,14 @@
     "y": "2025",
     "isbn": "9785042148279",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/wM02DWdH/00073.webp",
+    "c": "https://i.postimg.cc/MHsWRYn7/kot-prizrak-andzu.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780424309919",
     "t": "Мальчик и пёс",
-    "series": "",
+    "series": "Мальчик и пёс",
     "a": [
       "Сэйсю Хасе",
       "Такаси Мураками"
@@ -13372,14 +13372,14 @@
     "y": "2025",
     "isbn": "9785042109720",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/wM6FtCZr/00071.webp",
+    "c": "https://i.postimg.cc/HnSp5tr3/malchik-i-pyos.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
   {
     "id": "1780424413106",
     "t": "История о маловероятной любви",
-    "series": "",
+    "series": "История о маловероятной любви",
     "a": [
       "Мидзуки Сора"
     ],
@@ -13391,7 +13391,7 @@
     "y": "2024",
     "isbn": "9785042097928",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/HnBzbSCm/00072.webp",
+    "c": "https://i.postimg.cc/7hBx7N5J/istoriya-o-maloveroyatnoj-lyubvi.webp",
     "oneshot": true,
     "binding": "Твёрдый"
   },
@@ -13417,7 +13417,7 @@
   {
     "id": "1780473180610",
     "t": "В мире, полном доброты",
-    "series": "",
+    "series": "В мире, полном доброты",
     "a": [
       "Avogado6"
     ],
@@ -13430,7 +13430,7 @@
     "y": "2025",
     "isbn": "9785042202834",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/GtqKvM1d/00074.webp",
+    "c": "https://i.postimg.cc/28KkS2pX/v-mire-polnom-dobroty.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
@@ -14146,7 +14146,7 @@
   {
     "id": "1780579168733",
     "t": "Идзакая \"Сибата\"",
-    "series": "",
+    "series": "Идзакая \"Сибата\"",
     "a": [
       "Каро"
     ],
@@ -14158,7 +14158,7 @@
     "y": "2024",
     "isbn": "9785042014901",
     "pub": "Комильфо",
-    "c": "https://i.postimg.cc/7YmS3tjk/00075.webp",
+    "c": "https://i.postimg.cc/Wz92r7dD/idzakaya-sibata.webp",
     "oneshot": true,
     "binding": "Мягкий"
   },
