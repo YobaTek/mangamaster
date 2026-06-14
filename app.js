@@ -30,14 +30,32 @@ function showNotification(message, icon = '') {
     document.getElementById('notifyModal').style.display = 'flex';
 }
 
+function showNotify() {
+    // This is closeNotify
+}
+
 function closeNotify() {
     document.getElementById('notifyModal').style.display = 'none';
+}
+
+function showConfirm(title, message, onConfirm) {
+    document.getElementById('confirmTitle').textContent = title || 'Подтверждение';
+    document.getElementById('confirmMessage').innerHTML = message.replace(/\n/g, '<br>');
+    document.getElementById('confirmYesBtn').onclick = () => {
+        if (onConfirm) onConfirm();
+        closeConfirmModal();
+    };
+    document.getElementById('confirmModal').style.display = 'flex';
+}
+
+function closeConfirmModal() {
+    document.getElementById('confirmModal').style.display = 'none';
 }
 
 const state = {
     database: [],
     collection: {},
-    view: { view: 0, cols: 4, sort: 'title' },
+    view: { view: 0, cols: 5, sort: 'title', confirmDelete: true },
     mode: 0,
     editId: null,
     infoId: null,
@@ -99,7 +117,8 @@ function loadData() {
         p: Math.max(0, parseInt(i.p) || 0),
         y: String(i.y || '').trim(),
         isbn: String(i.isbn || '').trim(),
-        c: String(i.c || '').trim()
+        c: String(i.c || '').trim(),
+        binding: i.binding ? String(i.binding).trim() : ''
     }));
 
     const cl = safeStorage.getItem('mm_cl');
@@ -121,8 +140,9 @@ function loadData() {
             const parsed = JSON.parse(s);
             state.view = {
                 view: parsed.view !== undefined ? parsed.view : 0,
-                cols: parsed.cols !== undefined ? parsed.cols : 4,
-                sort: parsed.sort !== undefined ? parsed.sort : 'title'
+                cols: parsed.cols !== undefined ? (parsed.cols === 4 ? 5 : parsed.cols) : 5,
+                sort: parsed.sort !== undefined ? parsed.sort : 'title',
+                confirmDelete: parsed.confirmDelete !== undefined ? parsed.confirmDelete : true
             };
         } catch (e) {}
     }
@@ -206,6 +226,8 @@ function clearFilters() {
 }
 
 function openSeriesView(seriesName) {
+    const menu = document.getElementById('seriesContextMenu');
+    if (menu) menu.style.display = 'none';
     state.seriesView = seriesName;
     state.filterAuthor = '';
     state.filterPublisher = '';
@@ -559,6 +581,7 @@ function applyView() {
 function applyGrid() {
     const cols = state.view.cols;
     document.documentElement.style.setProperty('--grid-cols', cols);
+    document.documentElement.setAttribute('data-cols', cols);
     document.getElementById('gridScale').value = cols;
     syncCustomSelect('gridScale');
 }
@@ -634,7 +657,19 @@ function syncCustomSelect(nativeSelectId) {
 }
 
 function openSettings() {
+    const chk = document.getElementById('settingConfirmDelete');
+    if (chk) {
+        chk.checked = state.view.confirmDelete !== false;
+    }
     document.getElementById('settingsModal').style.display = 'flex';
+}
+
+function toggleConfirmSetting() {
+    const chk = document.getElementById('settingConfirmDelete');
+    if (chk) {
+        state.view.confirmDelete = chk.checked;
+        saveData();
+    }
 }
 
 function closeSettings() {
@@ -653,6 +688,78 @@ function U() {
     applyView();
     applyGrid();
     applySort();
+}
+
+function formatCollapsibleRow(rowId, listContainerId, itemsArr, filterFuncName, itemClass) {
+    const row = document.getElementById(rowId);
+    const container = document.getElementById(listContainerId);
+    if (!row || !container) return;
+
+    container.innerHTML = '';
+    const existingBadge = row.querySelector('.overflow-badge');
+    if (existingBadge) existingBadge.remove();
+    row.classList.remove('has-overflow');
+    row.classList.remove('is-expanded');
+
+    const label = row.querySelector('strong');
+    if (label) {
+        label.onclick = null;
+        label.removeAttribute('title');
+    }
+
+    if (itemsArr.length === 0) {
+        row.style.display = 'none';
+        return;
+    }
+    row.style.display = 'flex';
+
+    const itemElements = [];
+    itemsArr.forEach((item) => {
+        const span = document.createElement('span');
+        span.className = itemClass;
+        span.setAttribute('onclick', `event.stopPropagation();closeInfoModal();${filterFuncName}('${item.replace(/'/g, "\\'")}');updateBackButton();render();`);
+        span.textContent = item;
+        container.appendChild(span);
+        itemElements.push(span);
+    });
+
+    if (itemElements.length <= 1) return;
+
+    // Add has-overflow temporarily to simulate the layout constraint (e.g. padding for the badge)
+    row.classList.add('has-overflow');
+
+    // Use bounding rect to reliably calculate wraps once the modal is visible and constrained
+    const firstTop = itemElements[0].getBoundingClientRect().top;
+    let firstWrapIndex = -1;
+
+    for (let i = 1; i < itemElements.length; i++) {
+        const itemTop = itemElements[i].getBoundingClientRect().top;
+        if (itemTop > firstTop + 6) {
+            firstWrapIndex = i;
+            break;
+        }
+    }
+
+    // Remove the class temporarily to restore original state before applying the final classes
+    row.classList.remove('has-overflow');
+
+    if (firstWrapIndex !== -1) {
+        for (let i = 0; i < firstWrapIndex; i++) {
+            itemElements[i].classList.add('initial-item');
+        }
+        for (let i = firstWrapIndex; i < itemElements.length; i++) {
+            itemElements[i].classList.add('overflow-item');
+        }
+
+        row.classList.add('has-overflow');
+        if (label) {
+            label.setAttribute('title', 'Показать/скрыть скрытые элементы');
+            label.onclick = (e) => {
+                e.stopPropagation();
+                row.classList.toggle('is-expanded');
+            };
+        }
+    }
 }
 
 function openInfo(id) {
@@ -689,43 +796,141 @@ function openInfo(id) {
         noCoverEl.style.display = 'flex';
     }
 
-    document.getElementById('infoTitle').textContent = item.t;
-
-    let badges = '';
-    if (isOneshot) {
-        badges += '<span class="vol-badge oneshot">ВАНШОТ</span> ';
-    } else if (item.v !== undefined && item.v !== null && item.v !== '' && item.v >= 0) {
-        badges += `<span class="vol-badge">Том ${item.v}</span> `;
+    const titleEl = document.getElementById('infoTitle');
+    if (titleEl) {
+        titleEl.textContent = item.t;
+        titleEl.classList.remove('is-expanded');
+        titleEl.classList.remove('has-overflow');
     }
-    document.getElementById('infoBadges').innerHTML = badges;
+    const existingToggle = document.getElementById('infoTitleToggle');
+    if (existingToggle) {
+        existingToggle.remove();
+    }
 
-    const authorsHtml = (item.a || []).length > 0
-        ? (item.a || []).map(a => `<span class="info-author-link" onclick="event.stopPropagation();closeInfoModal();filterByAuthor('${a.replace(/'/g,"\\'")}');updateBackButton();render();">${a}</span>`).join(' <span class="info-sep">|</span> ')
-        : '<span style="color:var(--dim);font-size:13px;">—</span>';
-    document.getElementById('infoAuthors').innerHTML = authorsHtml;
+    const volumeRow = document.getElementById('infoVolumeRow');
+    if (isOneshot) {
+        document.getElementById('infoVolume').innerHTML = '<span class="info-volume-oneshot">Ваншот</span>';
+        volumeRow.style.display = 'flex';
+    } else if (item.v !== undefined && item.v !== null && item.v !== '' && item.v >= 0) {
+        let volHtml = `<span class="info-volume-regular">${item.v}</span>`;
+        let totalVal = item.tv || 0;
+        if (totalVal <= 0 && item.series) {
+            const seriesName = String(item.series).trim();
+            const seriesItems = state.database.filter(x => String(x.series || '').trim().toLowerCase() === seriesName.toLowerCase());
+            if (seriesItems.length > 0) {
+                totalVal = Math.max(
+                    ...seriesItems.map(x => x.tv || 0),
+                    seriesItems.length,
+                    ...seriesItems.map(x => x.v || 0)
+                );
+            }
+        }
+        if (totalVal <= 0) {
+            const titleName = String(item.t).trim();
+            const titleItems = state.database.filter(x => String(x.t).trim().toLowerCase() === titleName.toLowerCase());
+            if (titleItems.length > 0) {
+                totalVal = Math.max(
+                    ...titleItems.map(x => x.tv || 0),
+                    titleItems.length,
+                    ...titleItems.map(x => x.v || 0)
+                );
+            }
+        }
+        if (totalVal > 0) {
+            volHtml += ` <span class="info-volume-total">из ${totalVal}</span>`;
+        }
+        document.getElementById('infoVolume').innerHTML = volHtml;
+        volumeRow.style.display = 'flex';
+    } else {
+        volumeRow.style.display = 'none';
+    }
 
-    const genresHtml = (item.g || []).length > 0
-        ? (item.g || []).map(g => `<span class="info-genre-link" onclick="event.stopPropagation();closeInfoModal();filterByGenre('${g.replace(/'/g,"\\'")}');updateBackButton();render();">${g}</span>`).join(' <span class="info-sep">|</span> ')
-        : '<span style="color:var(--dim);font-size:12px;">—</span>';
-    document.getElementById('infoGenres').innerHTML = genresHtml;
+    const authorsArr = item.a || [];
+    const genresArr = item.g || [];
 
-    let pubAndMeta = '';
-    if (item.pub) pubAndMeta += `<span class="info-pub-link" onclick="event.stopPropagation();closeInfoModal();filterByPublisher('${item.pub.replace(/'/g,"\\'")}');updateBackButton();render();">${item.pub}</span>`;
-    if (item.p) pubAndMeta += (pubAndMeta ? ' <span class="info-sep">|</span> ' : '') + `${item.p} стр.`;
-    if (item.y) pubAndMeta += (pubAndMeta ? ' <span class="info-sep">|</span> ' : '') + item.y;
-    document.getElementById('infoPub').innerHTML = pubAndMeta || '';
+    const pagesRow = document.getElementById('infoPagesRow');
+    if (item.p) {
+        document.getElementById('infoPages').textContent = item.p;
+        pagesRow.style.display = 'flex';
+    } else {
+        pagesRow.style.display = 'none';
+    }
 
-    document.getElementById('infoIsbn').textContent = item.isbn ? `ISBN: ${item.isbn}` : '';
+    const yearRow = document.getElementById('infoYearRow');
+    if (item.y) {
+        document.getElementById('infoYear').textContent = item.y;
+        yearRow.style.display = 'flex';
+    } else {
+        yearRow.style.display = 'none';
+    }
+
+    const publisherRow = document.getElementById('infoPublisherRow');
+    if (item.pub) {
+        document.getElementById('infoPublisher').innerHTML = `<span class="info-pub-link" onclick="event.stopPropagation();closeInfoModal();filterByPublisher('${item.pub.replace(/'/g,"\\'")}');updateBackButton();render();">${item.pub}</span>`;
+        publisherRow.style.display = 'flex';
+    } else {
+        publisherRow.style.display = 'none';
+    }
+
+    const bindingRow = document.getElementById('infoBindingRow');
+    if (item.binding) {
+        document.getElementById('infoBinding').textContent = item.binding;
+        bindingRow.style.display = 'flex';
+    } else {
+        bindingRow.style.display = 'none';
+    }
+
+    const isbnRow = document.getElementById('infoIsbnRow');
+    if (item.isbn) {
+        document.getElementById('infoIsbn').textContent = item.isbn;
+        isbnRow.style.display = 'flex';
+    } else {
+        isbnRow.style.display = 'none';
+    }
 
     updateInfoButtons();
 
     document.getElementById('infoModal').style.display = 'flex';
+
+    // Delay measurement slightly to allow modal to be in layout and render correctly
+    setTimeout(() => {
+        if (state.infoId === id) { // Only execute if modal wasn't closed or changed
+            formatCollapsibleRow('infoAuthorsRow', 'infoAuthors', authorsArr, 'filterByAuthor', 'info-author-link');
+            formatCollapsibleRow('infoGenresRow', 'infoGenres', genresArr, 'filterByGenre', 'info-genre-link');
+        }
+    }, 50);
 }
 
 function toggleInfoOwned(e) {
     if (e) e.preventDefault();
     const col = state.collection[state.infoId] || { owned: false, read: false, wishlist: false };
     const newOwned = !col.owned;
+    if (!newOwned) {
+        const item = state.database.find(i => String(i.id) === String(state.infoId));
+        const title = item ? (item.t || '') : '';
+        const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
+        const msg = isOneshot 
+            ? `Удалить ваншот "${title}" из коллекции?` 
+            : `Удалить том "${title}" из коллекции?`;
+        
+        const doDelete = () => {
+            state.collection[state.infoId] = {
+                owned: false,
+                wishlist: col.wishlist,
+                read: col.read
+            };
+            updateInfoButtons();
+            saveData();
+            render(true);
+        };
+
+        if (state.view.confirmDelete !== false) {
+            showConfirm('Удаление из коллекции', msg, doDelete);
+        } else {
+            doDelete();
+        }
+        return;
+    }
     state.collection[state.infoId] = {
         owned: newOwned,
         wishlist: col.wishlist,
@@ -740,27 +945,60 @@ function toggleInfoWishlist(e) {
     if (e) e.preventDefault();
     const col = state.collection[state.infoId] || { owned: false, read: false, wishlist: false };
     const newWishlist = !col.wishlist;
-    state.collection[state.infoId] = {
-        owned: col.owned,
-        wishlist: newWishlist,
-        read: col.read
+    
+    const doUpdate = () => {
+        state.collection[state.infoId] = {
+            owned: col.owned,
+            wishlist: newWishlist,
+            read: col.read
+        };
+        updateInfoButtons();
+        saveData();
+        render(true);
     };
-    updateInfoButtons();
-    saveData();
-    render(true);
+
+    if (!newWishlist && state.view.confirmDelete !== false) {
+        const item = state.database.find(i => String(i.id) === String(state.infoId));
+        const title = item ? (item.t || '') : '';
+        const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
+        const msg = isOneshot 
+            ? `Удалить ваншот "${title}" из вишлиста?` 
+            : `Удалить том "${title}" из вишлиста?`;
+        
+        showConfirm('Удаление из вишлиста', msg, doUpdate);
+    } else {
+        doUpdate();
+    }
 }
 
 function toggleInfoRead(e) {
     if (e) e.preventDefault();
     const col = state.collection[state.infoId] || { owned: false, read: false, wishlist: false };
-    state.collection[state.infoId] = {
-        owned: col.owned,
-        wishlist: col.wishlist,
-        read: !col.read
+    const newRead = !col.read;
+
+    const doUpdate = () => {
+        state.collection[state.infoId] = {
+            owned: col.owned,
+            wishlist: col.wishlist,
+            read: newRead
+        };
+        updateInfoButtons();
+        saveData();
+        render(true);
     };
-    updateInfoButtons();
-    saveData();
-    render(true);
+
+    if (!newRead && state.view.confirmDelete !== false) {
+        const item = state.database.find(i => String(i.id) === String(state.infoId));
+        const title = item ? (item.t || '') : '';
+        const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
+        const msg = isOneshot 
+            ? `Удалить ваншот "${title}" из прочитанного?` 
+            : `Удалить том "${title}" из прочитанного?`;
+        
+        showConfirm('Удаление из прочитанного', msg, doUpdate);
+    } else {
+        doUpdate();
+    }
 }
 
 function updateInfoButtons() {
@@ -787,6 +1025,10 @@ function updateInfoButtons() {
         const badgesContainer = document.getElementById('infoBadges');
         if (badgesContainer) {
             badgesContainer.classList.toggle('not-owned', isNotOwned);
+        }
+        const infoVol = document.getElementById('infoVolume');
+        if (infoVol) {
+            infoVol.classList.toggle('not-owned', isNotOwned);
         }
     }
 }
@@ -1017,28 +1259,67 @@ function saveEdit() {
         pub, g
     });
 
-    state.collection[state.editId] = {
-        owned: document.getElementById('editOwned').checked,
-        wishlist: document.getElementById('editWishlist').checked,
-        read: document.getElementById('editRead').checked
+    const wasOwned = (state.collection[state.editId] || {}).owned === true;
+    const nowOwned = document.getElementById('editOwned').checked;
+    const wasWishlist = (state.collection[state.editId] || {}).wishlist === true;
+    const nowWishlist = document.getElementById('editWishlist').checked;
+    const wasRead = (state.collection[state.editId] || {}).read === true;
+    const nowRead = document.getElementById('editRead').checked;
+
+    const doSave = () => {
+        state.collection[state.editId] = {
+            owned: nowOwned,
+            wishlist: nowWishlist,
+            read: nowRead
+        };
+
+        if (!isOneshot && ns) syncSeriesMetadata(gt, a, pub, g);
+        closeEditModal();
+        saveData();
+        render();
+        buildSidebar();
     };
 
-    if (!isOneshot && ns) syncSeriesMetadata(gt, a, pub, g);
-    closeEditModal();
-    saveData();
-    render();
-    buildSidebar();
+    if (state.view.confirmDelete !== false) {
+        if (wasOwned && !nowOwned) {
+            const title = nt;
+            const msg = isOneshot 
+                ? `Удалить ваншот "${title}" из коллекции?` 
+                : `Удалить том "${title}" из коллекции?`;
+            showConfirm('Удаление из коллекции', msg, doSave);
+            return;
+        }
+        if (wasWishlist && !nowWishlist) {
+            const title = nt;
+            const msg = isOneshot 
+                ? `Удалить ваншот "${title}" из вишлиста?` 
+                : `Удалить том "${title}" из вишлиста?`;
+            showConfirm('Удаление из вишлиста', msg, doSave);
+            return;
+        }
+        if (wasRead && !nowRead) {
+            const title = nt;
+            const msg = isOneshot 
+                ? `Удалить ваншот "${title}" из прочитанного?` 
+                : `Удалить том "${title}" из прочитанного?`;
+            showConfirm('Удаление из прочитанного', msg, doSave);
+            return;
+        }
+    }
+
+    doSave();
 }
 
 function deleteItem() {
     if (state.editId === null) return;
-    if (!confirm('🗑️ Удалить из базы данных?')) return;
-    state.database = state.database.filter(i => i.id !== state.editId);
-    delete state.collection[state.editId];
-    closeEditModal();
-    saveData();
-    render();
-    buildSidebar();
+    showConfirm('Удаление тома', '🗑️ Удалить из базы данных?', () => {
+        state.database = state.database.filter(i => i.id !== state.editId);
+        delete state.collection[state.editId];
+        closeEditModal();
+        saveData();
+        render();
+        buildSidebar();
+    });
 }
 
 function editItem(id) {
@@ -1283,7 +1564,8 @@ function normalizeItem(i) {
         isbn: String(i.isbn || '').replace(/[-\s]/g, '').replace(/\D/g, ''),
         c: i.c || '',
         pub: i.pub || '',
-        g: i.g ? (typeof i.g === 'string' ? i.g.split(',').map(s => s.trim()).filter(s => s) : i.g) : []
+        g: i.g ? (typeof i.g === 'string' ? i.g.split(',').map(s => s.trim()).filter(s => s) : i.g) : [],
+        binding: i.binding ? String(i.binding).trim() : ''
     };
 }
 
@@ -1556,7 +1838,8 @@ async function updateDatabase(silent = false) {
             y: String(item.y || '').trim(),
             isbn: String(item.isbn || '').trim(),
             pub: String(item.pub || '').trim(),
-            c: String(item.c || '').trim()
+            c: String(item.c || '').trim(),
+            binding: item.binding ? String(item.binding).trim() : ''
         }));
 
         saveData();
@@ -1575,6 +1858,9 @@ async function updateDatabase(silent = false) {
 }
 
 function openSeries(seriesName) {
+    const menu = document.getElementById('seriesContextMenu');
+    if (menu) menu.style.display = 'none';
+
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (!state.scrollPositions.seriesList) state.scrollPositions.seriesList = {};
     state.scrollPositions.seriesList.main = currentScroll;
@@ -1680,7 +1966,7 @@ document.addEventListener('keydown', e => {
     }
 });
 
-const CURRENT_VERSION = '0.8.9';
+const CURRENT_VERSION = '1.0.0';
 
 async function checkForUpdates() {
     try {
@@ -1732,65 +2018,6 @@ document.addEventListener('scroll', function(e) {
         }
     }, 50);
 }, true);
-
-// ---------- EASTER EGG: 10 кликов по окну "О программе" ----------
-let aboutClickCount = 0;
-let aboutClickTimer;
-
-function setupAboutEasterEgg() {
-    const aboutModal = document.getElementById('aboutModal');
-    if (!aboutModal) return;
-    
-    const modalContent = aboutModal.querySelector('.modal-content');
-    if (!modalContent) return;
-    
-    modalContent.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON') return;
-        if (e.target.id === 'easterEggImage') return;
-        
-        aboutClickCount++;
-        clearTimeout(aboutClickTimer);
-        aboutClickTimer = setTimeout(() => {
-            aboutClickCount = 0;
-        }, 1000);
-        
-        if (aboutClickCount === 10) {
-            showEasterEggImage();
-            aboutClickCount = 0;
-        }
-    });
-}
-
-function showEasterEggImage() {
-    const oldImg = document.getElementById('easterEggImage');
-    if (oldImg) oldImg.remove();
-    
-    const img = document.createElement('img');
-    img.id = 'easterEggImage';
-    img.src = 'images/secret.gif';
-    
-    img.style.maxWidth = '100%';
-    img.style.width = 'auto';
-    img.style.height = 'auto';
-    img.style.borderRadius = '12px';
-    img.style.marginTop = '16px';
-    img.style.border = '2px solid var(--accent)';
-    img.style.boxShadow = '0 0 20px rgba(255,32,64,0.3)';
-    img.style.animation = 'fadeInScale 0.3s ease';
-    
-    const modalContent = document.querySelector('#aboutModal .modal-content');
-    const closeBtn = modalContent.querySelector('.btn');
-    modalContent.insertBefore(img, closeBtn);
-    
-    setTimeout(() => {
-        const imgToRemove = document.getElementById('easterEggImage');
-        if (imgToRemove) imgToRemove.remove();
-    }, 7600);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    setupAboutEasterEgg();
-});
 
 // ---------- КОНТЕКСТНОЕ МЕНЮ ДЛЯ СЕРИЙ И ТОМОВ ----------
 let ctxActiveType = ''; // 'series' or 'volume'
@@ -1960,8 +2187,10 @@ function showContextMenu(event) {
                 const text = item.textContent || '';
                 if (text.includes('❌') || text.toLowerCase().includes('удалить')) {
                     deleteVisible.push(item);
+                    item.classList.add('delete-item');
                 } else {
                     normalVisible.push(item);
+                    item.classList.remove('delete-item');
                 }
             } else {
                 hiddenItems.push(item);
@@ -2025,6 +2254,8 @@ function ctxAddRemoveOwned() {
     if (!btnOwned) return;
     
     const action = btnOwned.dataset.action;
+    const menu = document.getElementById('seriesContextMenu');
+    if (menu) menu.style.display = 'none';
     
     if (ctxActiveType === 'volume' && ctxActiveId !== null) {
         const col = state.collection[ctxActiveId] || { owned: false, read: false, wishlist: false };
@@ -2034,39 +2265,72 @@ function ctxAddRemoveOwned() {
                 wishlist: col.wishlist,
                 read: col.read
             };
+            saveData();
+            render(true);
+            buildSidebar();
         } else {
-            state.collection[ctxActiveId] = {
-                owned: false,
-                wishlist: col.wishlist,
-                read: col.read
+            const item = state.database.find(i => String(i.id) === String(ctxActiveId));
+            const title = item ? (item.t || '') : '';
+            const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
+            const msg = isOneshot 
+                ? `Удалить ваншот "${title}" из коллекции?` 
+                : `Удалить том "${title}" из коллекции?`;
+            
+            const doDelete = () => {
+                state.collection[ctxActiveId] = {
+                    owned: false,
+                    wishlist: col.wishlist,
+                    read: col.read
+                };
+                saveData();
+                render(true);
+                buildSidebar();
             };
+
+            if (state.view.confirmDelete !== false) {
+                showConfirm('Удаление из коллекции', msg, doDelete);
+            } else {
+                doDelete();
+            }
         }
     } else if (ctxActiveType === 'series' && ctxActiveSeries) {
         const vols = state.database.filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
-        vols.forEach(v => {
-            const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
-            if (action === 'add') {
+        if (action === 'add') {
+            vols.forEach(v => {
+                const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
                 state.collection[v.id] = {
                     owned: true,
                     wishlist: col.wishlist,
                     read: col.read
                 };
+            });
+            saveData();
+            render(true);
+            buildSidebar();
+        } else {
+            const msg = `Удалить серию "${ctxActiveSeries}" (все тома) из коллекции?`;
+            
+            const doDelete = () => {
+                vols.forEach(v => {
+                    const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
+                    state.collection[v.id] = {
+                        owned: false,
+                        wishlist: col.wishlist,
+                        read: col.read
+                    };
+                });
+                saveData();
+                render(true);
+                buildSidebar();
+            };
+
+            if (state.view.confirmDelete !== false) {
+                showConfirm('Удаление из коллекции', msg, doDelete);
             } else {
-                state.collection[v.id] = {
-                    owned: false,
-                    wishlist: col.wishlist,
-                    read: col.read
-                };
+                doDelete();
             }
-        });
+        }
     }
-    
-    saveData();
-    render(true);
-    buildSidebar();
-    
-    const menu = document.getElementById('seriesContextMenu');
-    if (menu) menu.style.display = 'none';
 }
 
 function ctxAddRemoveRead() {
@@ -2074,6 +2338,8 @@ function ctxAddRemoveRead() {
     if (!btnRead) return;
     
     const action = btnRead.dataset.action;
+    const menu = document.getElementById('seriesContextMenu');
+    if (menu) menu.style.display = 'none';
     
     if (ctxActiveType === 'volume' && ctxActiveId !== null) {
         const col = state.collection[ctxActiveId] || { owned: false, read: false, wishlist: false };
@@ -2083,39 +2349,70 @@ function ctxAddRemoveRead() {
                 wishlist: col.wishlist,
                 read: true
             };
+            saveData();
+            render(true);
+            buildSidebar();
         } else {
-            state.collection[ctxActiveId] = {
-                owned: col.owned,
-                wishlist: col.wishlist,
-                read: false
+            const doDelete = () => {
+                state.collection[ctxActiveId] = {
+                    owned: col.owned,
+                    wishlist: col.wishlist,
+                    read: false
+                };
+                saveData();
+                render(true);
+                buildSidebar();
             };
+
+            if (state.view.confirmDelete !== false) {
+                const item = state.database.find(i => String(i.id) === String(ctxActiveId));
+                const title = item ? (item.t || '') : '';
+                const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
+                const msg = isOneshot 
+                    ? `Удалить ваншот "${title}" из прочитанного?` 
+                    : `Удалить том "${title}" из прочитанного?`;
+                showConfirm('Удаление из прочитанного', msg, doDelete);
+            } else {
+                doDelete();
+            }
         }
     } else if (ctxActiveType === 'series' && ctxActiveSeries) {
         const vols = state.database.filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
-        vols.forEach(v => {
-            const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
-            if (action === 'add') {
+        if (action === 'add') {
+            vols.forEach(v => {
+                const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
                 state.collection[v.id] = {
                     owned: col.owned,
                     wishlist: col.wishlist,
                     read: true
                 };
+            });
+            saveData();
+            render(true);
+            buildSidebar();
+        } else {
+            const doDelete = () => {
+                vols.forEach(v => {
+                    const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
+                    state.collection[v.id] = {
+                        owned: col.owned,
+                        wishlist: col.wishlist,
+                        read: false
+                    };
+                });
+                saveData();
+                render(true);
+                buildSidebar();
+            };
+
+            if (state.view.confirmDelete !== false) {
+                const msg = `Удалить серию "${ctxActiveSeries}" (все тома) из прочитанного?`;
+                showConfirm('Удаление из прочитанного', msg, doDelete);
             } else {
-                state.collection[v.id] = {
-                    owned: col.owned,
-                    wishlist: col.wishlist,
-                    read: false
-                };
+                doDelete();
             }
-        });
+        }
     }
-    
-    saveData();
-    render(true);
-    buildSidebar();
-    
-    const menu = document.getElementById('seriesContextMenu');
-    if (menu) menu.style.display = 'none';
 }
 
 function ctxAddRemoveWishlist() {
@@ -2123,6 +2420,8 @@ function ctxAddRemoveWishlist() {
     if (!btnWishlist) return;
     
     const action = btnWishlist.dataset.action;
+    const menu = document.getElementById('seriesContextMenu');
+    if (menu) menu.style.display = 'none';
     
     if (ctxActiveType === 'volume' && ctxActiveId !== null) {
         const col = state.collection[ctxActiveId] || { owned: false, read: false, wishlist: false };
@@ -2132,39 +2431,70 @@ function ctxAddRemoveWishlist() {
                 wishlist: true,
                 read: col.read
             };
+            saveData();
+            render(true);
+            buildSidebar();
         } else {
-            state.collection[ctxActiveId] = {
-                owned: col.owned,
-                wishlist: false,
-                read: col.read
+            const doDelete = () => {
+                state.collection[ctxActiveId] = {
+                    owned: col.owned,
+                    wishlist: false,
+                    read: col.read
+                };
+                saveData();
+                render(true);
+                buildSidebar();
             };
+
+            if (state.view.confirmDelete !== false) {
+                const item = state.database.find(i => String(i.id) === String(ctxActiveId));
+                const title = item ? (item.t || '') : '';
+                const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
+                const msg = isOneshot 
+                    ? `Удалить ваншот "${title}" из вишлиста?` 
+                    : `Удалить том "${title}" из вишлиста?`;
+                showConfirm('Удаление из вишлиста', msg, doDelete);
+            } else {
+                doDelete();
+            }
         }
     } else if (ctxActiveType === 'series' && ctxActiveSeries) {
         const vols = state.database.filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
-        vols.forEach(v => {
-            const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
-            if (action === 'add') {
+        if (action === 'add') {
+            vols.forEach(v => {
+                const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
                 state.collection[v.id] = {
                     owned: col.owned,
                     wishlist: true,
                     read: col.read
                 };
+            });
+            saveData();
+            render(true);
+            buildSidebar();
+        } else {
+            const doDelete = () => {
+                vols.forEach(v => {
+                    const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
+                    state.collection[v.id] = {
+                        owned: col.owned,
+                        wishlist: false,
+                        read: col.read
+                    };
+                });
+                saveData();
+                render(true);
+                buildSidebar();
+            };
+
+            if (state.view.confirmDelete !== false) {
+                const msg = `Удалить серию "${ctxActiveSeries}" (все тома) из вишлиста?`;
+                showConfirm('Удаление из вишлиста', msg, doDelete);
             } else {
-                state.collection[v.id] = {
-                    owned: col.owned,
-                    wishlist: false,
-                    read: col.read
-                };
+                doDelete();
             }
-        });
+        }
     }
-    
-    saveData();
-    render(true);
-    buildSidebar();
-    
-    const menu = document.getElementById('seriesContextMenu');
-    if (menu) menu.style.display = 'none';
 }
 
 document.addEventListener('click', (e) => {
