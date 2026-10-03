@@ -17950,12 +17950,12 @@
     "y": "2026",
     "isbn": "9785907576742",
     "pub": "Alt Graph",
-    "c": "",
+    "c": "https://i.postimg.cc/sDXfhyZJ/011.webp",
     "oneshot": false,
     "binding": "Мягкий"
   },
   {
-    "id": 1790857521576,
+    "id": "1790857521576",
     "t": "Долой безделье!",
     "series": "Долой безделье!",
     "a": [
@@ -17969,7 +17969,7 @@
     "y": "2026",
     "isbn": "9785907576872",
     "pub": "Alt Graph",
-    "c": "",
+    "c": "https://i.postimg.cc/DyZfXFbg/012.webp",
     "oneshot": false,
     "binding": "Мягкий"
   },
