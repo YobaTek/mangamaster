@@ -10521,7 +10521,7 @@
     "y": "2026",
     "isbn": "9785171747183",
     "pub": "Бумажный фонарик",
-    "c": "https://i.postimg.cc/CLcvnbXn/001.webp",
+    "c": "https://i.postimg.cc/mkDPQ3WL/001.webp",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -18170,5 +18170,25 @@
     "c": "https://i.postimg.cc/Dwvt5W4Q/002.webp",
     "oneshot": false,
     "binding": "Мягкий"
+  },
+  {
+    "id": 1791051817583,
+    "t": "Вуаль",
+    "series": "Вуаль",
+    "a": [
+      "Коттэри"
+    ],
+    "g": [
+      "Романтика",
+      "Повседневность"
+    ],
+    "v": 2,
+    "p": 256,
+    "y": "2026",
+    "isbn": "9785171842581",
+    "pub": "Бумажный фонарик",
+    "c": "https://i.postimg.cc/brJZQ0fY/002.webp",
+    "oneshot": false,
+    "binding": "Твёрдый"
   }
 ]
