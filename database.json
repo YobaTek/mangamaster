@@ -18112,5 +18112,24 @@
     "c": "https://i.postimg.cc/j5F0mRN3/007.webp",
     "oneshot": false,
     "binding": "Твёрдый"
+  },
+  {
+    "id": 1791040375642,
+    "t": "Прощание близко",
+    "series": "Прощание близко",
+    "a": [
+      "Макото Юкимура"
+    ],
+    "g": [
+      "Драма"
+    ],
+    "v": 1,
+    "p": 48,
+    "y": "2026",
+    "isbn": "9785042355493",
+    "pub": "Комильфо",
+    "c": "https://i.postimg.cc/3RHnwVhQ/proshchanie-blizko.webp",
+    "oneshot": true,
+    "binding": "Мягкий"
   }
 ]
