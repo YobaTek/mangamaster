@@ -94,6 +94,47 @@ const safeStorage = {
     }
 };
 
+function getCustomVolumes() {
+    const raw = safeStorage.getItem('mm_custom_vols');
+    if (!raw) return [];
+    try {
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveCustomVolumes(vols) {
+    safeStorage.setItem('mm_custom_vols', JSON.stringify(vols));
+}
+
+function saveCustomVolume(item) {
+    const list = getCustomVolumes();
+    const idx = list.findIndex(x => String(x.id) === String(item.id));
+    if (idx >= 0) {
+        list[idx] = item;
+    } else {
+        list.push(item);
+    }
+    saveCustomVolumes(list);
+}
+
+function removeCustomVolume(id) {
+    const list = getCustomVolumes().filter(x => String(x.id) !== String(id));
+    saveCustomVolumes(list);
+}
+
+function findVolume(id) {
+    if (id === null || id === undefined) return null;
+    const strId = String(id);
+    const custom = getCustomVolumes().find(x => String(x.id) === strId);
+    if (custom) return { ...custom, custom: true };
+    const dbItem = state.database.find(x => String(x.id) === strId);
+    if (dbItem) return { ...dbItem, custom: false };
+    return null;
+}
+
 function loadData() {
     const db = safeStorage.getItem('mm_db');
     if (db) {
@@ -118,8 +159,25 @@ function loadData() {
         y: String(i.y || '').trim(),
         isbn: String(i.isbn || '').trim(),
         c: String(i.c || '').trim(),
-        binding: i.binding ? String(i.binding).trim() : ''
+        binding: i.binding ? String(i.binding).trim() : '',
+        custom: false
     }));
+
+    // Ensure custom volumes are safely stored in mm_custom_vols and purged from state.database
+    const existingCustoms = getCustomVolumes();
+    const customMap = new Map();
+    existingCustoms.forEach(cv => customMap.set(String(cv.id), { ...cv, custom: true }));
+    state.database.forEach(i => {
+        if (i.custom || String(i.id).startsWith('custom_')) {
+            customMap.set(String(i.id), { ...i, custom: true });
+        }
+    });
+    const allCustoms = Array.from(customMap.values());
+    if (allCustoms.length > 0) {
+        saveCustomVolumes(allCustoms);
+    }
+    // Database is independent and contains ONLY official items:
+    state.database = state.database.filter(i => !i.custom && !String(i.id).startsWith('custom_'));
 
     const cl = safeStorage.getItem('mm_cl');
     if (cl) {
@@ -127,6 +185,16 @@ function loadData() {
     } else {
         state.collection = {};
     }
+
+    // Ensure all custom volumes have an owned entry in collection
+    allCustoms.forEach(cv => {
+        if (!state.collection[cv.id]) {
+            state.collection[cv.id] = { owned: true, wishlist: false, read: false };
+        } else {
+            state.collection[cv.id].owned = true;
+            state.collection[cv.id].wishlist = false;
+        }
+    });
 
     Object.keys(state.collection).forEach(id => {
         if (state.collection[id].wishlist === undefined) {
@@ -155,41 +223,55 @@ function saveData() {
 }
 
 function getMergedData() {
-    return state.database.map(item => {
+    const dbItems = state.database.map(item => {
         const col = state.collection[item.id] || { owned: false, read: false, wishlist: false };
-        return { ...item, owned: col.owned, r: col.read, wishlist: col.wishlist };
+        return { ...item, custom: false, owned: col.owned === true, r: col.read === true, wishlist: col.wishlist === true };
     });
+    const customItems = getCustomVolumes().map(item => {
+        const col = state.collection[item.id] || { owned: true, read: false, wishlist: false };
+        return { ...item, custom: true, owned: true, r: col.read === true, wishlist: false };
+    });
+    return [...dbItems, ...customItems];
 }
 
 function getFilteredData() {
-    const merged = getMergedData();
     if (state.viewMode === 'owned') {
+        const merged = getMergedData();
         return merged.filter(i => i.owned === true);
     }
     if (state.viewMode === 'wishlist') {
-        return merged.filter(i => i.wishlist === true && i.owned !== true);
+        const merged = getMergedData();
+        return merged.filter(i => i.wishlist === true && i.owned !== true && !i.custom);
     }
-    return merged;
+    // state.viewMode === 'all' -> Independent official database ONLY! No custom collection items!
+    return state.database.map(item => {
+        const col = state.collection[item.id] || { owned: false, read: false, wishlist: false };
+        return { ...item, custom: false, owned: col.owned === true, r: col.read === true, wishlist: col.wishlist === true };
+    });
 }
 
 function getAllSeries() {
-    return [...new Set(state.database.map(i => (i.series || i.t).trim()))]
+    const source = (state.viewMode === 'owned') ? getFilteredData() : state.database;
+    return [...new Set(source.map(i => (i.series || i.t).trim()))]
         .filter(t => t)
         .sort((a, b) => a.localeCompare(b));
 }
 
 function getAllAuthors() {
-    return [...new Set(state.database.flatMap(i => i.a || []))]
+    const list = [...state.database, ...getCustomVolumes()];
+    return [...new Set(list.flatMap(i => i.a || []))]
         .sort((a, b) => a.localeCompare(b));
 }
 
 function getAllPublishers() {
-    return [...new Set(state.database.map(i => i.pub).filter(p => p))]
+    const list = [...state.database, ...getCustomVolumes()];
+    return [...new Set(list.map(i => i.pub).filter(p => p))]
         .sort((a, b) => a.localeCompare(b));
 }
 
 function getAllGenres() {
-    return [...new Set(state.database.flatMap(i => i.g || []))]
+    const list = [...state.database, ...getCustomVolumes()];
+    return [...new Set(list.flatMap(i => i.g || []))]
         .sort((a, b) => a.localeCompare(b));
 }
 
@@ -226,13 +308,7 @@ function clearFilters() {
 }
 
 function openSeriesView(seriesName) {
-    const menu = document.getElementById('seriesContextMenu');
-    if (menu) menu.style.display = 'none';
-    state.seriesView = seriesName;
-    state.filterAuthor = '';
-    state.filterPublisher = '';
-    state.filterGenre = '';
-    state.resetScroll = true;
+    openSeries(seriesName);
 }
 
 function closeSeriesView() {
@@ -264,18 +340,25 @@ function isAnyFilterActive() {
     return !!(state.filterAuthor || state.filterPublisher || state.filterGenre || state.seriesView);
 }
 
-function syncSeriesMetadata(title, authors, publisher, genres) {
+function syncSeriesMetadata(title, authors, publisher, genres, binding) {
     const nt = title.trim();
     if (!nt) return;
 
-    state.database.forEach(item => {
+    const list = getCustomVolumes();
+    let changed = false;
+    list.forEach(item => {
         const itemSeries = (item.series || item.t || '').trim();
-        if (itemSeries === nt) {
+        if (itemSeries.toLowerCase() === nt.toLowerCase()) {
             if (authors && authors.length > 0) item.a = [...authors];
             if (publisher && publisher.trim()) item.pub = publisher.trim();
             if (genres && genres.length > 0) item.g = [...genres];
+            if (binding && binding.trim()) item.binding = binding.trim();
+            changed = true;
         }
     });
+    if (changed) {
+        saveCustomVolumes(list);
+    }
 }
 
 let sidebarBuilt = false;
@@ -446,7 +529,8 @@ function updateSeriesDropdown(mode) {
     const input = document.getElementById(prefix + 'Series');
     const dropdown = document.getElementById(prefix + 'SeriesDropdown');
     const filter = input.value.trim().toLowerCase();
-    const series = getAllSeries().filter(s => s.toLowerCase().includes(filter));
+    const allSeriesList = [...new Set([...state.database, ...getCustomVolumes()].map(i => (i.series || i.t).trim()))].filter(Boolean).sort((a, b) => a.localeCompare(b));
+    const series = allSeriesList.filter(s => s.toLowerCase().includes(filter));
     dropdown.innerHTML = series.map(s =>
         `<div onclick="selectSeries('${mode}','${s.replace(/'/g, "\\'")}')">${s}</div>`
     ).join('');
@@ -481,6 +565,8 @@ function autoFillFromSeries(mode) {
 
     const existing = state.database.find(i =>
         (i.series || i.t).trim().toLowerCase() === t.toLowerCase()
+    ) || getCustomVolumes().find(i =>
+        (i.series || i.t).trim().toLowerCase() === t.toLowerCase()
     );
     if (!existing) return;
 
@@ -494,6 +580,11 @@ function autoFillFromSeries(mode) {
     if (existing.g && existing.g.length > 0) {
         clearBadges(mode, 'Genres');
         existing.g.forEach(g => addBadgeChip(mode, 'Genres', g, 10, mode + 'GenresDropdown'));
+    }
+
+    const bindEl = document.getElementById(prefix + 'Binding');
+    if (bindEl && existing.binding) {
+        bindEl.value = existing.binding;
     }
 }
 
@@ -515,9 +606,10 @@ function filterPublishersDropdown(mode) {
 
 function togglePublishersDropdown(mode) {
     const dropdown = $(mode === 'add' ? 'addPublisherDropdown' : 'editPublisherDropdown');
-    if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-    } else {
+    if (!dropdown) return;
+    const wasOpen = dropdown.classList.contains('show');
+    document.querySelectorAll('.series-dropdown').forEach(d => d.classList.remove('show'));
+    if (!wasOpen) {
         updatePublishersDropdown(mode);
     }
 }
@@ -526,6 +618,44 @@ function selectPublisher(mode, p) {
     const prefix = mode === 'add' ? 'add' : 'edit';
     $(prefix + 'Publisher').value = p;
     $(prefix + 'PublisherDropdown').classList.remove('show');
+}
+
+const BINDING_OPTIONS = ['Твёрдый', 'Мягкий', 'Интегральный'];
+
+function updateBindingDropdown(mode) {
+    const prefix = mode === 'add' ? 'add' : 'edit';
+    const input = $(prefix + 'Binding');
+    const dropdown = $(prefix + 'BindingDropdown');
+    if (!dropdown || !input) return;
+    const filter = input.value.trim().toLowerCase();
+    const list = filter ? BINDING_OPTIONS.filter(b => b.toLowerCase().includes(filter)) : BINDING_OPTIONS;
+    const items = list.length > 0 ? list : BINDING_OPTIONS;
+    dropdown.innerHTML = items.map(b =>
+        `<div onclick="selectBinding('${mode}','${b.replace(/'/g, "\\'")}')">${b}</div>`
+    ).join('');
+    dropdown.classList.add('show');
+}
+
+function filterBindingDropdown(mode) {
+    updateBindingDropdown(mode);
+}
+
+function toggleBindingDropdown(mode) {
+    const dropdown = $(mode === 'add' ? 'addBindingDropdown' : 'editBindingDropdown');
+    if (!dropdown) return;
+    const wasOpen = dropdown.classList.contains('show');
+    document.querySelectorAll('.series-dropdown').forEach(d => d.classList.remove('show'));
+    if (!wasOpen) {
+        updateBindingDropdown(mode);
+    }
+}
+
+function selectBinding(mode, b) {
+    const prefix = mode === 'add' ? 'add' : 'edit';
+    const input = $(prefix + 'Binding');
+    if (input) input.value = b;
+    const dropdown = $(prefix + 'BindingDropdown');
+    if (dropdown) dropdown.classList.remove('show');
 }
 
 function setViewMode(mode) {
@@ -568,14 +698,29 @@ function changeSort() {
     render();
 }
 
-// Wait, looking at changeSort - let's see if there is any other details
 function applyView() {
     const list = document.getElementById('list');
+    if (!list) return;
     list.className = 'manga-grid';
     if (state.view.view === 1) list.classList.add('list-view');
     if (state.view.view === 2) list.classList.add('covers-only');
-    document.getElementById('viewType').value = state.view.view;
-    syncCustomSelect('viewType');
+    const viewTypeEl = document.getElementById('viewType');
+    if (viewTypeEl) {
+        viewTypeEl.value = state.view.view;
+        syncCustomSelect('viewType');
+    }
+
+    const isCoversOnly = state.view.view === 2;
+    document.querySelectorAll('.manga-card').forEach(card => {
+        const tip = card.dataset.coverTooltip;
+        if (tip) {
+            if (isCoversOnly) {
+                card.setAttribute('title', tip);
+            } else {
+                card.removeAttribute('title');
+            }
+        }
+    });
 }
 
 function applyGrid() {
@@ -766,7 +911,7 @@ function openInfo(id) {
     const menu = document.getElementById('seriesContextMenu');
     if (menu) menu.style.display = 'none';
 
-    const item = state.database.find(i => String(i.id) === String(id));
+    const item = findVolume(id);
     if (!item) return;
 
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -816,7 +961,10 @@ function openInfo(id) {
         let totalVal = item.tv || 0;
         if (totalVal <= 0 && item.series) {
             const seriesName = String(item.series).trim();
-            const seriesItems = state.database.filter(x => String(x.series || '').trim().toLowerCase() === seriesName.toLowerCase());
+            let seriesItems = state.database.filter(x => String(x.series || '').trim().toLowerCase() === seriesName.toLowerCase());
+            if (seriesItems.length === 0) {
+                seriesItems = getCustomVolumes().filter(x => String(x.series || '').trim().toLowerCase() === seriesName.toLowerCase());
+            }
             if (seriesItems.length > 0) {
                 totalVal = Math.max(
                     ...seriesItems.map(x => x.tv || 0),
@@ -827,7 +975,10 @@ function openInfo(id) {
         }
         if (totalVal <= 0) {
             const titleName = String(item.t).trim();
-            const titleItems = state.database.filter(x => String(x.t).trim().toLowerCase() === titleName.toLowerCase());
+            let titleItems = state.database.filter(x => String(x.t).trim().toLowerCase() === titleName.toLowerCase());
+            if (titleItems.length === 0) {
+                titleItems = getCustomVolumes().filter(x => String(x.t).trim().toLowerCase() === titleName.toLowerCase());
+            }
             if (titleItems.length > 0) {
                 totalVal = Math.max(
                     ...titleItems.map(x => x.tv || 0),
@@ -903,17 +1054,31 @@ function openInfo(id) {
 
 function toggleInfoOwned(e) {
     if (e) e.preventDefault();
+    const item = findVolume(state.infoId);
+    if (!item) return;
+
     const col = state.collection[state.infoId] || { owned: false, read: false, wishlist: false };
     const newOwned = !col.owned;
     if (!newOwned) {
-        const item = state.database.find(i => String(i.id) === String(state.infoId));
-        const title = item ? (item.t || '') : '';
-        const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
-        const msg = isOneshot 
-            ? `Удалить ваншот "${title}" из коллекции?` 
-            : `Удалить том "${title}" из коллекции?`;
+        const title = item.t || '';
+        const isCustom = item.custom;
+        const msg = isCustom 
+            ? `Удалить пользовательский том "${title}" из коллекции?`
+            : (item.oneshot === true || (item.v === 1 && item.tv === 1))
+                ? `Удалить ваншот "${title}" из коллекции?` 
+                : `Удалить том "${title}" из коллекции?`;
         
         const doDelete = () => {
+            if (isCustom) {
+                removeCustomVolume(state.infoId);
+                delete state.collection[state.infoId];
+                closeInfoModal();
+                saveData();
+                render(true);
+                buildSidebar();
+                updateDbVersionInfo();
+                return;
+            }
             state.collection[state.infoId] = {
                 owned: false,
                 wishlist: col.wishlist,
@@ -933,7 +1098,7 @@ function toggleInfoOwned(e) {
     }
     state.collection[state.infoId] = {
         owned: newOwned,
-        wishlist: col.wishlist,
+        wishlist: newOwned ? false : col.wishlist,
         read: col.read
     };
     updateInfoButtons();
@@ -943,6 +1108,11 @@ function toggleInfoOwned(e) {
 
 function toggleInfoWishlist(e) {
     if (e) e.preventDefault();
+    const item = findVolume(state.infoId);
+    if (item && item.custom) {
+        showNotification('Пользовательские тома добавляются только в коллекцию', 'ℹ️');
+        return;
+    }
     const col = state.collection[state.infoId] || { owned: false, read: false, wishlist: false };
     const newWishlist = !col.wishlist;
     
@@ -958,7 +1128,6 @@ function toggleInfoWishlist(e) {
     };
 
     if (!newWishlist && state.view.confirmDelete !== false) {
-        const item = state.database.find(i => String(i.id) === String(state.infoId));
         const title = item ? (item.t || '') : '';
         const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
         const msg = isOneshot 
@@ -988,7 +1157,7 @@ function toggleInfoRead(e) {
     };
 
     if (!newRead && state.view.confirmDelete !== false) {
-        const item = state.database.find(i => String(i.id) === String(state.infoId));
+        const item = findVolume(state.infoId);
         const title = item ? (item.t || '') : '';
         const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
         const msg = isOneshot 
@@ -1002,19 +1171,40 @@ function toggleInfoRead(e) {
 }
 
 function updateInfoButtons() {
+    const item = findVolume(state.infoId);
     const col = state.collection[state.infoId] || { owned: false, read: false, wishlist: false };
     const ownedBtn = document.getElementById('infoOwnedBtn');
     const wishlistBtn = document.getElementById('infoWishlistBtn');
     const readBtn = document.getElementById('infoReadBtn');
+    const editBtn = document.getElementById('infoEditBtn');
     const coverWrap = document.getElementById('infoCoverWrap');
 
+    const isCustom = !!(item && item.custom);
+
+    // Database is independent and not editable - edit button ONLY shown for custom collection volumes!
+    if (editBtn) {
+        editBtn.style.display = isCustom ? 'flex' : 'none';
+    }
+
     if (ownedBtn) {
-        ownedBtn.classList.toggle('active', col.owned === true);
-        ownedBtn.disabled = false;
+        if (isCustom) {
+            ownedBtn.classList.add('active');
+            ownedBtn.title = 'В коллекции (пользовательский том)';
+            ownedBtn.disabled = false;
+        } else {
+            ownedBtn.classList.toggle('active', col.owned === true);
+            ownedBtn.title = 'В коллекции';
+            ownedBtn.disabled = false;
+        }
     }
     if (wishlistBtn) {
-        wishlistBtn.classList.toggle('active', col.wishlist === true);
-        wishlistBtn.disabled = false;
+        if (isCustom || col.owned === true) {
+            wishlistBtn.style.display = 'none';
+        } else {
+            wishlistBtn.style.display = 'flex';
+            wishlistBtn.classList.toggle('active', col.wishlist === true);
+            wishlistBtn.disabled = false;
+        }
     }
     if (readBtn) {
         readBtn.classList.toggle('active', col.read === true);
@@ -1163,6 +1353,202 @@ function infoNext() {
     openInfo(result[newIndex].id);
 }
 
+function toggleAddOneshot() {
+    const checked = document.getElementById('addOneshot').checked;
+    const wrap = document.getElementById('addSeriesWrap');
+    if (checked) {
+        document.getElementById('addSeries').value = '';
+        document.getElementById('addVolume').value = '1';
+        wrap.style.display = 'none';
+    } else {
+        wrap.style.display = 'flex';
+    }
+}
+
+function calculateNextVolumeForSeries(seriesName) {
+    if (!seriesName) return 1;
+    const allItems = [...state.database, ...getCustomVolumes()].filter(x =>
+        String(x.series || x.t).trim().toLowerCase() === seriesName.toLowerCase()
+    );
+    if (allItems.length === 0) return 1;
+    const maxVol = Math.max(0, ...allItems.map(x => parseInt(x.v) || 0));
+    return maxVol > 0 ? (maxVol + 1) : (allItems.length + 1);
+}
+
+function onAddSeriesOrVolChange() {
+    const seriesInput = document.getElementById('addSeries');
+    const volInput = document.getElementById('addVolume');
+    const titleInput = document.getElementById('addTitle');
+    const oneshotCheckbox = document.getElementById('addOneshot');
+    if (!seriesInput) return;
+
+    if (oneshotCheckbox && oneshotCheckbox.checked) return;
+
+    const series = seriesInput.value.trim();
+    if (series) {
+        if (volInput && !volInput.dataset.userEdited) {
+            volInput.value = calculateNextVolumeForSeries(series);
+        }
+    }
+
+    if (titleInput && (!titleInput.value.trim() || titleInput.dataset.autofilled === 'true')) {
+        if (series) {
+            titleInput.value = series;
+            titleInput.dataset.autofilled = 'true';
+        }
+    }
+}
+
+function openAddModal() {
+    const addTitle = document.getElementById('addTitle');
+    const addSeries = document.getElementById('addSeries');
+    const addOneshot = document.getElementById('addOneshot');
+    const addSeriesWrap = document.getElementById('addSeriesWrap');
+    const addVolume = document.getElementById('addVolume');
+    const addPages = document.getElementById('addPages');
+    const addYear = document.getElementById('addYear');
+    const addIsbn = document.getElementById('addIsbn');
+    const addPublisher = document.getElementById('addPublisher');
+    const addCover = document.getElementById('addCover');
+    const addOwned = document.getElementById('addOwned');
+    const addWishlist = document.getElementById('addWishlist');
+    const addRead = document.getElementById('addRead');
+
+    if (addTitle) {
+        addTitle.value = '';
+        addTitle.dataset.autofilled = 'false';
+    }
+    if (addOneshot) addOneshot.checked = false;
+    if (addSeriesWrap) addSeriesWrap.style.display = 'flex';
+    if (addPages) addPages.value = '';
+    if (addYear) addYear.value = '';
+    if (addIsbn) {
+        addIsbn.value = '';
+        addIsbn.style.borderColor = '';
+    }
+    if (addPublisher) addPublisher.value = '';
+    const addBinding = document.getElementById('addBinding');
+    if (addBinding) addBinding.value = '';
+    if (addCover) addCover.value = '';
+    if (addOwned) addOwned.checked = true;
+    if (addWishlist) addWishlist.checked = false;
+    if (addRead) addRead.checked = false;
+
+    clearBadges('add', 'Authors');
+    clearBadges('add', 'Genres');
+
+    // Smart prefill if currently in a series view
+    if (state.seriesView && state.seriesView.trim()) {
+        const curSeries = state.seriesView.trim();
+        if (addSeries) addSeries.value = curSeries;
+        autoFillFromSeries('add');
+
+        const nextVol = calculateNextVolumeForSeries(curSeries);
+        if (addVolume) {
+            addVolume.value = nextVol;
+            delete addVolume.dataset.userEdited;
+        }
+        if (addTitle) {
+            addTitle.value = curSeries;
+            addTitle.dataset.autofilled = 'true';
+        }
+    } else {
+        if (addSeries) addSeries.value = '';
+        if (addVolume) {
+            addVolume.value = '1';
+            delete addVolume.dataset.userEdited;
+        }
+    }
+
+    ['addSeriesDropdown', 'addPublisherDropdown', 'addBindingDropdown', 'addAuthorsDropdown', 'addGenresDropdown'].forEach(id => {
+        const d = document.getElementById(id);
+        if (d) d.classList.remove('show');
+    });
+
+    const modal = document.getElementById('addModal');
+    if (modal) modal.style.display = 'flex';
+
+    if (addTitle) {
+        setTimeout(() => addTitle.focus(), 60);
+    }
+}
+
+function closeAddModal() {
+    const modal = document.getElementById('addModal');
+    if (modal) modal.style.display = 'none';
+    ['addSeriesDropdown', 'addPublisherDropdown', 'addBindingDropdown', 'addAuthorsDropdown', 'addGenresDropdown'].forEach(id => {
+        const d = document.getElementById(id);
+        if (d) d.classList.remove('show');
+    });
+}
+
+function saveNewVolume() {
+    const titleInput = document.getElementById('addTitle');
+    const nt = titleInput ? titleInput.value.trim() : '';
+    if (!nt) {
+        showNotification('Пожалуйста, введите название тома', '⚠️');
+        if (titleInput) titleInput.focus();
+        return;
+    }
+
+    const isOneshot = document.getElementById('addOneshot')?.checked || false;
+    const ns = (document.getElementById('addSeries')?.value || '').trim();
+    const gt = isOneshot ? nt : (ns || nt);
+
+    const a = getBadges('add', 'Authors');
+    const g = getBadges('add', 'Genres');
+    const pub = (document.getElementById('addPublisher')?.value || '').trim();
+    const cv = (document.getElementById('addCover')?.value || '').trim();
+    const is = cleanIsbn((document.getElementById('addIsbn')?.value || '').trim());
+    const volInput = (document.getElementById('addVolume')?.value || '').trim();
+    const v = isOneshot ? 1 : (volInput === '' ? 1 : (isNaN(parseInt(volInput)) ? 1 : Math.max(0, parseInt(volInput))));
+    const p = +(document.getElementById('addPages')?.value) || 0;
+    const y = (document.getElementById('addYear')?.value || '').trim();
+    const binding = (document.getElementById('addBinding')?.value || '').trim();
+
+    const isRead = document.getElementById('addRead')?.checked ?? false;
+
+    const newId = 'custom_' + Date.now() + '_' + Math.floor(Math.random() * 10000);
+
+    const newItem = {
+        id: newId,
+        t: nt,
+        series: gt,
+        a,
+        g,
+        pub,
+        c: cv,
+        isbn: is,
+        v,
+        tv: isOneshot ? 1 : 0,
+        oneshot: isOneshot,
+        p,
+        y,
+        binding,
+        custom: true
+    };
+
+    // Save strictly to custom volumes in collection (NOT to state.database!)
+    saveCustomVolume(newItem);
+
+    state.collection[newId] = {
+        owned: true,
+        wishlist: false,
+        read: isRead
+    };
+
+    saveData();
+    closeAddModal();
+
+    if (state.viewMode !== 'owned') {
+        setViewMode('owned');
+    } else {
+        render();
+        buildSidebar();
+    }
+    updateDbVersionInfo();
+}
+
 function toggleEditOneshot() {
     const checked = document.getElementById('editOneshot').checked;
     const wrap = document.getElementById('editSeriesWrap');
@@ -1175,20 +1561,19 @@ function toggleEditOneshot() {
     }
 }
 
-function onEditOwnedChange() {
-    // No mutual exclusion between owned and wishlist anymore
-}
-
-function onEditWishlistChange() {
-    // No mutual exclusion between owned and wishlist anymore
-}
+function onEditOwnedChange() {}
+function onEditWishlistChange() {}
 
 function openEdit(id) {
-    state.editId = id;
-    const i = state.database.find(x => String(x.id) === String(id));
+    const i = findVolume(id);
     if (!i) { console.error('not found', id); return; }
+    if (!i.custom) {
+        showNotification('База данных независима и защищена от изменений. Редактировать можно только тома из вашей коллекции.', 'ℹ️');
+        return;
+    }
+    state.editId = id;
 
-    const isOneshot = (i.tv === 1 && i.v === 1);
+    const isOneshot = (i.tv === 1 && i.v === 1) || i.oneshot === true;
 
     document.getElementById('editTitle').value = i.t || '';
     document.getElementById('editSeries').value = isOneshot ? '' : (i.series || '');
@@ -1198,18 +1583,16 @@ function openEdit(id) {
     document.getElementById('editIsbn').value = i.isbn || '';
     document.getElementById('editCover').value = i.c || '';
     document.getElementById('editPublisher').value = i.pub || '';
+    const editBinding = document.getElementById('editBinding');
+    if (editBinding) {
+        editBinding.value = i.binding || '';
+    }
     document.getElementById('editOneshot').checked = isOneshot;
     document.getElementById('editSeriesWrap').style.display = isOneshot ? 'none' : 'flex';
 
-    const col = state.collection[id] || { owned: false, read: false, wishlist: false };
-    document.getElementById('editRead').checked = col.read || false;
-    document.getElementById('editOwned').checked = col.owned === true;
-    document.getElementById('editWishlist').checked = col.wishlist === true;
-
-    const ownedCheckbox = document.getElementById('editOwned');
-    const wishlistCheckbox = document.getElementById('editWishlist');
-    ownedCheckbox.disabled = false;
-    wishlistCheckbox.disabled = false;
+    const col = state.collection[id] || { owned: true, read: false, wishlist: false };
+    const editRead = document.getElementById('editRead');
+    if (editRead) editRead.checked = col.read || false;
 
     clearBadges('edit', 'Authors');
     if (i.a && i.a.length > 0) {
@@ -1226,7 +1609,7 @@ function openEdit(id) {
 function closeEditModal() {
     document.getElementById('editModal').style.display = 'none';
     state.editId = null;
-    ['editSeriesDropdown', 'editPublisherDropdown', 'editAuthorsDropdown', 'editGenresDropdown'].forEach(id => {
+    ['editSeriesDropdown', 'editPublisherDropdown', 'editBindingDropdown', 'editAuthorsDropdown', 'editGenresDropdown'].forEach(id => {
         const d = document.getElementById(id);
         if (d) d.classList.remove('show');
     });
@@ -1234,8 +1617,12 @@ function closeEditModal() {
 
 function saveEdit() {
     if (state.editId === null) return;
-    const i = state.database.find(x => String(x.id) === String(state.editId));
-    if (!i) return;
+    const i = findVolume(state.editId);
+    if (!i || !i.custom) {
+        showNotification('Тома базы данных нельзя изменять', '⚠️');
+        closeEditModal();
+        return;
+    }
 
     const nt = document.getElementById('editTitle').value.trim(),
         ns = document.getElementById('editSeries').value.trim(),
@@ -1245,80 +1632,65 @@ function saveEdit() {
         g = getBadges('edit', 'Genres'),
         pub = document.getElementById('editPublisher').value.trim(),
         cv = document.getElementById('editCover').value.trim(),
-        is = document.getElementById('editIsbn').value.trim(),
+        is = cleanIsbn(document.getElementById('editIsbn').value.trim()),
         volInput = document.getElementById('editVolume').value.trim(),
-        v = isOneshot ? 1 : (volInput === '' ? 1 : (isNaN(parseInt(volInput)) ? 1 : Math.max(0, parseInt(volInput))));
+        v = isOneshot ? 1 : (volInput === '' ? 1 : (isNaN(parseInt(volInput)) ? 1 : Math.max(0, parseInt(volInput)))),
+        binding = (document.getElementById('editBinding')?.value || '').trim();
 
-    Object.assign(i, {
-        t: nt, series: gt, a,
-        v: v,
+    const updated = {
+        ...i,
+        t: nt,
+        series: gt,
+        a,
+        v,
         tv: isOneshot ? 1 : 0,
+        oneshot: isOneshot,
         p: +(document.getElementById('editPages').value) || 0,
         y: document.getElementById('editYear').value.trim(),
-        isbn: is, c: cv,
-        pub, g
-    });
-
-    const wasOwned = (state.collection[state.editId] || {}).owned === true;
-    const nowOwned = document.getElementById('editOwned').checked;
-    const wasWishlist = (state.collection[state.editId] || {}).wishlist === true;
-    const nowWishlist = document.getElementById('editWishlist').checked;
-    const wasRead = (state.collection[state.editId] || {}).read === true;
-    const nowRead = document.getElementById('editRead').checked;
-
-    const doSave = () => {
-        state.collection[state.editId] = {
-            owned: nowOwned,
-            wishlist: nowWishlist,
-            read: nowRead
-        };
-
-        if (!isOneshot && ns) syncSeriesMetadata(gt, a, pub, g);
-        closeEditModal();
-        saveData();
-        render();
-        buildSidebar();
+        isbn: is,
+        c: cv,
+        pub,
+        g,
+        binding,
+        custom: true
     };
 
-    if (state.view.confirmDelete !== false) {
-        if (wasOwned && !nowOwned) {
-            const title = nt;
-            const msg = isOneshot 
-                ? `Удалить ваншот "${title}" из коллекции?` 
-                : `Удалить том "${title}" из коллекции?`;
-            showConfirm('Удаление из коллекции', msg, doSave);
-            return;
-        }
-        if (wasWishlist && !nowWishlist) {
-            const title = nt;
-            const msg = isOneshot 
-                ? `Удалить ваншот "${title}" из вишлиста?` 
-                : `Удалить том "${title}" из вишлиста?`;
-            showConfirm('Удаление из вишлиста', msg, doSave);
-            return;
-        }
-        if (wasRead && !nowRead) {
-            const title = nt;
-            const msg = isOneshot 
-                ? `Удалить ваншот "${title}" из прочитанного?` 
-                : `Удалить том "${title}" из прочитанного?`;
-            showConfirm('Удаление из прочитанного', msg, doSave);
-            return;
-        }
-    }
+    saveCustomVolume(updated);
 
-    doSave();
+    const prevCol = state.collection[state.editId] || { owned: true, wishlist: false, read: false };
+    const nowRead = document.getElementById('editRead') ? document.getElementById('editRead').checked : (prevCol.read || false);
+    state.collection[state.editId] = {
+        owned: true,
+        wishlist: false,
+        read: nowRead
+    };
+
+    if (!isOneshot && ns) syncSeriesMetadata(gt, a, pub, g, binding);
+    closeEditModal();
+    saveData();
+    render();
+    buildSidebar();
 }
 
 function deleteItem() {
     if (state.editId === null) return;
-    showConfirm('Удаление тома', '🗑️ Удалить из базы данных?', () => {
-        state.database = state.database.filter(i => i.id !== state.editId);
+    const i = findVolume(state.editId);
+    if (!i || !i.custom) {
+        showNotification('Нельзя удалять тома из базы данных', '⚠️');
+        closeEditModal();
+        return;
+    }
+    showConfirm('Удаление тома', `❌ Удалить том "${i.t}" из коллекции?`, () => {
+        removeCustomVolume(state.editId);
         delete state.collection[state.editId];
         closeEditModal();
+        if (state.infoId === state.editId) {
+            closeInfoModal();
+        }
         saveData();
         render();
         buildSidebar();
+        updateDbVersionInfo();
     });
 }
 
@@ -1336,6 +1708,7 @@ function getBadgeString(item, isGroup) {
             maxVol = state.database.filter(x =>
                 String(x.series || x.t).trim() === String(item.t).trim()
             ).length;
+            if (maxVol === 0) maxVol = count;
         }
         let pct = maxVol > 0 ? Math.min(98, Math.round((count / maxVol) * 100)) : Math.min(70, count * 8);
         if (maxVol > 0 && count >= maxVol) pct = 100;
@@ -1350,7 +1723,133 @@ function getBadgeString(item, isGroup) {
     }
 }
 
+function getCoverTooltip(item, isGroup) {
+    if (!item) return '';
+    // Если открыта вкладка серия (группа серий)
+    if (isGroup) {
+        return (item.series || item.t || '').trim();
+    }
+    // На ваншотах тоже просто название
+    const isOneshot = item.oneshot === true || (item.v === 1 && item.tv === 1) || state.mode === 2;
+    if (isOneshot) {
+        return (item.t || item.series || '').trim();
+    }
+    // Если у тома есть собственное название, отличное от названия серии (например, Чёрный музей: "Джек-прыгун", "Призрак и леди. Книга 1")
+    const seriesTrimmed = (item.series || '').trim();
+    const titleTrimmed = (item.t || '').trim();
+    if (seriesTrimmed && titleTrimmed && seriesTrimmed.toLowerCase() !== titleTrimmed.toLowerCase()) {
+        return titleTrimmed;
+    }
+    // Если открыты тома: "Выдающиеся звери. Том 1"
+    const seriesName = (seriesTrimmed || titleTrimmed);
+    const v = (item.v !== undefined && item.v !== null && item.v !== '' && item.v >= 0) ? item.v : null;
+    if (v !== null) {
+        // Проверяем, не содержит ли название уже указание на том
+        const volRegex = new RegExp(`(?:^|[\\s.,;:])том\\s*${v}\\b`, 'i');
+        if (volRegex.test(seriesName)) {
+            return seriesName;
+        }
+        return `${seriesName}. Том ${v}`;
+    }
+    return (titleTrimmed || seriesName);
+}
+
 function render(preserveScroll = false) {
+    const seriesHeader = document.getElementById('seriesHeader');
+    const seriesHeaderTitle = document.getElementById('seriesHeaderTitle');
+    const seriesHeaderMeta = document.getElementById('seriesHeaderMeta');
+    if (seriesHeader && seriesHeaderTitle) {
+        if (state.seriesView) {
+            seriesHeader.removeAttribute('title');
+            seriesHeaderTitle.textContent = state.seriesView;
+            seriesHeaderTitle.removeAttribute('title');
+
+            const seriesVols = (state.viewMode === 'all' ? state.database : getMergedData()).filter(x =>
+                String(x.series || x.t).trim().toLowerCase() === state.seriesView.trim().toLowerCase()
+            );
+
+            const allAuthors = [];
+            seriesVols.forEach(v => {
+                if (v.a && Array.isArray(v.a)) {
+                    v.a.forEach(auth => {
+                        const trimmed = String(auth).trim();
+                        if (trimmed && !allAuthors.includes(trimmed)) {
+                            allAuthors.push(trimmed);
+                        }
+                    });
+                }
+            });
+            const authorsHtml = allAuthors.map(auth => {
+                const escaped = auth.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                return `<span class="series-meta-link" onclick="event.stopPropagation();filterByAuthor('${escaped}');updateBackButton();render();">${esc(auth)}</span>`;
+            }).join(', ');
+
+            const allPublishers = [];
+            seriesVols.forEach(v => {
+                const pub = String(v.pub || '').trim();
+                if (pub && !allPublishers.includes(pub)) {
+                    allPublishers.push(pub);
+                }
+            });
+            const publishersHtml = allPublishers.map(pub => {
+                const escaped = pub.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                return `<span class="series-meta-link" onclick="event.stopPropagation();filterByPublisher('${escaped}');updateBackButton();render();">${esc(pub)}</span>`;
+            }).join(', ');
+
+            const sortedWithYear = seriesVols
+                .filter(v => v.y && String(v.y).trim())
+                .sort((a, b) => (a.v || 0) - (b.v || 0));
+
+            let yearsStr = '';
+            if (sortedWithYear.length > 0) {
+                const firstVol = sortedWithYear[0];
+                const lastVol = sortedWithYear[sortedWithYear.length - 1];
+                const firstYear = String(firstVol.y).trim();
+                const lastYear = String(lastVol.y).trim();
+
+                if (firstYear && lastYear && firstYear !== lastYear) {
+                    yearsStr = `${firstYear}–${lastYear}`;
+                } else {
+                    yearsStr = firstYear || lastYear;
+                }
+            }
+
+            const metaParts = [];
+            if (authorsHtml) metaParts.push(authorsHtml);
+            if (publishersHtml) metaParts.push(publishersHtml);
+            if (yearsStr) metaParts.push(`<span>${esc(yearsStr)}</span>`);
+            const metaHtml = metaParts.join(' • ');
+
+            if (seriesHeaderMeta) {
+                seriesHeaderMeta.innerHTML = metaHtml;
+                seriesHeaderMeta.removeAttribute('title');
+                seriesHeaderMeta.style.display = metaHtml ? 'block' : 'none';
+            }
+
+            seriesHeader.style.display = 'flex';
+            if (state.seriesJustOpened) {
+                state.seriesJustOpened = false;
+                seriesHeaderTitle.classList.remove('slide-in-top');
+                void seriesHeaderTitle.offsetWidth;
+                seriesHeaderTitle.classList.add('slide-in-top');
+                if (seriesHeaderMeta) {
+                    seriesHeaderMeta.classList.remove('slide-in-top');
+                    void seriesHeaderMeta.offsetWidth;
+                    seriesHeaderMeta.classList.add('slide-in-top');
+                }
+            }
+        } else {
+            seriesHeader.style.display = 'none';
+            seriesHeaderTitle.textContent = '';
+            seriesHeaderTitle.classList.remove('slide-in-top');
+            if (seriesHeaderMeta) {
+                seriesHeaderMeta.textContent = '';
+                seriesHeaderMeta.style.display = 'none';
+                seriesHeaderMeta.classList.remove('slide-in-top');
+            }
+        }
+    }
+
     let items = getFilteredData();
     const sortType = (document.getElementById('sortType')?.value) || 'title';
     const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
@@ -1428,10 +1927,10 @@ function render(preserveScroll = false) {
         }, {});
 
         Object.keys(groups).forEach(key => {
-            const totalInDatabase = state.database.filter(x =>
-                String(x.series || x.t).trim() === key
+            const dbCount = state.database.filter(x =>
+                String(x.series || x.t).trim().toLowerCase() === key.toLowerCase()
             ).length;
-            groups[key].maxVol = totalInDatabase;
+            groups[key].maxVol = dbCount > 0 ? dbCount : groups[key].count;
         });
 
         result = Object.values(groups)
@@ -1473,27 +1972,29 @@ function render(preserveScroll = false) {
 
         const coverUrl = item.c || '';
         const coverHtml = coverUrl
-            ? `<img src="${coverUrl}" class="cover" alt="${item.t.replace(/"/g, '&quot;')}" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">`
+            ? `<img src="${coverUrl}" class="cover" alt="${item.t.replace(/"/g, '&quot;')}" crossorigin="anonymous" referrerpolicy="no-referrer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">`
             : '';
         const noCoverHtml = `<div class="no-cover" style="${coverUrl ? 'display:none' : ''}">📘</div>`;
 
         let clickHandler = '';
-        let contextMenuAttr = '';
+        const safeId = String(item.id).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
         if (state.seriesView) {
-            clickHandler = `event.stopPropagation();openInfo(${item.id})`;
-            contextMenuAttr = `oncontextmenu="handleVolumeContextMenu(event, ${item.id})"`;
+            clickHandler = `event.stopPropagation();openInfo('${safeId}')`;
+            contextMenuAttr = `oncontextmenu="handleVolumeContextMenu(event, '${safeId}')"`;
         } else if (isGroup) {
             const sn = (item.series || item.t).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
             clickHandler = `event.stopPropagation();openSeries('${sn}')`;
             contextMenuAttr = `oncontextmenu="handleSeriesContextMenu(event, '${sn}')"`;
         } else {
-            clickHandler = `event.stopPropagation();openInfo(${item.id})`;
-            contextMenuAttr = `oncontextmenu="handleVolumeContextMenu(event, ${item.id})"`;
+            clickHandler = `event.stopPropagation();openInfo('${safeId}')`;
+            contextMenuAttr = `oncontextmenu="handleVolumeContextMenu(event, '${safeId}')"`;
         }
 
         let metaHtml = '';
         if (isGroup) {
-            const vols = state.database.filter(x => String(x.series || x.t).trim() === String(item.t).trim());
+            const vols = state.viewMode === 'all'
+                ? state.database.filter(x => String(x.series || x.t).trim() === String(item.t).trim())
+                : getMergedData().filter(x => String(x.series || x.t).trim() === String(item.t).trim() && x.owned);
             const totalPages = vols.reduce((sum, x) => sum + (+x.p || 0), 0);
             if (state.viewMode === 'all') {
                 metaHtml = `${totalPages} стр. • ${vols.length} т.`;
@@ -1507,7 +2008,12 @@ function render(preserveScroll = false) {
         const notOwnedClass = (state.viewMode === 'owned' && item.owned === false) ? ' not-owned' : '';
         const inCollectionClass = (state.viewMode === 'all' && item.owned === true && !isGroup) ? ' in-collection' : '';
 
-        return `<div class="manga-card ${isCompleted ? 'completed' : ''}${isAllCollected ? 'completed' : ''}${notOwnedClass}${inCollectionClass}" onclick="${clickHandler}" ${contextMenuAttr} style="cursor:pointer;">
+        const tipText = getCoverTooltip(item, isGroup);
+        const tipAttr = esc(tipText);
+        const isCoversOnly = state.view.view === 2;
+        const titleAttr = isCoversOnly ? `title="${tipAttr}"` : '';
+
+        return `<div class="manga-card ${isCompleted ? 'completed' : ''}${isAllCollected ? 'completed' : ''}${notOwnedClass}${inCollectionClass}" ${titleAttr} data-cover-tooltip="${tipAttr}" onclick="${clickHandler}" ${contextMenuAttr} style="cursor:pointer;">
             <div class="cover-wrap${notOwnedClass}">${coverHtml}${noCoverHtml}</div>
             <div class="card-body">
                 <div class="card-title" title="${item.t.replace(/"/g, '&quot;')}">${item.t}</div>
@@ -1516,6 +2022,8 @@ function render(preserveScroll = false) {
             </div>
         </div>`;
     }).join('');
+
+    applyView();
 
     if (preserveScroll) {
         requestAnimationFrame(() => {
@@ -1581,7 +2089,12 @@ function exportDatabase() {
 }
 
 function exportCollection() {
-    const d = JSON.stringify(state.collection, null, 2);
+    const customVols = getCustomVolumes();
+    const payload = {
+        collection: state.collection,
+        customVolumes: customVols
+    };
+    const d = JSON.stringify(payload, null, 2);
     const b = new Blob([d], { type: 'application/json' });
     const u = URL.createObjectURL(b);
     const a = document.createElement('a');
@@ -1589,50 +2102,22 @@ function exportCollection() {
     a.download = `mangamaster_collection_${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(u);
+
+    // Save last backup time
+    try {
+        const now = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        const formatted = `${pad(now.getDate())}.${pad(now.getMonth() + 1)}.${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        safeStorage.setItem('mm_last_backup', formatted);
+        updateLastBackupInfo();
+    } catch (e) {
+        console.error('Failed to save last backup timestamp:', e);
+    }
 }
 
 function importDatabase(inp) {
-    const f = inp.files[0];
-    if (!f) return;
-
-    const r = new FileReader();
-    r.onload = e => {
-        try {
-            const raw = JSON.parse(e.target.result);
-            let items = [];
-
-            if (Array.isArray(raw)) {
-                items = raw.map(normalizeItem);
-            } else if (raw.dbs && raw.dbs.manga) {
-                items = (raw.dbs.manga || []).map(normalizeItem);
-            } else if (raw.manga) {
-                items = (raw.manga || []).map(normalizeItem);
-            } else {
-                items = Object.values(raw).flat().map(normalizeItem);
-            }
-
-            const existingIds = new Set(state.database.map(i => i.id));
-            let addedCount = 0;
-            items.forEach(item => {
-                if (!existingIds.has(item.id)) {
-                    state.database.push(item);
-                    existingIds.add(item.id);
-                    addedCount++;
-                }
-            });
-
-            saveData();
-            if (typeof U === 'function') U();
-            if (typeof render === 'function') render();
-            if (typeof buildSidebar === 'function') buildSidebar();
-            showNotification(`База данных импортирована!\nДобавлено томов: ${addedCount}`, '✅');
-        } catch (err) {
-            showNotification('Ошибка импорта: ' + err.message, '❌');
-        }
-    };
-
-    r.readAsText(f);
     inp.value = '';
+    showNotification('База данных является независимой и не редактируется пользователем.', '⚠️');
 }
 
 function importCollection(inp) {
@@ -1643,11 +2128,21 @@ function importCollection(inp) {
     r.onload = e => {
         try {
             const raw = JSON.parse(e.target.result);
-            state.collection = raw;
+            if (raw && typeof raw === 'object' && raw.collection && typeof raw.collection === 'object') {
+                state.collection = raw.collection;
+                if (Array.isArray(raw.customVolumes)) {
+                    raw.customVolumes.forEach(cv => {
+                        saveCustomVolume({ ...cv, custom: true });
+                    });
+                }
+            } else if (raw && typeof raw === 'object' && !raw.database) {
+                state.collection = raw;
+            }
             saveData();
             if (typeof U === 'function') U();
             if (typeof render === 'function') render();
             if (typeof buildSidebar === 'function') buildSidebar();
+            updateDbVersionInfo();
             showNotification('Коллекция импортирована!', '✅');
         } catch (err) {
             showNotification('Ошибка импорта: ' + err.message, '❌');
@@ -1667,22 +2162,23 @@ function importAll(inp) {
         try {
             const raw = JSON.parse(e.target.result);
 
-            if (Array.isArray(raw)) {
-                state.database = raw.map(normalizeItem);
-                state.collection = {};
-            } else if (raw.database) {
-                state.database = raw.database.map(normalizeItem);
-                state.collection = raw.collection || {};
-            } else {
-                state.database = raw.map(normalizeItem);
-                state.collection = {};
+            if (raw && typeof raw === 'object' && raw.collection) {
+                state.collection = raw.collection;
+                if (Array.isArray(raw.customVolumes)) {
+                    raw.customVolumes.forEach(cv => {
+                        saveCustomVolume({ ...cv, custom: true });
+                    });
+                }
+            } else if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+                state.collection = raw;
             }
 
             saveData();
             if (typeof U === 'function') U();
             if (typeof render === 'function') render();
             if (typeof buildSidebar === 'function') buildSidebar();
-            showNotification('Всё импортировано!', '✅');
+            updateDbVersionInfo();
+            showNotification('Коллекция импортирована!', '✅');
         } catch (err) {
             showNotification('Ошибка импорта: ' + err.message, '❌');
         }
@@ -1718,13 +2214,16 @@ function showStats() {
     cur.forEach(i => {
         if (i.oneshot === true) return;
         const k = (i.series || i.t).trim();
-        if (!k || !validSeries.includes(k)) return;
+        if (!k) return;
         if (!g[k]) g[k] = { c: 0, rc: 0 };
         g[k].c++;
         if (i.r) g[k].rc++;
     });
 
-    const comp = Object.entries(g).filter(([key, val]) => val.c >= dbGroups[key]).length;
+    const comp = Object.entries(g).filter(([key, val]) => {
+        const totalNeeded = dbGroups[key] || val.c;
+        return totalNeeded > 0 && val.c >= totalNeeded;
+    }).length;
     const totalSeries = Object.keys(g).length;
 
     const s = cur.reduce((a, i) => {
@@ -1809,10 +2308,24 @@ function updateDbVersionInfo() {
     }
 }
 
+function updateLastBackupInfo() {
+    const el = document.getElementById('exportBlock');
+    if (el) {
+        const val = safeStorage.getItem('mm_last_backup');
+        // Remove standard title to avoid browser default tooltip interference
+        el.removeAttribute('title');
+        if (val) {
+            el.setAttribute('data-tooltip', `резервная копия создана:\n${val}`);
+        } else {
+            el.setAttribute('data-tooltip', 'резервная копия создана:\nникогда');
+        }
+    }
+}
+
 async function updateDatabase(silent = false) {
     try {
         const response = await fetch(DATABASE_URL, { cache: 'no-cache' });
-        if (!response.ok) throw new Error('Ошибка сети');
+        if (!response.ok) throw new Error('Ошибка сети: ' + response.status);
 
         const raw = await response.json();
         const items = Array.isArray(raw) ? raw : (raw.database || raw.manga || []);
@@ -1822,25 +2335,27 @@ async function updateDatabase(silent = false) {
             return;
         }
 
-        state.database = items.map(item => ({
-            ...item,
-            id: item.id || Date.now() + Math.random(),
-            t: String(item.t || '').trim(),
-            series: String(item.series || '').trim(),
-            a: item.a ? (Array.isArray(item.a) ? item.a.filter(a => a && String(a).trim()) :
-                (typeof item.a === 'string' ? item.a.split(',').map(s => s.trim()).filter(s => s) : [])) : [],
-            g: item.g ? (Array.isArray(item.g) ? item.g.filter(g => g && String(g).trim()) :
-                (typeof item.g === 'string' ? item.g.split(',').map(s => s.trim()).filter(s => s) : [])) : [],
-            v: Math.max(0, parseInt(item.v) || 0),
-            tv: item.oneshot ? 1 : (parseInt(item.tv) || 0),
-            oneshot: item.oneshot === true,
-            p: Math.max(0, parseInt(item.p) || 0),
-            y: String(item.y || '').trim(),
-            isbn: String(item.isbn || '').trim(),
-            pub: String(item.pub || '').trim(),
-            c: String(item.c || '').trim(),
-            binding: item.binding ? String(item.binding).trim() : ''
-        }));
+        const normalized = items.map(i => ({
+            ...i,
+            id: i.id || Date.now() + Math.random(),
+            t: String(i.t || '').trim(),
+            a: i.a ? (Array.isArray(i.a) ? i.a.filter(a => a && String(a).trim()) :
+                (typeof i.a === 'string' ? i.a.split(',').map(s => s.trim()).filter(s => s) : [])) : [],
+            g: i.g ? (Array.isArray(i.g) ? i.g.filter(g => g && String(g).trim()) :
+                (typeof i.g === 'string' ? i.g.split(',').map(s => s.trim()).filter(s => s) : [])) : [],
+            series: String(i.series || '').trim(),
+            pub: String(i.pub || '').trim(),
+            v: Math.max(0, parseInt(i.v) || 0),
+            tv: i.tv !== undefined ? Math.max(0, parseInt(i.tv) || 0) : (String(i.series || '').trim() ? 0 : 1),
+            p: Math.max(0, parseInt(i.p) || 0),
+            y: String(i.y || '').trim(),
+            isbn: String(i.isbn || '').trim(),
+            c: String(i.c || '').trim(),
+            binding: i.binding ? String(i.binding).trim() : '',
+            custom: false
+        })).filter(i => !i.custom && !String(i.id).startsWith('custom_'));
+
+        state.database = normalized;
 
         saveData();
         render();
@@ -1851,8 +2366,9 @@ async function updateDatabase(silent = false) {
             showNotification(`База данных обновлена!\nВсего томов: ${state.database.length}`, '✅');
         }
     } catch (err) {
+        console.error('Update database error:', err);
         if (!silent) {
-            showNotification('Не удалось обновить базу данных.', '⚠️');
+            showNotification('Не удалось обновить базу данных: ' + (err.message || 'ошибка сети'), '⚠️');
         }
     }
 }
@@ -1868,6 +2384,7 @@ function openSeries(seriesName) {
     state.savedScrollTop = currentScroll;
     
     state.seriesView = seriesName;
+    state.seriesJustOpened = true;
     state.filterAuthor = '';
     state.filterPublisher = '';
     state.filterGenre = '';
@@ -1928,6 +2445,438 @@ function handleBack() {
     render();
 }
 
+let currentScreenshotPages = [];
+let currentScreenshotPageIdx = 0;
+let pendingScreenshotData = null;
+
+function loadCoverImage(src) {
+    return new Promise((resolve) => {
+        if (!src) return resolve(null);
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.referrerPolicy = 'no-referrer';
+        let done = false;
+        const timer = setTimeout(() => {
+            if (!done) {
+                done = true;
+                resolve(null);
+            }
+        }, 1200);
+        img.onload = () => {
+            if (!done) {
+                done = true;
+                clearTimeout(timer);
+                resolve(img);
+            }
+        };
+        img.onerror = () => {
+            if (!done) {
+                done = true;
+                clearTimeout(timer);
+                resolve(null);
+            }
+        };
+        img.src = src;
+    });
+}
+
+function roundRectPath(ctx, x, y, w, h, r) {
+    if (ctx.roundRect) {
+        ctx.beginPath();
+        ctx.roundRect(x, y, w, h, r);
+        ctx.closePath();
+        return;
+    }
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.arcTo(x + w, y, x + w, y + r, r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+    ctx.lineTo(x + r, y + h);
+    ctx.arcTo(x, y + h, x, y + h - r, r);
+    ctx.lineTo(x, y + r);
+    ctx.arcTo(x, y, x + r, y, r);
+    ctx.closePath();
+}
+
+function drawFallbackCover(ctx, x, y, cardW, cardH, radius, isUnowned) {
+    ctx.save();
+    roundRectPath(ctx, x, y, cardW, cardH, radius);
+    ctx.clip();
+    const grad = ctx.createLinearGradient(x, y, x + cardW, y + cardH);
+    grad.addColorStop(0, '#1a1a2e');
+    grad.addColorStop(1, '#16213e');
+    ctx.fillStyle = grad;
+    ctx.fillRect(x, y, cardW, cardH);
+
+    ctx.font = `${Math.round(44 * (cardW / 180))}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.globalAlpha = isUnowned ? 0.45 : 0.85;
+    ctx.fillText('📘', x + cardW / 2, y + cardH / 2);
+    ctx.restore();
+}
+
+async function renderScreenshotCanvas(pageItems, cols, dpr = 2) {
+    const isSingle = cols === 1;
+    const frameW = 7 * dpr; // рамка 7px по бокам и сверху
+    const cardW = (isSingle ? 220 : 180) * dpr;
+    const cardH = Math.round(cardW * 1.5); // exact 2:3 ratio
+    const pad = isSingle ? 0 : 14 * dpr; // в сетке 1 на 1 чёрные отступы убираются
+    const gap = isSingle ? 0 : 14 * dpr;
+    const radius = 10 * dpr; // точно как в самой программе у карточек (10px)
+
+    const rows = Math.ceil(pageItems.length / cols);
+    const innerW = pad * 2 + cols * cardW + (cols - 1) * gap;
+    const innerH = pad * 2 + rows * cardH + (rows - 1) * gap;
+    const footerH = Math.round(36 * dpr); // компактное поле для логотипа
+
+    const canvasW = innerW + frameW * 2;
+    const canvasH = frameW + innerH + footerH;
+    const footerY = frameW + innerH;
+    const cornerR = isSingle ? radius : pad; // одинаковый радиус скругления (10px для 1x1, 14px для сеток)
+
+    const canvas = document.createElement('canvas');
+    canvas.width = canvasW;
+    canvas.height = canvasH;
+    const ctx = canvas.getContext('2d');
+
+    // Базовый фон: тёмно-серый, охватывающий внешнюю рамку 7px и нижнюю панель
+    ctx.fillStyle = '#282830';
+    ctx.fillRect(0, 0, canvasW, canvasH);
+
+    // Внутреннее поле для обложек с тёмным фоном и скруглённым контуром
+    ctx.beginPath();
+    ctx.moveTo(frameW + cornerR, frameW);
+    ctx.lineTo(canvasW - frameW - cornerR, frameW);
+    ctx.arcTo(canvasW - frameW, frameW, canvasW - frameW, frameW + cornerR, cornerR);
+    ctx.lineTo(canvasW - frameW, footerY - cornerR);
+    ctx.arcTo(canvasW - frameW, footerY, canvasW - frameW - cornerR, footerY, cornerR);
+    ctx.lineTo(frameW + cornerR, footerY);
+    ctx.arcTo(frameW, footerY, frameW, footerY - cornerR, cornerR);
+    ctx.lineTo(frameW, frameW + cornerR);
+    ctx.arcTo(frameW, frameW, frameW + cornerR, frameW, cornerR);
+    ctx.closePath();
+    ctx.fillStyle = '#0f0f12';
+    ctx.fill();
+
+    // Разделительная контурная линия между рамкой и полем обложек
+    ctx.strokeStyle = '#3a3a46';
+    ctx.lineWidth = 1 * dpr;
+    ctx.stroke();
+
+    // Preload cover images
+    const loadedImages = await Promise.all(pageItems.map(item => {
+        if (!item.src) return Promise.resolve(null);
+        if (item.imgEl && item.imgEl.complete && item.imgEl.naturalWidth > 0) {
+            return Promise.resolve(item.imgEl);
+        }
+        return loadCoverImage(item.src);
+    }));
+
+    for (let i = 0; i < pageItems.length; i++) {
+        const item = pageItems[i];
+        const img = loadedImages[i];
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const x = frameW + pad + col * (cardW + gap);
+        const y = frameW + pad + row * (cardH + gap);
+
+        // Card base background
+        ctx.fillStyle = '#1e1e24';
+        roundRectPath(ctx, x, y, cardW, cardH, radius);
+        ctx.fill();
+
+        // Draw cover (ONLY cover - no titles, badges, or texts)
+        if (img && img.naturalWidth > 0 && img.naturalHeight > 0) {
+            ctx.save();
+            roundRectPath(ctx, x, y, cardW, cardH, radius);
+            ctx.clip();
+
+            if (item.isUnowned) {
+                if (ctx.filter !== undefined) {
+                    ctx.filter = 'grayscale(100%)';
+                }
+                ctx.globalAlpha = 0.55;
+            }
+
+            // Object-fit: cover inside 2:3 container
+            const imgRatio = img.naturalWidth / img.naturalHeight;
+            const targetRatio = cardW / cardH;
+            let sx, sy, sw, sh;
+            if (imgRatio > targetRatio) {
+                sh = img.naturalHeight;
+                sw = sh * targetRatio;
+                sx = (img.naturalWidth - sw) / 2;
+                sy = 0;
+            } else {
+                sw = img.naturalWidth;
+                sh = sw / targetRatio;
+                sx = 0;
+                sy = (img.naturalHeight - sh) / 2;
+            }
+            try {
+                ctx.drawImage(img, sx, sy, sw, sh, x, y, cardW, cardH);
+            } catch (e) {
+                drawFallbackCover(ctx, x, y, cardW, cardH, radius, item.isUnowned);
+            }
+            ctx.restore();
+        } else {
+            drawFallbackCover(ctx, x, y, cardW, cardH, radius, item.isUnowned);
+        }
+
+        // Standard clean neutral border (только для сеток из нескольких томов)
+        if (!isSingle) {
+            ctx.strokeStyle = '#2a2a32';
+            ctx.lineWidth = 1 * dpr;
+            roundRectPath(ctx, x, y, cardW, cardH, radius);
+            ctx.stroke();
+        }
+    }
+
+    // --- БРЕНДИНГ ВНИЗУ СКРИНШОТА (ПО ЦЕНТРУ, БЕЗ ССЫЛКИ) ---
+    // Текст вместо логотипа строго по центру поля
+    const centerX = canvasW / 2;
+    let logoFontSize = Math.round((cols === 1 ? 16 : 18) * dpr);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = `900 ${logoFontSize}px "M PLUS Rounded 1c", "Segoe UI", system-ui, sans-serif`;
+    const textMargin = Math.max(16 * dpr, (pad + frameW) * 2);
+
+    const customInput = document.getElementById('screenshotCustomText');
+    const rawCustomText = customInput ? customInput.value : (pendingScreenshotData?.customText ?? 'MANGAMASTER');
+    const displayText = (rawCustomText !== undefined && rawCustomText !== null && rawCustomText.trim() !== '') ? rawCustomText.trim() : 'MANGAMASTER';
+
+    while (ctx.measureText(displayText).width > canvasW - textMargin && logoFontSize > 8 * dpr) {
+        logoFontSize -= 1 * dpr;
+        ctx.font = `900 ${logoFontSize}px "M PLUS Rounded 1c", "Segoe UI", system-ui, sans-serif`;
+    }
+    ctx.fillStyle = '#ff2040';
+    ctx.fillText(displayText, centerX, footerY + Math.round(footerH * 0.5));
+
+    return canvas;
+}
+
+let screenshotTextTimeout = null;
+function onScreenshotTextChange() {
+    if (screenshotTextTimeout) clearTimeout(screenshotTextTimeout);
+    screenshotTextTimeout = setTimeout(() => {
+        updateScreenshotPreview();
+    }, 120);
+}
+
+function onScreenshotGridChange() {
+    takeScreenshot();
+}
+
+async function takeScreenshot(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    const captureArea = document.getElementById('seriesCaptureArea');
+    if (!captureArea) return;
+
+    let viewName = 'Коллекция';
+    if (state.seriesView) {
+        viewName = state.seriesView;
+    } else if (state.viewMode === 'wishlist') {
+        viewName = 'Вишлист';
+    } else if (state.viewMode === 'all') {
+        viewName = 'База данных';
+    } else if (state.viewMode === 'owned') {
+        viewName = 'Коллекция';
+    }
+
+    const existingCustomInput = document.getElementById('screenshotCustomText');
+    const currentCustomText = existingCustomInput ? (existingCustomInput.value || 'MANGAMASTER') : 'MANGAMASTER';
+    pendingScreenshotData = { viewName, customText: currentCustomText };
+    currentScreenshotPages = [];
+    currentScreenshotPageIdx = 0;
+
+    // Collect all displayed volume cards from the current view
+    const cardEls = Array.from(captureArea.querySelectorAll('.manga-card'));
+    if (!cardEls.length) {
+        showNotification('Нет томов для скриншота', 'ℹ️');
+        return;
+    }
+
+    const cards = cardEls.map(c => {
+        const img = c.querySelector('img.cover');
+        const isUnowned = c.classList.contains('not-owned') || c.querySelector('.cover-wrap.not-owned') !== null;
+        const src = (img && img.style.display !== 'none') ? (img.currentSrc || img.src) : '';
+        const title = c.querySelector('.card-title')?.textContent || '';
+        return {
+            src,
+            isUnowned,
+            title,
+            imgEl: img
+        };
+    });
+
+    const gridSelect = document.getElementById('screenshotGridSelect');
+    const cols = gridSelect ? parseInt(gridSelect.value) || 5 : 5;
+    const itemsPerPage = cols * cols;
+
+    if (cards.length > itemsPerPage) {
+        for (let i = 0; i < cards.length; i += itemsPerPage) {
+            currentScreenshotPages.push(cards.slice(i, i + itemsPerPage));
+        }
+    } else {
+        currentScreenshotPages.push(cards);
+    }
+
+    const paginationEl = document.getElementById('screenshotPagination');
+    const downloadAllBtn = document.getElementById('screenshotDownloadAll');
+    const pageIndicator = document.getElementById('screenshotPageIndicator');
+    const prevBtn = document.getElementById('screenshotPrevPage');
+    const nextBtn = document.getElementById('screenshotNextPage');
+
+    if (currentScreenshotPages.length > 1) {
+        if (paginationEl) paginationEl.style.display = 'flex';
+        if (downloadAllBtn) downloadAllBtn.style.display = 'block';
+        if (pageIndicator) pageIndicator.textContent = `Страница 1 из ${currentScreenshotPages.length}`;
+        if (prevBtn) prevBtn.disabled = true;
+        if (nextBtn) nextBtn.disabled = false;
+    } else {
+        if (paginationEl) paginationEl.style.display = 'none';
+        if (downloadAllBtn) downloadAllBtn.style.display = 'none';
+    }
+
+    const modal = document.getElementById('screenshotModal');
+    if (modal) {
+        modal.classList.add('show');
+    }
+
+    await updateScreenshotPreview();
+}
+
+async function changeScreenshotPage(dir) {
+    currentScreenshotPageIdx += dir;
+    if (currentScreenshotPageIdx < 0) currentScreenshotPageIdx = 0;
+    if (currentScreenshotPageIdx >= currentScreenshotPages.length) currentScreenshotPageIdx = currentScreenshotPages.length - 1;
+
+    const pageIndicator = document.getElementById('screenshotPageIndicator');
+    const prevBtn = document.getElementById('screenshotPrevPage');
+    const nextBtn = document.getElementById('screenshotNextPage');
+
+    if (pageIndicator) pageIndicator.textContent = `Страница ${currentScreenshotPageIdx + 1} из ${currentScreenshotPages.length}`;
+    if (prevBtn) prevBtn.disabled = currentScreenshotPageIdx === 0;
+    if (nextBtn) nextBtn.disabled = currentScreenshotPageIdx === currentScreenshotPages.length - 1;
+
+    await updateScreenshotPreview();
+}
+
+async function updateScreenshotPreview() {
+    const previewContainer = document.getElementById('screenshotPreviewContainer');
+    if (!previewContainer) return;
+
+    const pageCards = currentScreenshotPages[currentScreenshotPageIdx] || [];
+    if (!pageCards.length) {
+        previewContainer.innerHTML = '<div style="color:var(--dim);font-size:12px;padding:20px;">Нет томов для превью</div>';
+        return;
+    }
+
+    const gridSelect = document.getElementById('screenshotGridSelect');
+    const cols = gridSelect ? parseInt(gridSelect.value) || 5 : 5;
+
+    try {
+        const previewCanvas = await renderScreenshotCanvas(pageCards, cols, 1);
+        previewContainer.innerHTML = '';
+        previewCanvas.style.maxWidth = '100%';
+        previewCanvas.style.maxHeight = '230px';
+        previewCanvas.style.objectFit = 'contain';
+        previewCanvas.style.borderRadius = '6px';
+        previewCanvas.style.border = '1px solid var(--brd)';
+        previewCanvas.style.boxShadow = '0 4px 16px rgba(0,0,0,0.4)';
+        previewContainer.appendChild(previewCanvas);
+    } catch (e) {
+        console.error('Preview render error:', e);
+        previewContainer.innerHTML = '<div style="color:var(--dim);font-size:12px;padding:10px;">Не удалось создать превью</div>';
+    }
+}
+
+function closeScreenshotModal() {
+    const modal = document.getElementById('screenshotModal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+    pendingScreenshotData = null;
+    currentScreenshotPages = [];
+    currentScreenshotPageIdx = 0;
+}
+
+async function executeScreenshot(pageIdx = null) {
+    const targetIdx = pageIdx !== null ? pageIdx : currentScreenshotPageIdx;
+    const pageCards = currentScreenshotPages[targetIdx];
+    if (!pageCards || !pageCards.length) return;
+
+    const customInput = document.getElementById('screenshotCustomText');
+    const customText = customInput ? customInput.value : (pendingScreenshotData?.customText ?? 'MANGAMASTER');
+    const viewName = pendingScreenshotData ? pendingScreenshotData.viewName : 'Коллекция';
+    const gridSelect = document.getElementById('screenshotGridSelect');
+    const cols = gridSelect ? parseInt(gridSelect.value) || 5 : 5;
+
+    pendingScreenshotData = { viewName, customText };
+
+    if (pageIdx === null) {
+        const modal = document.getElementById('screenshotModal');
+        if (modal) modal.classList.remove('show');
+    }
+
+    try {
+        // Render 2x high resolution canvas (pure covers, no headers, no card bodies, no gold borders)
+        const canvas = await renderScreenshotCanvas(pageCards, cols, 2);
+        let dataUrl;
+        try {
+            dataUrl = canvas.toDataURL('image/png');
+        } catch (e) {
+            console.warn('Canvas toDataURL fallback:', e);
+            dataUrl = canvas.toDataURL();
+        }
+
+        const pageSuffix = currentScreenshotPages.length > 1 ? `_стр_${targetIdx + 1}` : '';
+        const cleanName = (viewName.replace(/[\\/:*?"<>|]/g, '_').trim() || 'Манга') + pageSuffix;
+        const link = document.createElement('a');
+        link.download = `${cleanName}.png`;
+        link.href = dataUrl;
+        link.click();
+
+        if (pageIdx === null) {
+            showNotification('Скриншот сохранён (вид: Обложки)!', '📸');
+        }
+    } catch (err) {
+        console.error('Screenshot download error:', err);
+        if (pageIdx === null) {
+            showNotification('Не удалось сохранить скриншот', '⚠️');
+        }
+    } finally {
+        if (pageIdx === null) {
+            closeScreenshotModal();
+        }
+    }
+}
+
+async function executeAllScreenshots() {
+    const customInput = document.getElementById('screenshotCustomText');
+    const customText = customInput ? customInput.value : (pendingScreenshotData?.customText ?? 'MANGAMASTER');
+    const viewName = pendingScreenshotData ? pendingScreenshotData.viewName : 'Коллекция';
+    const modal = document.getElementById('screenshotModal');
+    if (modal) modal.classList.remove('show');
+
+    pendingScreenshotData = { viewName, customText };
+    showNotification(`Создание скриншотов (${currentScreenshotPages.length} шт.)...`, '📸');
+    for (let i = 0; i < currentScreenshotPages.length; i++) {
+        await executeScreenshot(i);
+        await new Promise(r => setTimeout(r, 400));
+    }
+    closeScreenshotModal();
+    showNotification('Все скриншоты сохранены (вид: Обложки)!', '✅');
+}
+window.takeScreenshot = takeScreenshot;
+window.takeSeriesScreenshot = takeScreenshot;
+
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.series-field-wrap') && !e.target.closest('.badge-field-wrap')) {
         document.querySelectorAll('.series-dropdown').forEach(d => d.classList.remove('show'));
@@ -1966,7 +2915,7 @@ document.addEventListener('keydown', e => {
     }
 });
 
-const CURRENT_VERSION = '1.0.0';
+const CURRENT_VERSION = '1.1.0';
 
 async function checkForUpdates() {
     try {
@@ -1994,6 +2943,7 @@ function init() {
     render();
     buildSidebar();
     updateDbVersionInfo();
+    updateLastBackupInfo();
     updateDatabase(true);
     checkForUpdates();
 }
@@ -2056,9 +3006,13 @@ function handleSeriesContextMenu(event, seriesName) {
     const btnSearchGoogle = document.getElementById('ctxSearchGoogle');
     const btnGoToSeries = document.getElementById('ctxGoToSeries');
     const dividerGoToSeries = document.getElementById('ctxGoToSeriesDivider');
+    const btnEdit = document.getElementById('ctxEditVolume');
+    const dividerEdit = document.getElementById('ctxEditVolumeDivider');
 
     if (btnGoToSeries) btnGoToSeries.style.display = 'none';
     if (dividerGoToSeries) dividerGoToSeries.style.display = 'none';
+    if (btnEdit) btnEdit.style.display = 'none';
+    if (dividerEdit) dividerEdit.style.display = 'none';
     
     if (btnOwned) {
         btnOwned.textContent = hasAnyOwned ? '❌ Удалить из коллекции' : '🏆 Добавить в коллекцию';
@@ -2071,8 +3025,13 @@ function handleSeriesContextMenu(event, seriesName) {
     }
 
     if (btnWishlist) {
-        btnWishlist.textContent = hasAnyWishlist ? '❌ Удалить из вишлиста' : '⭐ Добавить в вишлист';
-        btnWishlist.dataset.action = hasAnyWishlist ? 'remove' : 'add';
+        if (hasAnyOwned) {
+            btnWishlist.style.display = 'none';
+        } else {
+            btnWishlist.style.display = 'block';
+            btnWishlist.textContent = hasAnyWishlist ? '❌ Удалить из вишлиста' : '⭐ Добавить в вишлист';
+            btnWishlist.dataset.action = hasAnyWishlist ? 'remove' : 'add';
+        }
     }
 
     if (btnSearchGoogle) {
@@ -2102,8 +3061,10 @@ function handleVolumeContextMenu(event, itemId) {
     const btnSearchGoogle = document.getElementById('ctxSearchGoogle');
     const btnGoToSeries = document.getElementById('ctxGoToSeries');
     const dividerGoToSeries = document.getElementById('ctxGoToSeriesDivider');
+    const btnEdit = document.getElementById('ctxEditVolume');
+    const dividerEdit = document.getElementById('ctxEditVolumeDivider');
     
-    const item = state.database.find(i => String(i.id) === String(itemId));
+    const item = findVolume(itemId);
 
     if (btnGoToSeries) {
         if (item) {
@@ -2124,9 +3085,25 @@ function handleVolumeContextMenu(event, itemId) {
         }
     }
     
+    // Database is independent and not editable - edit only custom volumes!
+    if (btnEdit) {
+        if (item && item.custom) {
+            btnEdit.style.display = 'block';
+            if (dividerEdit) dividerEdit.style.display = 'block';
+        } else {
+            btnEdit.style.display = 'none';
+            if (dividerEdit) dividerEdit.style.display = 'none';
+        }
+    }
+
     if (btnOwned) {
-        btnOwned.textContent = isOwned ? '❌ Удалить из коллекции' : '🏆 Добавить в коллекцию';
-        btnOwned.dataset.action = isOwned ? 'remove' : 'add';
+        if (item && item.custom) {
+            btnOwned.textContent = '❌ Удалить из коллекции';
+            btnOwned.dataset.action = 'remove';
+        } else {
+            btnOwned.textContent = isOwned ? '❌ Удалить из коллекции' : '🏆 Добавить в коллекцию';
+            btnOwned.dataset.action = isOwned ? 'remove' : 'add';
+        }
     }
     
     if (btnRead) {
@@ -2135,8 +3112,13 @@ function handleVolumeContextMenu(event, itemId) {
     }
 
     if (btnWishlist) {
-        btnWishlist.textContent = isWishlist ? '❌ Удалить из вишлиста' : '⭐ Добавить в вишлист';
-        btnWishlist.dataset.action = isWishlist ? 'remove' : 'add';
+        if ((item && item.custom) || isOwned) {
+            btnWishlist.style.display = 'none';
+        } else {
+            btnWishlist.style.display = 'block';
+            btnWishlist.textContent = isWishlist ? '❌ Удалить из вишлиста' : '⭐ Добавить в вишлист';
+            btnWishlist.dataset.action = isWishlist ? 'remove' : 'add';
+        }
     }
 
     if (btnSearchGoogle) {
@@ -2151,12 +3133,20 @@ function handleVolumeContextMenu(event, itemId) {
     showContextMenu(event);
 }
 
+function ctxEditVolume() {
+    const menu = document.getElementById('seriesContextMenu');
+    if (menu) menu.style.display = 'none';
+    if (ctxActiveType === 'volume' && ctxActiveId !== null) {
+        openEdit(ctxActiveId);
+    }
+}
+
 function ctxGoToSeries() {
     const menu = document.getElementById('seriesContextMenu');
     if (menu) menu.style.display = 'none';
     
     if (ctxActiveType === 'volume' && ctxActiveId !== null) {
-        const item = state.database.find(i => String(i.id) === String(ctxActiveId));
+        const item = findVolume(ctxActiveId);
         if (item) {
             const seriesName = String(item.series || item.t).trim();
             const isOneshot = item.oneshot === true || (item.v === 1 && item.tv === 1);
@@ -2171,7 +3161,7 @@ function showContextMenu(event) {
     const menu = document.getElementById('seriesContextMenu');
     if (menu) {
         // IDs of the menu items we want to manage
-        const ids = ['ctxGoToSeries', 'ctxToggleOwned', 'ctxToggleRead', 'ctxToggleWishlist', 'ctxSearchGoogle'];
+        const ids = ['ctxGoToSeries', 'ctxToggleOwned', 'ctxToggleRead', 'ctxToggleWishlist', 'ctxEditVolume', 'ctxSearchGoogle'];
         const items = ids.map(id => document.getElementById(id)).filter(Boolean);
         
         // Remove existing dividers
@@ -2262,21 +3252,33 @@ function ctxAddRemoveOwned() {
         if (action === 'add') {
             state.collection[ctxActiveId] = {
                 owned: true,
-                wishlist: col.wishlist,
+                wishlist: false,
                 read: col.read
             };
             saveData();
             render(true);
             buildSidebar();
         } else {
-            const item = state.database.find(i => String(i.id) === String(ctxActiveId));
+            const item = findVolume(ctxActiveId);
+            const isCustom = item && item.custom;
             const title = item ? (item.t || '') : '';
-            const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
-            const msg = isOneshot 
-                ? `Удалить ваншот "${title}" из коллекции?` 
-                : `Удалить том "${title}" из коллекции?`;
+            const msg = isCustom 
+                ? `Удалить пользовательский том "${title}" из коллекции?`
+                : (item && (item.oneshot === true || (item.v === 1 && item.tv === 1)))
+                    ? `Удалить ваншот "${title}" из коллекции?` 
+                    : `Удалить том "${title}" из коллекции?`;
             
             const doDelete = () => {
+                if (isCustom) {
+                    removeCustomVolume(ctxActiveId);
+                    delete state.collection[ctxActiveId];
+                    if (state.infoId === ctxActiveId) closeInfoModal();
+                    saveData();
+                    render(true);
+                    buildSidebar();
+                    updateDbVersionInfo();
+                    return;
+                }
                 state.collection[ctxActiveId] = {
                     owned: false,
                     wishlist: col.wishlist,
@@ -2294,13 +3296,13 @@ function ctxAddRemoveOwned() {
             }
         }
     } else if (ctxActiveType === 'series' && ctxActiveSeries) {
-        const vols = state.database.filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
+        const vols = (state.viewMode === 'all' ? state.database : getMergedData()).filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
         if (action === 'add') {
             vols.forEach(v => {
                 const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
                 state.collection[v.id] = {
                     owned: true,
-                    wishlist: col.wishlist,
+                    wishlist: false,
                     read: col.read
                 };
             });
@@ -2312,16 +3314,22 @@ function ctxAddRemoveOwned() {
             
             const doDelete = () => {
                 vols.forEach(v => {
-                    const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
-                    state.collection[v.id] = {
-                        owned: false,
-                        wishlist: col.wishlist,
-                        read: col.read
-                    };
+                    if (v.custom) {
+                        removeCustomVolume(v.id);
+                        delete state.collection[v.id];
+                    } else {
+                        const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
+                        state.collection[v.id] = {
+                            owned: false,
+                            wishlist: col.wishlist,
+                            read: col.read
+                        };
+                    }
                 });
                 saveData();
                 render(true);
                 buildSidebar();
+                updateDbVersionInfo();
             };
 
             if (state.view.confirmDelete !== false) {
@@ -2365,7 +3373,7 @@ function ctxAddRemoveRead() {
             };
 
             if (state.view.confirmDelete !== false) {
-                const item = state.database.find(i => String(i.id) === String(ctxActiveId));
+                const item = findVolume(ctxActiveId);
                 const title = item ? (item.t || '') : '';
                 const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
                 const msg = isOneshot 
@@ -2377,7 +3385,7 @@ function ctxAddRemoveRead() {
             }
         }
     } else if (ctxActiveType === 'series' && ctxActiveSeries) {
-        const vols = state.database.filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
+        const vols = (state.viewMode === 'all' ? state.database : getMergedData()).filter(x => String(x.series || x.t).trim() === String(ctxActiveSeries).trim());
         if (action === 'add') {
             vols.forEach(v => {
                 const col = state.collection[v.id] || { owned: false, read: false, wishlist: false };
@@ -2424,6 +3432,11 @@ function ctxAddRemoveWishlist() {
     if (menu) menu.style.display = 'none';
     
     if (ctxActiveType === 'volume' && ctxActiveId !== null) {
+        const item = findVolume(ctxActiveId);
+        if (item && item.custom) {
+            showNotification('Пользовательские тома добавляются только в коллекцию', 'ℹ️');
+            return;
+        }
         const col = state.collection[ctxActiveId] || { owned: false, read: false, wishlist: false };
         if (action === 'add') {
             state.collection[ctxActiveId] = {
@@ -2447,7 +3460,6 @@ function ctxAddRemoveWishlist() {
             };
 
             if (state.view.confirmDelete !== false) {
-                const item = state.database.find(i => String(i.id) === String(ctxActiveId));
                 const title = item ? (item.t || '') : '';
                 const isOneshot = item ? (item.oneshot === true || (item.v === 1 && item.tv === 1)) : false;
                 const msg = isOneshot 
@@ -2523,5 +3535,17 @@ window.addEventListener('scroll', () => {
         cs.classList.remove('open');
     });
 }, { passive: true });
+
+window.openAddModal = openAddModal;
+window.closeAddModal = closeAddModal;
+window.toggleAddOneshot = toggleAddOneshot;
+window.onAddSeriesOrVolChange = onAddSeriesOrVolChange;
+window.saveNewVolume = saveNewVolume;
+window.openEdit = openEdit;
+window.closeEditModal = closeEditModal;
+window.toggleEditOneshot = toggleEditOneshot;
+window.saveEdit = saveEdit;
+window.deleteItem = deleteItem;
+window.ctxEditVolume = ctxEditVolume;
 
 init();

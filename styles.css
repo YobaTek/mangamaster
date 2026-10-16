@@ -37,7 +37,7 @@ body {
 .btn-accent{background:var(--accent);border:none;font-weight:700;}
 .btn-accent:hover{filter:brightness(1.2);box-shadow:0 4px 15px rgba(0,0,0,.3);}
 .btn-active{background:var(--accent)!important;border-color:var(--accent);box-shadow:0 0 15px rgba(255,64,129,.3);}
-.btn-icon{width:40px;padding:7px 10px;font-size:15px;}
+.btn-icon{width:32px;height:32px;padding:0;font-size:16px;display:inline-flex;align-items:center;justify-content:center;line-height:1;}
 .btn-sidebar.inactive{opacity:0.4;pointer-events:none;}
 
 /* Панель управления */
@@ -57,7 +57,8 @@ body {
 input,select,textarea{background:var(--input);border:1px solid var(--brd);padding:9px 10px;border-radius:7px;color:#fff;font-size:11px;outline:none;width:100%;transition:.2s;font-family:'Segoe UI',system-ui,sans-serif;}
 input:focus,select:focus,textarea:focus{border-color:var(--accent);}
 textarea{resize:vertical;}
-select{cursor:pointer;}
+select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6'%3E%3Cpath d='M0 0l4 6 4-6z' fill='%23a0a0a0'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:28px;}
+select option{background:var(--card,#1e1e24);color:#fff;}
 .select-wrapper{display:flex;align-items:center;background:var(--input);border:1px solid var(--brd);border-radius:7px;overflow:hidden;}
 .select-label{font-size:10px;color:var(--dim);font-weight:600;text-transform:uppercase;letter-spacing:.3px;padding:0 7px 0 9px;white-space:nowrap;flex-shrink:0;user-select:none;}
 .select-wrapper select{background:transparent;border:none;padding:9px 32px 9px 2px;font-size:11px;cursor:pointer;flex:1;min-width:0;color:#fff;font-weight:500;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6'%3E%3Cpath d='M0 0l4 6 4-6z' fill='%23a0a0a0'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
@@ -79,14 +80,168 @@ select{cursor:pointer;}
 .sidebar-list li:hover{background:#303038;color:#fff;}
 .sidebar-list li.active{color:var(--accent);font-weight:700;}
 
+/* Область захвата серии со скриншотом */
+.series-capture-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Заголовок серии над томами */
+.series-header {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 14px;
+    padding: 6px 48px;
+    background: var(--card);
+    border: 1px solid var(--brd);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+.series-header-title {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    user-select: text;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+.series-header-title.slide-in-top {
+    animation: seriesTitleSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+.series-header-meta {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dim);
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.series-header-meta.slide-in-top {
+    animation: seriesMetaFadeDown 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.06s backwards;
+    will-change: transform, opacity;
+}
+
+@keyframes seriesTitleSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-28px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes seriesMetaFadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.series-header-meta .series-meta-link {
+    color: #b0b0b8;
+    cursor: pointer;
+    transition: color 0.15s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+.series-header-meta .series-meta-link:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+.series-screenshot-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid var(--brd);
+    background: var(--input);
+    color: var(--dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    flex-shrink: 0;
+}
+.series-screenshot-btn:hover {
+    background: #303038;
+    color: #fff;
+    border-color: var(--accent);
+}
+.series-screenshot-btn:active {
+    transform: translateY(-50%) scale(0.92);
+}
+.series-screenshot-btn svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+@media (max-width: 768px) {
+    .series-header {
+        margin-bottom: 14px;
+        padding: 6px 38px;
+    }
+    .series-screenshot-btn {
+        right: 8px;
+        width: 26px;
+        height: 26px;
+    }
+    .series-screenshot-btn svg {
+        width: 13px;
+        height: 13px;
+    }
+    .series-header-title {
+        font-size: 14px;
+    }
+    .series-header-meta {
+        font-size: 11px;
+    }
+}
+
 /* Сетка манги */
 .manga-grid{display:grid;grid-template-columns:repeat(var(--grid-cols),1fr);gap:14px;align-content:start;padding-bottom:12px;height:auto;}
 
 /* Карточка манги */
 .manga-card{background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--brd);transition:border-color .3s,box-shadow .3s;position:relative;cursor:pointer;}
 .manga-card:hover { border-color: var(--accent) !important; }
-.manga-card.completed{border-color:var(--gold);box-shadow:0 0 12px rgba(255,193,7,.2);}
-.manga-card.in-collection{border-color:var(--gold);box-shadow:0 0 12px rgba(255,193,7,.2);}
+.manga-card.completed{border-color:var(--gold);box-shadow:0 0 6px rgba(255,193,7,.18);}
+.manga-card.in-collection{border-color:var(--gold);box-shadow:0 0 6px rgba(255,193,7,.18);}
 .manga-card.not-owned{border-color:var(--brd);}
 .manga-card.not-owned .card-title,.manga-card.not-owned .card-author,.manga-card.not-owned .card-meta{color:var(--dim);}
 .manga-card.not-owned .vol-badge, #infoBadges.not-owned .vol-badge{background:#6e6e7a;color:#f0f0f5;}
@@ -185,6 +340,7 @@ select{cursor:pointer;}
 
 /* Модальные окна */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(8px);animation:fadeIn .2s ease;}
+.modal.show{display:flex!important;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .modal-content{background:var(--card);padding:22px;border-radius:14px;border:1px solid var(--brd);width:90%;max-width:620px;display:flex;flex-direction:column;gap:12px;box-shadow:0 20px 60px rgba(0,0,0,.8);animation:slideUp .3s ease;max-height:90vh;overflow-y:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 .info-modal-content{animation:infoPopIn .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 0 1px var(--brd),0 25px 80px rgba(0,0,0,.8);will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
@@ -414,6 +570,11 @@ select{cursor:pointer;}
     font-size: 14px;
     border: 1px solid var(--brd);
     background: var(--card);
+}
+.info-modal-header .info-status-btns .info-btn svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
 }
 .info-modal-header .info-status-btns .info-btn.active {
     background: rgba(255, 32, 64, 0.15) !important;
@@ -672,6 +833,7 @@ select{cursor:pointer;}
 .input-label{font-size:10px;color:var(--dim);text-transform:uppercase;font-weight:600;letter-spacing:.3px;}
 .input-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .input-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.input-row input, .input-row select, .input-row-3 input, .input-row-3 select{height:33px;}
 .series-field-wrap{position:relative;display:flex;gap:6px;align-items:stretch;}
 .series-field-wrap input{flex:1;}
 .series-field-wrap .btn{min-width:32px;padding:7px 10px;}
@@ -721,6 +883,41 @@ select{cursor:pointer;}
 .settings-group-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .settings-block{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:.2s;text-align:center;}
 .settings-block:hover{background:var(--input);transform:translateY(-2px);border-color:var(--accent);}
+
+/* Кастомная всплывающая подсказка с центрированным текстом */
+[data-tooltip] {
+    position: relative;
+}
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px) scale(0.95);
+    background: #18181c;
+    border: 1px solid var(--brd);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: pre-line;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1010;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    width: max-content;
+    max-width: 250px;
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: normal;
+}
+[data-tooltip]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
 .settings-icon{font-size:24px;}
 .settings-label{font-size:10px;color:var(--dim);text-transform:uppercase;font-weight:600;letter-spacing:.3px;}
 .settings-info{font-size:11px;color:var(--dim);text-align:center;margin-top:-4px;}
