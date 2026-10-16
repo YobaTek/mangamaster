@@ -709,18 +709,6 @@ function applyView() {
         viewTypeEl.value = state.view.view;
         syncCustomSelect('viewType');
     }
-
-    const isCoversOnly = state.view.view === 2;
-    document.querySelectorAll('.manga-card').forEach(card => {
-        const tip = card.dataset.coverTooltip;
-        if (tip) {
-            if (isCoversOnly) {
-                card.setAttribute('title', tip);
-            } else {
-                card.removeAttribute('title');
-            }
-        }
-    });
 }
 
 function applyGrid() {
@@ -2918,23 +2906,8 @@ document.addEventListener('keydown', e => {
 const CURRENT_VERSION = '1.1.0';
 
 async function checkForUpdates() {
-    try {
-        const path = window.location.pathname || '/';
-        const res = await fetch(path + '?cb=' + Date.now(), { cache: 'no-cache' });
-        if (!res.ok) return;
-        const contentType = res.headers.get('content-type') || '';
-        if (!contentType.includes('text/html')) {
-            return;
-        }
-        const text = await res.text();
-        const match = text.match(/<title>MangaMaster v(\d+\.\d+\.\d+)<\/title>/);
-        if (match && match[1] && match[1] !== CURRENT_VERSION) {
-            console.log('New version detected! Auto-reloading client to update.', match[1]);
-            location.reload();
-        }
-    } catch (err) {
-        console.warn('Update check failed:', err);
-    }
+    // Disabled on static hosts like GitHub Pages to prevent infinite reload loops
+    return;
 }
 
 function init() {
