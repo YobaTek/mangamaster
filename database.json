@@ -1929,7 +1929,7 @@
   {
     "id": "1778531638879",
     "t": "За чашечкой кофе",
-    "series": "",
+    "series": "За чашечкой кофе",
     "a": [
       "Тэцуя Тоёда"
     ],
@@ -1943,8 +1943,8 @@
     "isbn": "9785042272172",
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/Cxrqqm1h/za-chashechkoj-kofe.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Мягкий"
   },
   {
@@ -3264,7 +3264,7 @@
   {
     "id": "1778082091546",
     "t": "Death Note. Истории",
-    "series": "",
+    "series": "Death Note. Истории",
     "a": [
       "Цугуми Ооба",
       "Такэси Обата"
@@ -3279,8 +3279,8 @@
     "isbn": "9785389201040",
     "pub": "Азбука",
     "c": "https://i.postimg.cc/fyWzJPRh/death-note-istorii.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Твёрдый"
   },
   {
@@ -6119,7 +6119,7 @@
   {
     "id": "1779032601532",
     "t": "Дикая Планета",
-    "series": "",
+    "series": "Дикая Планета",
     "a": [
       "Дзиро Мацумото"
     ],
@@ -6133,8 +6133,8 @@
     "isbn": "9785905295263",
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/WzpNhy11/dikaya-planeta.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Твёрдый"
   },
   {
@@ -7205,7 +7205,7 @@
   {
     "id": "1779223297412",
     "t": "Окаменелые грёзы",
-    "series": "",
+    "series": "Окаменелые грёзы",
     "a": [
       "Сатоси Кон"
     ],
@@ -7219,8 +7219,8 @@
     "isbn": "9785905295836",
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/v8X8pG04/okamenelye-gryozy.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Твёрдый"
   },
   {
@@ -7866,7 +7866,7 @@
   {
     "id": "1779353132576",
     "t": "Неопаразит f",
-    "series": "",
+    "series": "Неопаразит f",
     "a": [
       "Хитоси Ивааки"
     ],
@@ -7881,14 +7881,14 @@
     "isbn": "9785905295874",
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/L4v4rmx6/neoparazit-f.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Твёрдый"
   },
   {
     "id": "1779353299394",
     "t": "Неопаразит m",
-    "series": "",
+    "series": "Неопаразит m",
     "a": [
       "Хитоси Ивааки"
     ],
@@ -7903,8 +7903,8 @@
     "isbn": "9785905295881",
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/rygyvqfw/neoparazit-m.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Твёрдый"
   },
   {
@@ -9425,7 +9425,7 @@
   {
     "id": "1779712181847",
     "t": "Научно-фантастическое ассорти",
-    "series": "",
+    "series": "Научно-фантастическое ассорти",
     "a": [
       "Кэндзи Цурута"
     ],
@@ -9440,8 +9440,8 @@
     "isbn": "9785907576056",
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/gc4cfGgz/nauchno-fantasticheskoe-assorti.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Мягкий"
   },
   {
@@ -12693,7 +12693,7 @@
   {
     "id": "1780056349096",
     "t": "Причуды любви. Сборник коротких рассказов",
-    "series": "",
+    "series": "Причуды любви. Сборник коротких рассказов",
     "a": [
       "Нагабэ"
     ],
@@ -12707,8 +12707,8 @@
     "isbn": "9785907841659",
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/QxtNDvz7/prichudy-lyubvi-sbornik-korotkih-rasskazov.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Мягкий"
   },
   {
@@ -17564,7 +17564,7 @@
   {
     "id": "1782908700421",
     "t": "Волокно",
-    "series": "",
+    "series": "Волокно",
     "a": [
       "Юки Урусибара"
     ],
@@ -17577,8 +17577,8 @@
     "isbn": "9785907539686",
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/VvcwXhZ5/volokno.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Мягкий"
   },
   {
@@ -17606,7 +17606,7 @@
   {
     "id": "1782909373241",
     "t": "Знаток муси. Собрание историй",
-    "series": "",
+    "series": "Знаток муси. Собрание историй",
     "a": [
       "Хитоси Асинано",
       "Тэцуя Имаи",
@@ -17625,8 +17625,8 @@
     "isbn": "9785907539679",
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/rsLT5HZD/znatok-musi-sobranie-istorij.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Мягкий"
   },
   {
@@ -17852,7 +17852,7 @@
   {
     "id": "1782913481471",
     "t": "Истребитель демонов. Истории воды и пламени",
-    "series": "",
+    "series": "Истребитель демонов. Истории воды и пламени",
     "a": [
       "Готогэ Коёхару",
       "Рёдзи Хирано"
@@ -17867,8 +17867,8 @@
     "isbn": "9785907922006",
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/T1XxnsNp/istrebitel-demonov-istorii-vody-i-plameni.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Мягкий"
   },
   {
@@ -18587,7 +18587,7 @@
   {
     "id": "1790682135632",
     "t": "Особо опасен! Короткие истории Эйитиро Оды",
-    "series": "",
+    "series": "Особо опасен! Короткие истории Эйитиро Оды",
     "a": [
       "Эйитиро Ода"
     ],
@@ -18601,8 +18601,8 @@
     "isbn": "9785389336070",
     "pub": "Азбука",
     "c": "https://i.postimg.cc/HL9WK5LJ/osobo-opasen-korotkie-istorii-ejitiro-ody.webp",
-    "oneshot": true,
-    "collection": false,
+    "oneshot": false,
+    "collection": true,
     "binding": "Твёрдый"
   },
   {
