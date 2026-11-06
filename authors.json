@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "ONE",
+    "aliases": [],
+    "photo": "https://i.postimg.cc/hvw7ZB5Y/one.webp",
+    "bio": "",
+    "birth": "29 октября 1986",
+    "death": "",
+    "links": {}
+  },
+  {
+    "name": "Юскэ Мурата",
+    "aliases": [],
+    "photo": "https://i.postimg.cc/y6gph48p/yuskeh-murata.webp",
+    "bio": "",
+    "birth": "4 июля 1978",
+    "death": "",
+    "links": {}
+  }
+]
