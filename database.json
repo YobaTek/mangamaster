@@ -6223,7 +6223,7 @@
   {
     "id": "1779048723705",
     "t": "Опус",
-    "series": "",
+    "series": "Опус",
     "a": [
       "Сатоси Кон"
     ],
@@ -6238,7 +6238,7 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/pVkVgPs8/opus.webp",
     "desc": "",
-    "oneshot": false,
+    "oneshot": true,
     "binding": "Твёрдый"
   },
   {
