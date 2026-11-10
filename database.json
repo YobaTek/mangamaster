@@ -4137,9 +4137,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/sxTxVzy9/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1778859751511",
@@ -4158,9 +4158,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/yxLxVKBm/002.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1778860081102",
