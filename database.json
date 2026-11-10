@@ -4032,9 +4032,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/0QDF4WjJ/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1778760493799",
@@ -4053,9 +4053,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/mDCJnXkH/002.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1778849788986",
@@ -4074,9 +4074,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/xjpGtX4c/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1778849860167",
@@ -4095,9 +4095,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/sfHPwMN1/002.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1778849922114",
@@ -4116,9 +4116,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/05XGczBz/003.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1778859691569",
@@ -16170,9 +16170,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/SK6jjG8C/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1781766619811",
@@ -16191,9 +16191,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/1zG44K60/002.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1781766645449",
@@ -16212,9 +16212,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/R07qqTfd/003.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1781766668947",
@@ -16233,9 +16233,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/FKy11xcG/004.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1781766695343",
@@ -16254,9 +16254,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/KYP445L0/005.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1781767582342",
@@ -20160,9 +20160,9 @@
     "pub": "Бумажный фонарик",
     "c": "https://i.postimg.cc/HknsKd6t/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1791148609954",
@@ -24314,9 +24314,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/CMmdR76P/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793022952364",
@@ -24337,9 +24337,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/QN0VFmnY/002.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793022972458",
@@ -24360,9 +24360,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/DfBmS6YM/003.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793023000611",
@@ -24383,9 +24383,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/T2ChK0HH/004.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793023029381",
@@ -24406,9 +24406,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/zD03y7P6/005.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793023079751",
@@ -24429,9 +24429,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/fWBkVCg6/006.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793023115724",
@@ -24452,9 +24452,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/9XJzDbn3/007.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793023165575",
@@ -24475,9 +24475,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/SQDjndvb/008.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1793084251068",
@@ -25208,9 +25208,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/C5yPnZC8/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1793273159828",
@@ -25231,9 +25231,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/C5yPnZCq/002.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1793273717289",
