@@ -2306,9 +2306,9 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/bvv99yVq/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1778523622261",
@@ -2327,7 +2327,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/25577k9z/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -2348,7 +2348,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/mrryyLpL/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -2369,7 +2369,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/fbbffzqs/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -2394,9 +2394,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/pXVVxCkm/001.webp",
     "desc": "В мрачном мире, раздираемом войнами и чудовищами, появляется Черный Мечник по имени Гатс. Вооруженный колоссальным мечом, он ведет беспощадную охоту на жутких апостолов Руки Бога. Мрачное путешествие начинается с жестоких стычек, раскрывающих непоколебимую ярость воина.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778259741799",
@@ -2419,9 +2419,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/RVPS0tbZ/002.webp",
     "desc": "Сюжет переносится в прошлое, раскрывая трагическое детство Гатса и его суровое становление как наемника. Судьба сводит героя с Гриффитом — харизматичным лидером амбициозной «Банды Ястреба». Это судьбоносное знакомство навсегда меняет жизненный путь одинокого воина.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778259814391",
@@ -2444,9 +2444,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/bN6yvnFy/003.webp",
     "desc": "Гатс становится неотъемлемой частью «Банды Ястреба», завоевывая авторитет на полях сражений и сближаясь с девушкой-рыцарем Каской. Отряд берется за выполнение сложнейших военных контрактов. Военная слава наемников растет, привлекая к ним внимание высшей аристократии.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778262813412",
@@ -2469,9 +2469,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/15WmzFYz/004.webp",
     "desc": "Столетняя война близится к финалу, и «Банде Ястреба» поручают штурм неприступной легендарной крепости Долдрей. На кону стоит будущее всего королевства Мидленд. Успех операции приносит героям признание, но внутриполитические интриги при дворе начинают сгущаться вокруг них.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778262900404",
@@ -2494,9 +2494,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/28Hk5WX1/005.webp",
     "desc": "Одержимый поиском собственной судьбы, Гатс принимает тяжелое решение покинуть отряд, что рушит внутренний мир Гриффита. Импульсивный поступок лидера приводит к краху «Банды Ястреба». Отряд объявляется вне закона, а его остатки вынуждены скрываться под руководством Каски.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778263211836",
@@ -2519,9 +2519,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/Kv9GYTsM/006.webp",
     "desc": "Спустя год скитаний Гатс возвращается, чтобы помочь бывшим товарищам вызволить Гриффита из заточения в зловещей Башне Возрождения. Выжившие члены банды организуют отчаянный побег. Однако физическое состояние их лидера оказывается катастрофическим, подрывая надежды отряда.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778263334907",
@@ -2544,9 +2544,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/jd8xjfky/007.webp",
     "desc": "Абсолютное отчаяние и древний артефакт Бехерит запускают жуткий ритуал Затмения. Мир погружается в кровавый кошмар, где выжившие солдаты сталкиваются с истинным обликом Руки Бога. Гатсу предстоит пережить жестокое предательство, которое навсегда разделит его жизнь на до и после.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778264253516",
@@ -2569,9 +2569,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/HsSYLMP0/008.webp",
     "desc": "Оправившись от ужасов Затмения, Гатс вновь надевает черные доспехи и отправляется в карательный поход против демонов. Путь мести приводит его в Туманную долину, охваченную жуткими легендами о духах. Мечник вступает в бой с порождениями астрального мира, защищая немногих уцелевших.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778264356249",
@@ -2594,9 +2594,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/rFhVp4YJ/009.webp",
     "desc": "Инквизиция разворачивает масштабную охоту на еретиков в лагере беженцев возле мрачной башни Сент-Альбион. Гатс устремляется туда, чтобы защитить самое дорогое, что у него осталось. Герою приходится противостоять не только монстрам, но и фанатичным рыцарям Священного Железного Цепного Ордена.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778264462212",
@@ -2619,9 +2619,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/BQhSvFwp/010.webp",
     "desc": "В окрестностях монастыря Сент-Альбион назревает новое масштабное воплощение зла. Гатс бьется на пределе сил в кромешной тьме, пока старый мир вокруг него рушится. Кошмарные события приводят к знамению, которое знаменует возвращение ключевой фигуры из его прошлого в материальный мир.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778271763528",
@@ -2644,9 +2644,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/X72jv5Ds/011.webp",
     "desc": "Осознав, что в одиночку защитить близких невозможно, Гатс неохотно принимает помощь от новых спутников: юного вора, амбициозного пажа и беглых рыцарей. Необычный отряд отправляется в долгое путешествие к безопасному убежищу эльфов, сталкиваясь по пути с новыми угрозами.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778271869262",
@@ -2669,9 +2669,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/dVLqZ0zd/012.webp",
     "desc": "Путешественники находят приют в скрытой от глаз обители старой ведьмы Флоры. Коко и её друзья узнают истинную природу магии и астрального мира. Но передышка длится недолго: отряду приходится защищать близлежащую деревню от массированного нашествия кровожадных троллей.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778271938898",
@@ -2694,9 +2694,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/Nj5g20W6/013.webp",
     "desc": "Нападение сил новой армии Гриффита на дом ведьмы вынуждает Гатса облачиться в проклятые доспехи Берсерка. Эта броня дарует невероятную мощь, но постепенно пожирает разум и тело владельца. Мечник ведет яростный бой, отчаянно пытаясь не потерять остатки своей человечности.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778272015677",
@@ -2719,9 +2719,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/nhCH9L6Y/014.webp",
     "desc": "Герои прибывают в процветающий портовый город Вританис, чтобы найти корабль для дальнего плавания. Город заполнен войсками религиозного альянса, готовящимися к войне. Отряду приходится лавировать между светскими интригами знати и внезапной ночной атакой чудовищных чужеземных армий.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778272080953",
@@ -2744,9 +2744,9 @@
     "pub": "XL Media",
     "c": "https://i.postimg.cc/W1h2q4QS/015.webp",
     "desc": "Долгожданное морское путешествие начинается на борту военного корабля. Море встречает героев суровыми штормами, пиратскими судами и пробудившимися древними легендами из глубин океана. Гатсу и его верным спутникам предстоит отстоять свое право на жизнь в противостоянии со стихией.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778574374742",
@@ -4032,9 +4032,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/0QDF4WjJ/001.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1778760493799",
@@ -4053,9 +4053,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/mDCJnXkH/002.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1778849788986",
@@ -4074,9 +4074,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/xjpGtX4c/001.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778849860167",
@@ -4095,9 +4095,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/sfHPwMN1/002.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778849922114",
@@ -4116,9 +4116,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/05XGczBz/003.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778859691569",
@@ -4137,9 +4137,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/sxTxVzy9/001.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778859751511",
@@ -4158,9 +4158,9 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/yxLxVKBm/002.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сэйнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1778860081102",
@@ -15325,9 +15325,9 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/y8cKjK5f/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёнэн"
   },
   {
     "id": "1780577124005",
@@ -15346,7 +15346,7 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/W1gV8VKX/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -15367,7 +15367,7 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/y8cKjK5L/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -15622,7 +15622,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/qv2dzdk0/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -16170,9 +16170,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/SK6jjG8C/001.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1781766619811",
@@ -16191,9 +16191,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/1zG44K60/002.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1781766645449",
@@ -16212,9 +16212,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/R07qqTfd/003.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1781766668947",
@@ -16233,9 +16233,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/FKy11xcG/004.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1781766695343",
@@ -16254,9 +16254,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/KYP445L0/005.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1781767582342",
@@ -16276,9 +16276,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/FKrXgb8n/001.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сёнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1781767612654",
@@ -16298,9 +16298,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/fb8nHtQv/002.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сёнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1781767638421",
@@ -16320,9 +16320,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/6QWxLVgg/003.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сёнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1781767667045",
@@ -16342,9 +16342,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/YSdKXGB3/004.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сёнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1781767706634",
@@ -16364,9 +16364,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/s2TdnQRR/005.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сёнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1781767729395",
@@ -16386,9 +16386,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/xd6DsJS1/006.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сёнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1781858013397",
@@ -16413,9 +16413,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/LsTwxVsv/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1781858060723",
@@ -16440,7 +16440,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/VNRpKFNg/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16467,7 +16467,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/DzgHxczB/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16494,7 +16494,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/QMbwfqM4/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16521,7 +16521,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/bvTWmRvW/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16548,7 +16548,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/LX87wZqN/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16575,7 +16575,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/NMjVSryb/007.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16602,7 +16602,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/G2mNVsBX/008.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16629,7 +16629,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/Tw3SFWyN/009.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16656,7 +16656,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/63pSgG7m/010.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16683,7 +16683,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/mDgqJFcJ/011.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16710,7 +16710,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/RFZ8yn32/012.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16737,7 +16737,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/MTp4NjM8/013.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16764,7 +16764,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/nzh5gQjn/014.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16791,7 +16791,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/0Qy3FJMk/015.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16818,7 +16818,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/k4gZzt6X/016.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16844,9 +16844,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/fTb7Gct9/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1782203686035",
@@ -16870,7 +16870,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/qM7cPshK/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16896,7 +16896,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/kX5N0Q6t/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -16918,9 +16918,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/WbpS2RK2/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёдзё"
   },
   {
     "id": "1782204079631",
@@ -16940,7 +16940,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/Dyf52VDv/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёдзё",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -19374,7 +19374,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/zfS45FKZ/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -20160,9 +20160,9 @@
     "pub": "Бумажный фонарик",
     "c": "https://i.postimg.cc/HknsKd6t/001.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1791148609954",
@@ -24181,9 +24181,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/vZQ9m8bh/001.webp",
     "desc": "Обычный школьник Хадзимэ Эгути обладает феноменальной, почти сверхъестественной наблюдательностью. В то время как другие парни пропускают всё самое интересное, Эгути-кун всегда замечает случайные, мимолетные и пикантные моменты в будничной суете. Ни один пикантный секрет не укроется от его взора!",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1792745879491",
@@ -24203,9 +24203,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/2Szv5jrF/002.webp",
     "desc": "Череда забавных эпизодов из школьной жизни продолжается. Эгути-кун вновь оказывается в эпицентре неловких бытовых ситуаций, где подростковое любопытство сталкивается с суровой реальностью. Главный герой доказывает, что даже в самый обычный пасмурный день вокруг можно найти повод для улыбки.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1792745900061",
@@ -24225,9 +24225,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/jSsNjqt3/003.webp",
     "desc": "Градус комедии положений растет вместе с изобретательностью главного героя. Окружающие девушки даже не подозревают, насколько бдителен этот скромный парень за соседней партой. Эгути продолжает исследовать тонкую грань между случайными двусмысленностями и привычными школьными буднями.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1792745971790",
@@ -24247,9 +24247,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/MpWRGZqt/004.webp",
     "desc": "Финал уморительной эпопеи о главном ценителе женской красоты. Повседневность готовит для Эгути-куна новые поразительные открытия, заставляя его использовать свой дар внимательности на максимум. История подходит к завершению, оставляя после себя легкую атмосферу и заряд отличного настроения.",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1792746196762",
@@ -24314,9 +24314,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/CMmdR76P/001.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793022952364",
@@ -24337,9 +24337,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/QN0VFmnY/002.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793022972458",
@@ -24360,9 +24360,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/DfBmS6YM/003.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793023000611",
@@ -24383,9 +24383,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/T2ChK0HH/004.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793023029381",
@@ -24406,9 +24406,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/zD03y7P6/005.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793023079751",
@@ -24429,9 +24429,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/fWBkVCg6/006.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793023115724",
@@ -24452,9 +24452,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/9XJzDbn3/007.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793023165575",
@@ -24475,9 +24475,9 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/SQDjndvb/008.webp",
     "desc": "",
+    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Твёрдый",
-    "audience": "Сёнэн"
+    "binding": "Твёрдый"
   },
   {
     "id": "1793084251068",
@@ -25208,9 +25208,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/C5yPnZC8/001.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1793273159828",
@@ -25231,9 +25231,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/C5yPnZCq/002.webp",
     "desc": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Дзёсэй"
+    "binding": "Мягкий"
   },
   {
     "id": "1793273717289",
@@ -25275,9 +25275,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/SxQZ9b9t/001.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1793274016939",
@@ -25296,9 +25296,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/jSq8fYf3/002.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1793274036153",
@@ -25317,9 +25317,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/6p6HZxZj/003.webp",
     "desc": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
-    "binding": "Мягкий",
-    "audience": "Сэйнэн"
+    "binding": "Мягкий"
   },
   {
     "id": "1793274565716",
@@ -25360,9 +25360,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/VNp42ShY/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёдзё"
   },
   {
     "id": "1793274821401",
@@ -25382,7 +25382,7 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/tgwD81cq/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёдзё",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -25428,9 +25428,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/GtJQBXm2/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1793275965480",
@@ -25451,7 +25451,7 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/d3mB75VL/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -25474,7 +25474,7 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/7hMVCKZ5/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
