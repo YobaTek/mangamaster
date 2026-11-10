@@ -5240,9 +5240,9 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/sDV4F61f/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн"
   },
   {
     "id": "1778938603174",
@@ -5262,7 +5262,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/KvZDXq4G/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5284,7 +5284,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/SNyf0Tjx/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5306,7 +5306,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/Fs9VtW1s/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5328,7 +5328,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/8P1m8KsF/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5350,7 +5350,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/dt4mJ2TJ/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5372,7 +5372,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/J4PcRNBr/007.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5394,7 +5394,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/65YLBrGp/008.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5416,7 +5416,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/m28NTYFD/009.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5438,7 +5438,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/L6NBmtZn/010.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -5460,7 +5460,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/Yqbft6mG/011.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сёнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8291,9 +8291,9 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/9XBXhThF/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1779387270037",
@@ -8313,7 +8313,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/SQGQh8hQ/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8335,7 +8335,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/9XBXhThQ/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8357,7 +8357,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/3rZrTpTw/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8379,7 +8379,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/Wp7pvrvt/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8401,7 +8401,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/7PNPk7kC/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8423,7 +8423,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/8kbkSWSj/007.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8445,7 +8445,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/FFxF4c4d/008.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8467,7 +8467,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/HWtWg5g5/009.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8489,7 +8489,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/8kbkSWSL/010.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8511,7 +8511,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/VsFs8M8q/011.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8533,7 +8533,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/QNqN353g/012.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8555,7 +8555,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/2jxjDvD7/013.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -8577,7 +8577,7 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/VsFs8M8F/014.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -9170,9 +9170,9 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/MpLKLS8d/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1779634293089",
@@ -9193,7 +9193,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/htYPYBqs/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -9216,7 +9216,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/qvFMFTdQ/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -9239,7 +9239,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/qvFMFTd1/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -9262,7 +9262,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/jS1d1brF/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10713,9 +10713,9 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/RVRWXyhC/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1779732411469",
@@ -10735,7 +10735,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/gkDxNQjk/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10757,7 +10757,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/QxbF0wCX/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10779,7 +10779,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/pXZmq4rW/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10801,7 +10801,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/7ZZfc9Jk/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10823,7 +10823,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/nhhC529p/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10845,7 +10845,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/Cxxzt7nw/007.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -10867,7 +10867,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/K88RVf3F/008.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -11243,9 +11243,9 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/wTJf1jn8/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1779785917813",
@@ -11267,7 +11267,7 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/jdNgDSBr/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -11545,9 +11545,9 @@
     "pub": "Бумажный фонарик",
     "c": "https://i.postimg.cc/mkDPQ3WL/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Дзёсэй"
   },
   {
     "id": "1779870298030",
@@ -16961,9 +16961,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/pdk6gG5r/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1782204426283",
@@ -16982,7 +16982,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/R0GDjsJ6/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17003,7 +17003,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/43wSrLHK/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17024,7 +17024,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/fb5r62SL/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17045,7 +17045,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/FRBnKYZH/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17066,7 +17066,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/ydbrNDPY/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17088,9 +17088,9 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/JzXy8wwY/001.webp",
     "desc": "",
-    "audience": "",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1782802368715",
@@ -17110,7 +17110,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/NjXythhn/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17132,7 +17132,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/sgWBzFFN/003.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17154,7 +17154,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/2SWqYppP/004.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17176,7 +17176,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/Z5N9mktZ/005.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17198,7 +17198,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/qvKtrfV4/006.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17220,7 +17220,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/BnF83W9J/007.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17242,7 +17242,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/52zHJcdx/008.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -17264,7 +17264,7 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/vZn1yRF8/009.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -19955,7 +19955,7 @@
     "pub": "Бумажный фонарик",
     "c": "https://i.postimg.cc/brJZQ0fY/002.webp",
     "desc": "",
-    "audience": "",
+    "audience": "Дзёсэй",
     "oneshot": false,
     "binding": "Твёрдый"
   },
@@ -23746,9 +23746,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/k41Fw3MS/001.webp",
     "desc": "После терраформирования Марс почти полностью покрылся водой и получил имя Аква. Юная Акари Мидзунаси прибывает в Новую Венецию, город-копию земной Венеции, мечтая стать ундиной — гондольером-экскурсоводом. Она поступает стажёром в компанию «Ария», где учится мастерству и привыкает к неспешной жизни среди каналов.",
-    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёдзё"
   },
   {
     "id": "1792480258931",
@@ -23768,7 +23768,7 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/Y9nf8K2g/002.webp",
     "desc": "Акари продолжает обучение на ундину и впервые самостоятельно сопровождает клиента по каналам Новой Венеции. Кроме того, ей предстоит пережить несколько трогательных моментов: летний праздник светящихся колокольчиков, встречу с таинственным саламандром и первое настоящее фейерверк-шоу.",
-    "audience": "Сёнэн",
+    "audience": "Сёдзё",
     "oneshot": false,
     "binding": "Мягкий"
   },
@@ -23874,9 +23874,9 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/sDpKdLwT/001.webp",
     "desc": "Двадцатипятилетняя Идзуми Суми перебивается случайными подработками и не видит смысла в собственной жизни. Дни тянутся однообразно и пусто, тревога и усталость постепенно накапливаются, и однажды она задаёт себе вопрос: «Зачем я вообще живу?» Тихая и честная история о девушке, застрявшей в собственных мыслях и пытающейся отыскать хоть какую-то опору.",
-    "audience": "Сёнэн",
     "oneshot": false,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн"
   },
   {
     "id": "1792485258942",
@@ -23895,7 +23895,7 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/bNQLc536/002.webp",
     "desc": "Идзуми по-прежнему живёт в прежнем ритме: неполная занятость, рутина, внутреннее напряжение. Но постепенно её взгляд на собственное положение меняется. Повседневные мелочи и неловкие разговоры складываются в картину поиска устойчивости. История без резких поворотов, зато с точным ощущением одиночества в большом городе и тихой попыткой двигаться дальше.",
-    "audience": "Сёнэн",
+    "audience": "Сэйнэн",
     "oneshot": false,
     "binding": "Мягкий"
   },
