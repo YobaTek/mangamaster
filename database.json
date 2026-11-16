@@ -1395,11 +1395,11 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/Gh23R6fy/presledovatelnica.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1777410242929",
@@ -3981,11 +3981,11 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/L6X4SGWz/proshchaj-eri.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1778667879164",
@@ -6474,11 +6474,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/5N09JDrF/povozka-bladharli.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1778967259494",
@@ -8949,11 +8949,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/9FMX2skr/perelesok.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1779353132576",
@@ -9932,11 +9932,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/VL6sw2hX/progulki.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779556303475",
@@ -10605,11 +10605,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/vHB8yCKh/pyos-smotryashchij-na-zvyozdy.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1779711136627",
@@ -10724,11 +10724,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/J4n78SFy/pino.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1779712181847",
@@ -14478,11 +14478,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/QxtNDvz7/prichudy-lyubvi-sbornik-korotkih-rasskazov.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780056575895",
@@ -14941,11 +14941,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/tCTRb8ct/pylayushchij-pervyj-poceluj.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёдзё",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1780319641858",
@@ -21650,11 +21650,11 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/3RHnwVhQ/proshchanie-blizko.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1791040847713",
@@ -26952,11 +26952,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/3RhgtNWn/pereulok.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёдзё",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1793176997002",
