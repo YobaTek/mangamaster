@@ -7007,11 +7007,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/qMRBrWFQ/ristorante-paradizo.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Дзёсэй",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1779032891696",
