@@ -3958,11 +3958,11 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/T2Q2ZTt1/oglyanis.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1778666979037",
@@ -7102,11 +7102,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/pVkVgPs8/opus.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779048932362",
@@ -8222,11 +8222,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/v8X8pG04/okamenelye-gryozy.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779223417330",
@@ -10846,11 +10846,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/J4n78SFt/ostanovka-vospominanij.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779713505209",
@@ -14454,11 +14454,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/9X1XvcLR/ona-i-eyo-kot.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780056349096",
@@ -21185,11 +21185,11 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/HL9WK5LJ/osobo-opasen-korotkie-istorii-ejitiro-ody.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1790682218171",
@@ -26929,11 +26929,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/mrCY3CZ6/oskolki-uzhasa.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёдзё",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1793176881029",
