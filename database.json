@@ -6859,11 +6859,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/7YWHZm8r/vospominanija-jemanon.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779032089202",
@@ -10871,11 +10871,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/RVDSZXr2/vorony-devochka-i-yakudza.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1779713681037",
@@ -20017,11 +20017,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/VvcwXhZ5/volokno.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1782908974209",
@@ -27759,11 +27759,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/VvSGdqbN/volshebstvo-prodolzhaetsya.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1793276809798",
@@ -27782,11 +27782,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/4yKLm6hy/vremya-kormleniya.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1793881565078",
