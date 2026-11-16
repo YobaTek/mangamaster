@@ -2487,11 +2487,11 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/tJrXPzsq/gluposti-pro-udalenku-lyubov-na-samoizolyacii.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1778523526003",
@@ -7078,11 +7078,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/cCDsYcvC/gorod-gde-vecherom-stihaet-veter-strana-gde-rascvetaet-sakura.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779048723705",
@@ -8900,11 +8900,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/FzP9cxYY/grossbuh-kitaro.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1779300800516",
@@ -14596,11 +14596,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/qqmknGNp/gigantomahiya.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780130462743",
@@ -14622,11 +14622,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/kGjn8y2X/golos-dalyokoj-zvezdy.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780130610043",
@@ -14894,11 +14894,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/yxfV9TDN/gornie-zvuki.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1780318719375",
@@ -26836,11 +26836,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/y8whSvKS/gornyj-kajdan.webp",
     "desc": "",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1793176460755",
@@ -26859,11 +26859,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/tgW3dWRs/gorod-nadgrobij.webp",
     "desc": "Брат и сестра отправляются навестить подругу, переехавшую в другой город, но по дороге становятся невольными виновниками автомобильной аварии со смертельным исходом. Решив скрыть правду, они ещё не знают, какая страшная расплата их ждёт. Заглавная история открывает сборник из двенадцати леденящих душу рассказов Дзюндзи Ито .",
-    "audience": "",
-    "type": "Манга",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1793176593854",
