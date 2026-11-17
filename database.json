@@ -2234,11 +2234,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/MHxBdrMc/001.webp",
     "desc": "Давным-давно мир разделился на Родину людей и мрачное Чужеземье, населённое пугающими существами, чьё прикосновение несёт проклятие. Маленькая девочка Шива и её высокий молчаливый опекун по прозвищу Доктор живут в забытой деревне на границе двух миров, бережно оберегая свой тихий и хрупкий уют.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сёнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1778434386114",
@@ -2487,11 +2487,11 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/tJrXPzsq/gluposti-pro-udalenku-lyubov-na-samoizolyacii.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1778523526003",
@@ -4551,11 +4551,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/BntKYF6z/001.webp",
     "desc": "В последний день каникул старшеклассники Такая Судзуки и Нацу Такаги попадают во временную петлю и раз за разом проживают 31 августа. Помнят об этом только они двое. Решив, что время застряло из-за его невыполненной летней цели, Судзуки начинает действовать, вовлекая девушку в весёлые авантюры.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1778860170086",
@@ -4624,11 +4624,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/YC4vfwnY/001.webp",
     "desc": "Амбициозная отличница Мицуми переезжает из тихой провинции в огромный Токио, мечтая построить блестящую карьеру и помочь родному городку. Но в первый же день она теряется в столичной суете. На помощь приходит обаятельный одноклассник Сосукэ Сима, с которого и начинается её новая школьная жизнь.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1778860574852",
@@ -6497,11 +6497,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/hv4DfYPN/dan-prikaz-umeret.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1778967512818",
@@ -6859,11 +6859,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/7YWHZm8r/vospominanija-jemanon.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1779032089202",
@@ -7078,11 +7078,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/cCDsYcvC/gorod-gde-vecherom-stihaet-veter-strana-gde-rascvetaet-sakura.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779048723705",
@@ -8246,11 +8246,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/WpSpQs54/nezabudka.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779223564058",
@@ -8317,11 +8317,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/FFGF2hTR/noch-na-galakticheskoj-zheleznoj-doroge.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1779297519148",
@@ -8900,11 +8900,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/FzP9cxYY/grossbuh-kitaro.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779300800516",
@@ -8974,11 +8974,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/L4v4rmx6/neoparazit-f.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёдзё",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779353299394",
@@ -8999,11 +8999,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/rygyvqfw/neoparazit-m.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779387132240",
@@ -9023,11 +9023,11 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/9XBXhThF/001.webp",
     "desc": "Вице-президент школьного совета Кагуя Синомия и президент Миюки Сироганэ влюблены друг в друга, но оба слишком горды, чтобы признаться первыми. Между двумя гениями престижной академии начинается настоящая интеллектуальная война, где каждый пытается хитростью вынудить соперника сделать первый шаг.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779387270037",
@@ -9980,11 +9980,11 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/MpLKLS8d/001.webp",
     "desc": "Предыстория мрачного города Эргастулума задолго до событий основной серии. Верный боец семьи Кристиано Марко Адриано следит за порядком на улицах и защищает «сумеречных» от произвола. Однако хрупкий мир в городе начинает рушиться, когда на арену выходят безжалостные охотники на носителей жетонов.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779634293089",
@@ -10701,11 +10701,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/kMwMk7Tm/nashestvie-mongolskoj-sverhenergii.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1779712034552",
@@ -10749,11 +10749,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/gc4cfGgz/nauchno-fantasticheskoe-assorti.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1779712337875",
@@ -10871,11 +10871,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/RVDSZXr2/vorony-devochka-i-yakudza.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779713681037",
@@ -11659,11 +11659,11 @@
     "pub": "Reanimedia",
     "c": "https://i.postimg.cc/RVRWXyhC/001.webp",
     "desc": "В мрачном городе Эргастулуме, где правят мафиозные кланы, напарники Уорик и Ник берутся за любую грязную работу. После кровавой зачистки мелкой банды герои берут под опеку девушку Алекс. Новая знакомая постепенно вливается в их опасную повседневность, полную перестрелок, интриг и тайн прошлого.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779732411469",
@@ -12593,11 +12593,11 @@
     "pub": "Азбука",
     "c": "https://i.postimg.cc/mD2X10PH/001.webp",
     "desc": "Человечество ведёт безнадёжную войну против инопланетных чудовищ мимиков. Юный новобранец Кэйдзи Кирия погибает в первом же бою, но чудесным образом просыпается накануне сражения. Попав во временную петлю, он вынужден проживать этот кошмар снова и снова, пытаясь выжить и перенять опыт легендарной воительницы Риты Вратацки.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779870338447",
@@ -14526,11 +14526,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/2yjkVtSq/dvojnyashki-furo.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёдзё",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780056837885",
@@ -14550,11 +14550,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/vT8YcKHp/dazhe-bogi-lgut.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780130206241",
@@ -14596,11 +14596,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/qqmknGNp/gigantomahiya.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1780130462743",
@@ -14622,11 +14622,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/kGjn8y2X/golos-dalyokoj-zvezdy.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1780130610043",
@@ -14675,11 +14675,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/HnWYVNkW/devochka-pokorivshaya-vremya-tokikake.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сёнэн",
+    "type": "Манга",
+    "ageRating": "12+"
   },
   {
     "id": "1780130978076",
@@ -14894,11 +14894,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/yxfV9TDN/gornie-zvuki.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1780318719375",
@@ -18459,11 +18459,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/pdk6gG5r/001.webp",
     "desc": "Популярный старшеклассник Ятора Ягути отлично учится и весело проводит время с друзьями, но внутри ощущает пустоту. Всё меняется, когда он видит картину в школьном кружке рисования. Влюбившись в живопись, юноша решает поступить в самый престижный государственный университет искусств Японии.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1782204426283",
@@ -18598,11 +18598,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/JzXy8wwY/001.webp",
     "desc": "Двадцатидевятилетний неудачник Сатору Фудзинума обладает странным даром непроизвольно отматывать время назад, чтобы предотвращать трагедии. Но после страшного происшествия с близким человеком сила забрасывает его на восемнадцать лет в прошлое. В теле школьника ему предстоит остановить похитителя детей.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1782802368715",
@@ -18813,11 +18813,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/cHhgzQqf/001.webp",
     "desc": "Тридцатилетний Урамити Омота ведёт зарядку в весёлой детской передаче «Вместе с мамой». На экране он бодрый и приветливый, но за улыбкой скрывается уставший от жизни циник. Стоит ему на секунду забыться, как дети слышат мрачную правду о суровых буднях взрослых и неизбежности разочарований.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1782803119396",
@@ -18955,11 +18955,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/D03jC3Tw/001.webp",
     "desc": "Сбежав из дома на далёком острове, шестнадцатилетний Ходака приезжает в Токио, где неделями не прекращаются ливни. В шумном мегаполисе парень с трудом сводит концы с концами, но судьба сводит его с жизнерадостной девушкой Хиной, обладающей удивительным даром разгонять тучи и возвращать солнце.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1782803690247",
@@ -19034,11 +19034,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/25B7g9Tv/001.webp",
     "desc": "Трусливого и слабого алого дракона Летти изгоняют из родного племени. Мечтая о тихой и безопасной жизни, он обращается к нелюдимому эльфу-архитектору Диарии, который подрабатывает риелтором для монстров. Вместе им предстоит осмотреть множество фэнтезийных подземелий, скрываясь от назойливых героев.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сёнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1782804637591",
@@ -19133,11 +19133,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/9QsGPt2S/001.webp",
     "desc": "Одинокая офисная работница Кобаяси однажды после посиделок в баре спасает раненую дракониху Тору и предлагает ей кров. В благодарность могучее создание принимает облик девушки и устраивается к спасительнице горничной. Правда, об уборке и готовке у ящерицы весьма своеобразные представления.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1782806085603",
@@ -20017,11 +20017,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/VvcwXhZ5/volokno.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1782908974209",
@@ -21482,11 +21482,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/q77GfNth/nebesnyj-yastreb.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1790857814147",
@@ -24541,11 +24541,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/gJFnWgMD/001.webp",
     "desc": "Одинокий школьник Юкитэру Амано ведёт в телефоне дневник обо всём, что видит вокруг. Однажды в нём начинают появляться записи из будущего, но радость сменяется ужасом: парень втянут в смертельную игру на выживание между двенадцатью обладателями таких дневников, а его защитницей становится одержимая одноклассница Юно.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сёнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1792136272606",
@@ -24565,11 +24565,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/YqpL0yt5/001.webp",
     "desc": "Яманэ Рёта тайком наблюдает за соседкой из дома напротив. Однажды он решается проникнуть в её квартиру, но вместо лёгкой добычи находит безжизненное тело хозяйки. Чтобы не стать главным подозреваемым в убийстве, герою приходится вступить в опасную игру и самому распутать это мрачное преступление.",
-    "oneshot": false,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Мягкий"
   },
   {
     "id": "1792136322649",
@@ -25755,11 +25755,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/Rhm6cgKN/001.webp",
     "desc": "Ночной мегаполис с ровными рядами зданий напоминает огромное кладбище, где обычные люди становятся участниками пугающей пляски смерти. Эта мрачная антология объединяет леденящие душу городские легенды, в которых повседневная суета и случайные встречи оборачиваются необъяснимым кошмаром в двух шагах от дома.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "Сёнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1792413662109",
@@ -26422,11 +26422,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/HnwqB9JM/nablyudatelnyj-eguti-kun.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Мягкий"
+    "binding": "Мягкий",
+    "audience": "Сэйнэн",
+    "type": "Манга",
+    "ageRating": "18+"
   },
   {
     "id": "1792746601982",
@@ -26669,11 +26669,11 @@
     "pub": "Фантастика Книжный Клуб",
     "c": "https://i.postimg.cc/CLWxyrQw/001.webp",
     "desc": "Спустя столетие после сделки с демоном легенда о докторе Фаусте превратилась в сказку. Но бессмертная учёная Иоганна жива и ищет запечатанные по миру части тела своего демона Мефистофеля. Спасая от беды любознательного юношу Мариона, она берёт его в ученики, и вместе с гомункулом Нико они отправляются в путь.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "Дзёсэй",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1793084284071",
@@ -26785,11 +26785,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/QdRgW0DH/dezertir.webp",
     "desc": "",
-    "audience": "",
-    "type": "",
-    "ageRating": "",
     "oneshot": true,
-    "binding": "Твёрдый"
+    "binding": "Твёрдый",
+    "audience": "Сёдзё",
+    "type": "Манга",
+    "ageRating": "16+"
   },
   {
     "id": "1793176038533",
@@ -26836,11 +26836,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/y8whSvKS/gornyj-kajdan.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1793176460755",
@@ -26859,11 +26859,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/tgW3dWRs/gorod-nadgrobij.webp",
     "desc": "Брат и сестра отправляются навестить подругу, переехавшую в другой город, но по дороге становятся невольными виновниками автомобильной аварии со смертельным исходом. Решив скрыть правду, они ещё не знают, какая страшная расплата их ждёт. Заглавная история открывает сборник из двенадцати леденящих душу рассказов Дзюндзи Ито .",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1793176593854",
@@ -27759,11 +27759,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/VvSGdqbN/volshebstvo-prodolzhaetsya.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1793276809798",
@@ -27782,11 +27782,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/4yKLm6hy/vremya-kormleniya.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1793881565078",
@@ -28403,11 +28403,11 @@
     "pub": "Комильфо",
     "c": "https://i.postimg.cc/13WDPrNN/001.webp",
     "desc": "В охваченном войной мире двое одиноких детей случайно находят друг друга. Убегая от разрухи и хаоса, мальчик и девочка выходят на длинную пустую дорогу. Не имея никого рядом, они решают идти плечом к плечу вперёд в поисках безопасного места и ответа на вопрос, есть ли у них будущее.",
-    "oneshot": false,
-    "binding": "Твёрдый",
     "audience": "",
     "type": "Манхва",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": false,
+    "binding": "Твёрдый"
   },
   {
     "id": "1794752819276",
