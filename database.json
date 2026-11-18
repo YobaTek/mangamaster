@@ -6497,11 +6497,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/hv4DfYPN/dan-prikaz-umeret.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1778967512818",
@@ -8246,11 +8246,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/WpSpQs54/nezabudka.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779223564058",
@@ -8317,11 +8317,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/FFGF2hTR/noch-na-galakticheskoj-zheleznoj-doroge.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779297519148",
@@ -8974,11 +8974,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/L4v4rmx6/neoparazit-f.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сёдзё",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779353299394",
@@ -8999,11 +8999,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/rygyvqfw/neoparazit-m.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1779387132240",
@@ -10701,11 +10701,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/kMwMk7Tm/nashestvie-mongolskoj-sverhenergii.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1779712034552",
@@ -10749,11 +10749,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/gc4cfGgz/nauchno-fantasticheskoe-assorti.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1779712337875",
@@ -14526,11 +14526,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/2yjkVtSq/dvojnyashki-furo.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сёдзё",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1780056837885",
@@ -14550,11 +14550,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/vT8YcKHp/dazhe-bogi-lgut.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1780130206241",
@@ -14675,11 +14675,11 @@
     "pub": "Истари Комикс",
     "c": "https://i.postimg.cc/HnWYVNkW/devochka-pokorivshaya-vremya-tokikake.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сёнэн",
     "type": "Манга",
-    "ageRating": "12+"
+    "ageRating": "12+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1780130978076",
@@ -21482,11 +21482,11 @@
     "pub": "Alt Graph",
     "c": "https://i.postimg.cc/q77GfNth/nebesnyj-yastreb.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1790857814147",
@@ -26422,11 +26422,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/HnwqB9JM/nablyudatelnyj-eguti-kun.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Мягкий",
     "audience": "Сэйнэн",
     "type": "Манга",
-    "ageRating": "18+"
+    "ageRating": "18+",
+    "oneshot": true,
+    "binding": "Мягкий"
   },
   {
     "id": "1792746601982",
@@ -26785,11 +26785,11 @@
     "pub": "Фабрика комиксов",
     "c": "https://i.postimg.cc/QdRgW0DH/dezertir.webp",
     "desc": "",
-    "oneshot": true,
-    "binding": "Твёрдый",
     "audience": "Сёдзё",
     "type": "Манга",
-    "ageRating": "16+"
+    "ageRating": "16+",
+    "oneshot": true,
+    "binding": "Твёрдый"
   },
   {
     "id": "1793176038533",
